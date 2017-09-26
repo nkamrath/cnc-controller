@@ -1,0 +1,9 @@
+#ifndef _DRIVERS_PL_PWM_H_
+#define _DRIVERS_PL_PWM_H_
+
+#include <stdint.h>
+#include <stdlib.h>
+
+void PlPwm_Create(void);
+
+#endif

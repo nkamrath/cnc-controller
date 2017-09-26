@@ -1,0 +1,16 @@
+
+#include "udp_beacon.h"
+
+#include "lwip/udp.h"
+
+
+#define _BUFFER_LENGTH   1024
+#define BROADCAST_GROUP_ADDR 	"224.1.1.1"
+#define UNICAST_PORT			50008
+#define BROADCAST_PORT			50009
+
+
+void UdpBeacon_Create(void)
+{
+
+}

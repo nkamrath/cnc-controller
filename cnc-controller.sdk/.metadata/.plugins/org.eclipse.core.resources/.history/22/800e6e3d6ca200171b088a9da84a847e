@@ -1,0 +1,6 @@
+#ifndef NETWORK_ETHERNET_H
+#define NETWORK_ETHERNET_H
+
+void Ethernet_Create(void);
+
+#endif

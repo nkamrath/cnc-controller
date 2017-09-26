@@ -1,0 +1,7 @@
+
+#include "udp_beacon.h"
+
+void UdpBeacon_Create(void)
+{
+
+}

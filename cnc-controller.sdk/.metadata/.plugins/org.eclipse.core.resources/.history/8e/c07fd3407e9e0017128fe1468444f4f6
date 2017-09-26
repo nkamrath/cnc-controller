@@ -1,0 +1,9 @@
+#ifndef _DRIVERS_INTERRUPT_CONTROLLER_H_
+#define _DRIVERS_INTERRUPT_CONTROLLER_H_
+
+#include <stdint.h>
+#include <stdlib.h>
+
+PlPwm_Create(void);
+
+#endif

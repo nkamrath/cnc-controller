@@ -1,0 +1,14 @@
+#include "pl_pwm.h"
+
+void PlPwm_Enable(pl_pwm_t* pwm, uint8_t channel)
+{
+	pwm->control |= (1 << (4*channel));
+}
+void PlPwm_Disable(pl_pwm_t* pwm, uint8_t channel);
+void PlPwm_SetIdleLevel(pl_pwm_t* pwm, uint8_t channel, bool idle_level);
+void PlPwm_SetReloadEnabled(pl_pwm_t* pwm, uint8_t channel, bool reload_enabled);
+
+void PlPwm_SetPeriod(pl_pwm_t* pwm, uint8_t channel, uint32_t period);
+void PlPwm_SetDutyCycle(pl_pwm_t* pwm, uint8_t channel, uint32_t duty_cycle);
+void PlPwm_SetPeriodCount(pl_pwm_t* pwm, uint8_t channel, uint32_t period_count);
+uint32_t PlPwm_GetStatus(pl_pwm_t* pwm, uint8_t channel);
