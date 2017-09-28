@@ -12,6 +12,7 @@ RM := rm -rf
 -include src/network/ethernet/subdir.mk
 -include src/hw_al/subdir.mk
 -include src/drivers/subdir.mk
+-include src/applications/subdir.mk
 -include src/subdir.mk
 -include subdir.mk
 -include objects.mk

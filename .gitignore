@@ -1,2 +1,4 @@
 
 firmware/zynq/cnc-controller.sdk/.metadata/*
+*.d
+*.o

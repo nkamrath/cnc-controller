@@ -720,11 +720,13 @@
 </instance>
 <instance id="xilinx.gnu.armv7.exe.debug.865357750;xilinx.gnu.armv7.exe.debug.865357750.;xilinx.gnu.armv7.c.toolchain.compiler.debug.1303369434;xilinx.gnu.armv7.c.compiler.input.795782602">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="#undef __ARM_FP" removed="true"/>
 <includePath path="#undef __ARM_FP16_FORMAT_ALTERNATIVE" removed="true"/>
 <includePath path="#undef __ARM_FP16_ARGS" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_FMA" removed="true"/>
 <includePath path="#undef __ARM_NEON__" removed="true"/>
 <includePath path="d:\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
+<includePath path="#undef __ARM_FP16_FORMAT_IEEE" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_FP16_SCALAR_ARITHMETIC" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_DSP" removed="true"/>
 <includePath path="#undef __ARM_NEON" removed="true"/>

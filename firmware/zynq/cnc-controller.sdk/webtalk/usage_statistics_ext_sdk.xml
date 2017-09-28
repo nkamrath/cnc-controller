@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<webTalkData  fileName='usage_statistics_ext_sdk.xml'  majorVersion='1' minorVersion='0' timeStamp='Mon Sep 25 21:32:47 2017'>
+<webTalkData  fileName='usage_statistics_ext_sdk.xml'  majorVersion='1' minorVersion='0' timeStamp='Wed Sep 27 21:16:46 2017'>
 <section name="__ROOT__" level="0" order="1" description="">
  <section name="software_version_and_target_device" level="1" order="1" description="">
   <keyValuePair key="beta" value="false" description="" />
   <keyValuePair key="build_version" value="2017.2" description="" />
-  <keyValuePair key="date_generated" value="2017-09-25 21:32:43" description="" />
+  <keyValuePair key="date_generated" value="2017-09-27 21:16:41" description="" />
   <keyValuePair key="os_platform" value="amd64" description="" />
   <keyValuePair key="product_version" value="SDK v2017.2" description="" />
-  <keyValuePair key="project_id" value="2017.2_1" description="" />
-  <keyValuePair key="project_iteration" value="1" description="" />
-  <keyValuePair key="random_id" value="15gch0qodee0suasc8rubs3shh" description="" />
+  <keyValuePair key="project_id" value="2017.2_2" description="" />
+  <keyValuePair key="project_iteration" value="2" description="" />
+  <keyValuePair key="random_id" value="k36dhhtukfbds9ommpbi6pm73n" description="" />
   <keyValuePair key="registration_id" value="210903556_0_0_841" description="" />
   <keyValuePair key="route_design" value="NA" description="" />
   <keyValuePair key="target_device" value="NA" description="" />
@@ -27,88 +27,47 @@
   <keyValuePair key="total_processors" value="1" description="" />
  </section>
  <section name="sdk" level="1" order="3" description="">
-  <section name="application/1506385084461" level="2" order="1" description="">
-   <keyValuePair key="apptemplate" value="hello_world" description="" />
-   <keyValuePair key="bspid" value="1506385079993" description="" />
+  <section name="application/1506486117728" level="2" order="1" description="">
+   <keyValuePair key="apptemplate" value="lwip_echo_server" description="" />
+   <keyValuePair key="bspid" value="1506486112740" description="" />
    <keyValuePair key="hwid" value="1504650851629" description="" />
    <keyValuePair key="langused" value="C" description="" />
    <keyValuePair key="newbsp" value="true" description="" />
    <keyValuePair key="os" value="standalone" description="" />
    <keyValuePair key="procused" value="ps7_cortexa9" description="" />
+   <keyValuePair key="projsize" value="344.14453125" description="" />
    <keyValuePair key="recordtype" value="APPCreation" description="" />
-   <keyValuePair key="uid" value="1506385084461" description="" />
+   <keyValuePair key="uid" value="1506486117728" description="" />
   </section>
-  <section name="application/1506385253793" level="2" order="2" description="">
-   <keyValuePair key="apptemplate" value="lwip_echo_server" description="" />
-   <keyValuePair key="bspid" value="1506385252293" description="" />
-   <keyValuePair key="hwid" value="1504650851629" description="" />
-   <keyValuePair key="langused" value="C" description="" />
-   <keyValuePair key="newbsp" value="true" description="" />
-   <keyValuePair key="os" value="standalone" description="" />
-   <keyValuePair key="procused" value="ps7_cortexa9" description="" />
-   <keyValuePair key="recordtype" value="APPCreation" description="" />
-   <keyValuePair key="uid" value="1506385253793" description="" />
-  </section>
-  <section name="application/1506386906470" level="2" order="3" description="">
-   <keyValuePair key="apptemplate" value="lwip_echo_server" description="" />
-   <keyValuePair key="bspid" value="1506386905723" description="" />
-   <keyValuePair key="hwid" value="1504650851629" description="" />
-   <keyValuePair key="langused" value="C" description="" />
-   <keyValuePair key="newbsp" value="true" description="" />
-   <keyValuePair key="os" value="standalone" description="" />
-   <keyValuePair key="procused" value="ps7_cortexa9" description="" />
-   <keyValuePair key="projsize" value="399.109375" description="" />
-   <keyValuePair key="recordtype" value="APPCreation" description="" />
-   <keyValuePair key="uid" value="1506386906470" description="" />
-  </section>
-  <section name="application/1506398065891" level="2" order="4" description="">
-   <keyValuePair key="apptemplate" value="lwip_echo_server" description="" />
-   <keyValuePair key="bspid" value="1506398064938" description="" />
-   <keyValuePair key="hwid" value="1504650851629" description="" />
-   <keyValuePair key="langused" value="C" description="" />
-   <keyValuePair key="newbsp" value="true" description="" />
-   <keyValuePair key="os" value="standalone" description="" />
-   <keyValuePair key="procused" value="ps7_cortexa9" description="" />
-   <keyValuePair key="recordtype" value="APPCreation" description="" />
-   <keyValuePair key="uid" value="1506398065891" description="" />
-  </section>
-  <section name="bsp/1506385079993" level="2" order="5" description="">
-   <keyValuePair key="apptemplate" value="hello_world" description="" />
-   <keyValuePair key="hwid" value="1504650851629" description="" />
-   <keyValuePair key="os" value="standalone" description="" />
-   <keyValuePair key="recordtype" value="BSPCreation" description="" />
-   <keyValuePair key="uid" value="1506385079993" description="" />
-  </section>
-  <section name="bsp/1506385252293" level="2" order="6" description="">
+  <section name="bsp/1506486112740" level="2" order="2" description="">
    <keyValuePair key="apptemplate" value="lwip_echo_server" description="" />
    <keyValuePair key="hwid" value="1504650851629" description="" />
    <keyValuePair key="os" value="standalone" description="" />
    <keyValuePair key="recordtype" value="BSPCreation" description="" />
-   <keyValuePair key="uid" value="1506385252293" description="" />
+   <keyValuePair key="uid" value="1506486112740" description="" />
   </section>
-  <section name="bsp/1506386905723" level="2" order="7" description="">
-   <keyValuePair key="apptemplate" value="lwip_echo_server" description="" />
-   <keyValuePair key="hwid" value="1504650851629" description="" />
-   <keyValuePair key="os" value="standalone" description="" />
-   <keyValuePair key="recordtype" value="BSPCreation" description="" />
-   <keyValuePair key="uid" value="1506386905723" description="" />
-  </section>
-  <section name="bsp/1506398064938" level="2" order="8" description="">
-   <keyValuePair key="apptemplate" value="lwip_echo_server" description="" />
-   <keyValuePair key="hwid" value="1504650851629" description="" />
-   <keyValuePair key="os" value="standalone" description="" />
-   <keyValuePair key="recordtype" value="BSPCreation" description="" />
-   <keyValuePair key="uid" value="1506398064938" description="" />
-  </section>
-  <section name="bsp/1506400362971" level="2" order="9" description="">
+  <section name="bsp/1506572200957" level="2" order="3" description="">
    <keyValuePair key="bootgencount" value="0" description="" />
    <keyValuePair key="crosstriggcount" value="0" description="" />
-   <keyValuePair key="debugcount" value="49" description="" />
+   <keyValuePair key="debugcount" value="14" description="" />
    <keyValuePair key="flashcount" value="0" description="" />
    <keyValuePair key="perfcount" value="0" description="" />
    <keyValuePair key="qemudebugcount" value="0" description="" />
    <keyValuePair key="recordtype" value="ToolUsage" description="" />
    <keyValuePair key="uid" value="NA" description="" />
+  </section>
+  <section name="hardware/1506473855420" level="2" order="4" description="">
+   <keyValuePair key="apptemplate" value="NA" description="" />
+   <keyValuePair key="arch" value="zynq" description="" />
+   <keyValuePair key="device" value="7z010" description="" />
+   <keyValuePair key="ishandoff" value="true" description="" />
+   <keyValuePair key="iszynq" value="true" description="" />
+   <keyValuePair key="iszynqmp" value="false" description="" />
+   <keyValuePair key="os" value="NA" description="" />
+   <keyValuePair key="processors" value="2" description="" />
+   <keyValuePair key="recordtype" value="HWCreation" description="" />
+   <keyValuePair key="uid" value="1506473855420" description="" />
+   <keyValuePair key="vivadoversion" value="2017.2" description="" />
   </section>
  </section>
  <section name="vivado_usage" level="1" order="4" description="">
