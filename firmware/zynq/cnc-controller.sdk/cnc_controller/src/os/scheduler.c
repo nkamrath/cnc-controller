@@ -79,7 +79,7 @@ void _update_next_task(void)
 	Timer_Stop(_next_task_timer);
 	if(time_diff <= 1)
 	{
-		if(_next_task->state != TASK_STATE__RUNNING && _active_tasks[_next_task->priority] == NULL || _active_tasks[_next_task->priority]->state != TASK_STATE__RUNNING)
+		if(_next_task->state != TASK_STATE__RUNNING && (_active_tasks[_next_task->priority] == NULL || _active_tasks[_next_task->priority]->state != TASK_STATE__RUNNING))
 		{
 			_active_tasks[_next_task->priority] = _next_task;
 			InterruptController_ClearInterrupt(_next_task->priority);

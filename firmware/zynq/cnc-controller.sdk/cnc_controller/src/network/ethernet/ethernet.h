@@ -6,6 +6,4 @@
  ***********************/
 void Ethernet_Create(void);
 
-
-
 #endif

@@ -32,33 +32,15 @@
 
 #include <stdio.h>
 
-#include "xparameters.h"
-
-#include "netif/xadapter.h"
-
-#include "platform.h"
-#include "platform_config.h"
-#if defined (__arm__) || defined(__aarch64__)
 #include "xil_printf.h"
-#endif
-
-#include "lwip/tcp.h"
-#include "xil_cache.h"
-
-#include "udp_beacon.h"
-
-#if LWIP_DHCP==1
-#include "lwip/dhcp.h"
-#endif
 
 #include "drivers/interrupt_controller.h"
 #include "os/scheduler.h"
 #include "network/ethernet/ethernet.h"
+#include "network/ethernet/ethernet_command.h"
 
-void ethernet_beacon_task(void* arg)
-{
-	UdpBeacon_Send();
-}
+#include "applications/device_discovery.h"
+
 
 int main()
 {
@@ -69,10 +51,9 @@ int main()
 	Scheduler_Create();
 
 	Ethernet_Create();
+	EthernetCommand_Create(50010);
 
-	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(1000000), Scheduler_MicrosToTicks(1000000), 3, ethernet_beacon_task, NULL);
-
-	UdpBeacon_Create();
+	DeviceDiscovery_Create();
 
 	/* receive and process packets */
 	while (1) {

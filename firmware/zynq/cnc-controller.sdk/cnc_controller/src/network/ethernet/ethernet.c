@@ -79,6 +79,12 @@ void DhcpTask(void* arg)
 
 }
 
+void _HandleRxTask(void* arg)
+{
+	xemacif_input(&_netif);
+	//schedule this task again as one time so as not to eat an entire priority level since tasks of same priority can not interrupt each other
+	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(100000), 0, 7, _HandleRxTask, NULL);
+}
 
 /***********************
  * Public Functions
@@ -145,6 +151,9 @@ void Ethernet_Create(void)
 	gw.addr = _netif.gw.addr;
 	netmask.addr = _netif.netmask.addr;
 #endif
+
+	//start rx thread in a few seconds to allow sys config to finish
+	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(2000000), 0, 7, _HandleRxTask, NULL);
 
 	//done
 
