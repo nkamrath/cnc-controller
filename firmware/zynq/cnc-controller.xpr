@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="20" Path="D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/cnc-controller.xpr">
+<Project Version="7" Minor="20" Path="D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="9f0e965301554404ba15401ce6c883a6"/>
@@ -23,8 +23,8 @@
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/pl_pwm_v2/pl_pwm_2.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/pl_pwm_2.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/test11_1.0"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/pl_pwm/pl_pwm_1.0"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/pl_pwm/pl_pwm_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../ip_repo/pl_pwm/pl_pwm_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../ip_repo/pl_pwm/pl_pwm_1.0"/>
     <Option Name="IPCachePermission" Val="disable"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
@@ -40,13 +40,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="24"/>
-    <Option Name="WTModelSimExportSim" Val="24"/>
-    <Option Name="WTQuestaExportSim" Val="24"/>
-    <Option Name="WTIesExportSim" Val="24"/>
-    <Option Name="WTVcsExportSim" Val="24"/>
-    <Option Name="WTRivieraExportSim" Val="24"/>
-    <Option Name="WTActivehdlExportSim" Val="24"/>
+    <Option Name="WTXSimExportSim" Val="29"/>
+    <Option Name="WTModelSimExportSim" Val="29"/>
+    <Option Name="WTQuestaExportSim" Val="29"/>
+    <Option Name="WTIesExportSim" Val="29"/>
+    <Option Name="WTVcsExportSim" Val="29"/>
+    <Option Name="WTRivieraExportSim" Val="29"/>
+    <Option Name="WTActivehdlExportSim" Val="29"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>

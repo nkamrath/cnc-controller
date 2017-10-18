@@ -30,6 +30,7 @@
 *
 ******************************************************************************/
 
+#include "network/ethernet/cdp_socket.h"
 #include <stdio.h>
 
 #include "xil_printf.h"
@@ -37,10 +38,33 @@
 #include "drivers/interrupt_controller.h"
 #include "os/scheduler.h"
 #include "network/ethernet/ethernet.h"
-#include "network/ethernet/ethernet_command.h"
-
 #include "applications/device_discovery.h"
+#include "applications/motor_manager.h"
 
+#include "utils/cdp_packet_handler.h"
+#include "utils/device_state.h"
+
+#include "drivers/pin.h"
+#include "utils/stepper_motor.h"
+#include "include/motor_configs.h"
+#include "drivers/pl_pwm.h"
+
+uint8_t pin_number = 13;
+uint8_t pin_state = 0;
+
+void pin_task(void* arg)
+{
+	if(pin_state == 0)
+	{
+		pin_state = 1;
+	}
+	else
+	{
+		pin_state = 0;
+	}
+
+	Pin_Write(pin_number, pin_state);
+}
 
 int main()
 {
@@ -50,10 +74,27 @@ int main()
 
 	Scheduler_Create();
 
+	//Pin_ConfigureOutput(pin_number);
+	//Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(5000000), 3, pin_task, NULL);
+
 	Ethernet_Create();
-	EthernetCommand_Create(50010);
+
+	stepper_motor_options_t motor_options = MOTOR_CONFIGS_Y_0;
+	stepper_motor_t* motor = StepperMotor_Create(&motor_options);
+	MotorManager_Create();
+	MotorManager_Add(motor, MOTOR_AXIS_Y);
+
+	stepper_motor_options_t motor_options_z0 = MOTOR_CONFIGS_Z_0;
+	motor = StepperMotor_Create(&motor_options_z0);
+	MotorManager_Add(motor, MOTOR_AXIS_Z);
+
+	stepper_motor_options_t motor_options_z1 = MOTOR_CONFIGS_Z_1;
+	motor = StepperMotor_Create(&motor_options_z1);
+	MotorManager_Add(motor, MOTOR_AXIS_Z);
 
 	DeviceDiscovery_Create();
+	CdpPacketHandler_Create();
+	DeviceState_Create();
 
 	/* receive and process packets */
 	while (1) {

@@ -62,10 +62,10 @@
   "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_xbar_0/sim/cnc_controller_design_1_xbar_0.v" \
 -endlib
 -makelib ies/xil_defaultlib \
-  "../../../bd/cnc_controller_design_1/ipshared/6b54/hdl/pl_pwm_v1_0_S00_AXI.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/0f5e/hdl/pl_pwm_v1_0_S00_AXI.vhd" \
   "../../../bd/cnc_controller_design_1/ipshared/edit_pl_pwm_v1_0.srcs/pwm_channel.vhd" \
   "../../../bd/cnc_controller_design_1/ipshared/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd" \
-  "../../../bd/cnc_controller_design_1/ipshared/6b54/hdl/pl_pwm_v1_0.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/0f5e/hdl/pl_pwm_v1_0.vhd" \
   "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_pl_pwm_0_0/sim/cnc_controller_design_1_pl_pwm_0_0.vhd" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_13 \

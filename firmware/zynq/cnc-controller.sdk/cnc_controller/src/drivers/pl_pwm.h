@@ -5,6 +5,15 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+/*
+ * zynq pl pwm pins
+ * ---------------------------------
+ * |VCC | GND | 2 | 3 | 0 | 1 |
+ * ---------------------------------
+ * |VCC | GND |  | 7 | 4 |   |
+ * ---------------------------------
+ */
+
 #define PL_PWM0_BASE_ADDRESS 			0x43c00000
 #define PL_PWM0							((pl_pwm_t*)PL_PWM0_BASE_ADDRESS)
 

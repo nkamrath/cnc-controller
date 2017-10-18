@@ -1,8 +1,8 @@
 vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/hdl/cnc_controller_design_1.vhd" 
 vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_rst_ps7_0_100M_0/sim/cnc_controller_design_1_rst_ps7_0_100M_0.vhd" 
-vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/ipshared/6b54/hdl/pl_pwm_v1_0_S00_AXI.vhd" 
+vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/ipshared/0f5e/hdl/pl_pwm_v1_0_S00_AXI.vhd" 
 vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/ipshared/edit_pl_pwm_v1_0.srcs/pwm_channel.vhd" 
 vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/ipshared/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd" 
-vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/ipshared/6b54/hdl/pl_pwm_v1_0.vhd" 
+vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/ipshared/0f5e/hdl/pl_pwm_v1_0.vhd" 
 vhdl xil_defaultlib "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_pl_pwm_0_0/sim/cnc_controller_design_1_pl_pwm_0_0.vhd" 
 nosort

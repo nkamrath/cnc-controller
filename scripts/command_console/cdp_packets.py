@@ -10,18 +10,18 @@ class CdpDataItem:
 		self.length = 0
 		self.data = []
 
-	def process(self, data):
+	def deserialize(self, data):
 		self.type, self.length = struct.unpack("<HH", data[:4])
 		self.data = data[CDP_DATA_ITEM_HEADER_SIZE:CDP_DATA_ITEM_HEADER_SIZE+self.length]
 		#lenght is only the length of the payload, so include the data item header in processed count
 		return self.length + CDP_DATA_ITEM_HEADER_SIZE
 
 class CdpPacket:
-	def __init__(self, data):
+	def __init__(self, data = None):
 		self.valid = False
 		self.data = []
 		self.data_items = []
-		if(len(data) > 3):
+		if(data != None and len(data) > 3):
 			self.mark, = struct.unpack("<L", data[:4])
 			if(self.mark == CDP_MARK):
 				self.valid = True
@@ -30,13 +30,43 @@ class CdpPacket:
 				bytes_processed = 0
 				while bytes_processed < payload_length:
 					data_item = CdpDataItem()
-					bytes_processed += data_item.process(self.data[bytes_processed:])
+					bytes_processed += data_item.deserialize(self.data[bytes_processed:])
 					self.data_items.append(data_item)
 
+	def serialize(self):
+		serialized = struct.pack("<L", CDP_MARK)
+		for x in range(0, len(self.data_items)):
+			serialized += struct.pack("<HH", self.data_items[x].type, self.data_items[x].length)
+			serialized += self.data_items[x].serialize()
+
+		return serialized
+
+	def add_data_item(self, data_item):
+		self.data_items.append(data_item)
+
+
+class CdpData:
+	def __init__(self):
+		self.type = 0
+		self.length = 0
+
+	def serialize(self):
+		return ""
+
+	def deserialze(self, data):
+		return
+
+"""
+====================================
+DISCOVERY
+====================================
+"""
 DISCOVERY_LENGTH = 4
 DISCOVERY_TYPE = 0x0001
-class DeviceDiscovery:
+class CdpDeviceDiscovery(CdpData):
 	def __init__(self, data):
+		self.type = DISCOVERY_TYPE
+		self.length = DISCOVERY_LENGTH
 		if(len(data) == DISCOVERY_LENGTH):
 			self.firmware_major, self.firmware_minor, self.firmware_patch, self.device_status = struct.unpack("<BBBB", data)
 
@@ -44,3 +74,86 @@ class DeviceDiscovery:
 		ret = "Version: " + str(self.firmware_major) + "." + str(self.firmware_minor) + "." + str(self.firmware_patch) + ", "
 		ret += "Status: " + str(self.device_status)
 		return ret
+
+"""
+====================================
+CONNECT COMMAND
+====================================
+"""
+CONNECT_COMMAND_LENGTH = 6
+CONNECT_COMMAND_TYPE = 0x0002
+class CdpConnectCommand(CdpData):
+	def __init__(self):
+		self.type = CONNECT_COMMAND_TYPE
+		self.length = CONNECT_COMMAND_LENGTH
+		self.ip_address = 0
+		self.port = 0
+	def serialize(self):
+		return struct.pack("<LH", self.ip_address, self.port)
+
+	def deserialize(self, data):
+		return
+
+"""
+====================================
+ACKNOWLEDGE
+====================================
+"""
+ACKNOWLEDGE_LENGTH = 2
+ACKNOWLEDGE_TYPE = 0x0003
+
+class CdpAcknowledge(CdpData):
+	def __init__(self):
+		self.type = ACKNOWLEDGE_TYPE
+		self.length = ACKNOWLEDGE_LENGTH
+		self.acknowledge_of_type = 0
+	def serialize(self):
+		return struct.pack("<H", self.acknowledge_of_type)
+
+	def deserialize(self, data):
+		self.acknowledge_of_type = struct.unpack("<H", data)
+
+"""
+====================================
+STEP MOTOR COMMAND
+====================================
+"""
+STEP_MOTOR_LENGTH = 7
+STEP_MOTOR_TYPE = 0x0004
+
+class CdpStepMotorCommand(CdpData):
+	def __init__(self, motor_axis = 0, motor_index = 0, direction = 0, number_steps = 0):
+		self.type = STEP_MOTOR_TYPE
+		self.length = STEP_MOTOR_LENGTH
+		self.motor_axis = motor_axis
+		self.motor_index = motor_index
+		self.direction = direction
+		self.number_steps = number_steps
+
+	def serialize(self):
+		return struct.pack("<BBBL", self.motor_axis, self.motor_index, self.direction, self.number_steps)
+
+	def deserialize(self, data):
+		self.motor_axis, self.motor_index, self.direction, self.number_steps = struct.unpack("<BBBL", data)
+
+"""
+====================================
+STEP AXIS COMMAND
+====================================
+"""
+STEP_AXIS_LENGTH = 6
+STEP_AXIS_TYPE = 0x0005
+
+class CdpStepAxisCommand(CdpData):
+	def __init__(self, motor_axis = 0, direction = 0, number_steps = 0):
+		self.type = STEP_AXIS_TYPE
+		self.length = STEP_AXIS_LENGTH
+		self.motor_axis = motor_axis
+		self.direction = direction
+		self.number_steps = number_steps
+
+	def serialize(self):
+		return struct.pack("<BBL", self.motor_axis, self.direction, self.number_steps)
+
+	def deserialize(self, data):
+		self.motor_axis, self.direction, self.number_steps = struct.unpack("<BBL", data)

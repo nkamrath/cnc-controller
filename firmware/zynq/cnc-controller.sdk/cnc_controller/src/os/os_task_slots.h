@@ -4,6 +4,8 @@
 //clearing interrupts before done with irq seems to allow other lower priority interrupts to steal cpu
 //InterruptController_ClearSoftwareInterrupt(x);
 
+extern void _update_next_task(void);
+
 #define _IRQ_SLOT_FUNCTION_MACRO(x)						\
 CriticalSection_Enter();								\
 task_t* task = Scheduler_GetActiveTask(x);				\
@@ -21,6 +23,7 @@ if(task)												\
 	if(task->period_us)										\
 	{														\
 		task->start_time_us += task->period_us;				\
+		_update_next_task();								\
 	}														\
 	else													\
 	{														\

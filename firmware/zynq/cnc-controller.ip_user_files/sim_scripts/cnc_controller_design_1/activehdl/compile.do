@@ -99,10 +99,10 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../cnc-controller.srcs/source
 "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_xbar_0/sim/cnc_controller_design_1_xbar_0.v" \
 
 vcom -work xil_defaultlib -93 \
-"../../../bd/cnc_controller_design_1/ipshared/6b54/hdl/pl_pwm_v1_0_S00_AXI.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/0f5e/hdl/pl_pwm_v1_0_S00_AXI.vhd" \
 "../../../bd/cnc_controller_design_1/ipshared/edit_pl_pwm_v1_0.srcs/pwm_channel.vhd" \
 "../../../bd/cnc_controller_design_1/ipshared/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd" \
-"../../../bd/cnc_controller_design_1/ipshared/6b54/hdl/pl_pwm_v1_0.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/0f5e/hdl/pl_pwm_v1_0.vhd" \
 "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_pl_pwm_0_0/sim/cnc_controller_design_1_pl_pwm_0_0.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_13  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \

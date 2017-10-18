@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:pl_pwm:1.0
--- IP Revision: 35
+-- IP Revision: 40
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

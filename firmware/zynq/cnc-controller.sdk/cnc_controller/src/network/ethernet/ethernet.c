@@ -6,6 +6,7 @@
 #include "platform.h"
 #include "platform_config.h"
 
+#include "include/task_priorities.h"
 #include "drivers/interrupt_controller.h"
 #include "os/scheduler.h"
 
@@ -83,7 +84,7 @@ void _HandleRxTask(void* arg)
 {
 	xemacif_input(&_netif);
 	//schedule this task again as one time so as not to eat an entire priority level since tasks of same priority can not interrupt each other
-	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(100000), 0, 7, _HandleRxTask, NULL);
+	//Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(100000), 0, ETHERNET_HANDLING_TASK_PRIORITY, _HandleRxTask, NULL);
 }
 
 /***********************
@@ -108,7 +109,7 @@ void Ethernet_Create(void)
 	lwip_init();
 
 	//schedule the dhcp task
-	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(250000), 2, DhcpTask, NULL);
+	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(250000), ETHERNET_HANDLING_TASK_PRIORITY, DhcpTask, NULL);
 
   	/* Add network interface to the netif_list, and set it as default */
 	if (!xemac_add(netif_ptr, &ipaddr, &netmask,
@@ -153,7 +154,8 @@ void Ethernet_Create(void)
 #endif
 
 	//start rx thread in a few seconds to allow sys config to finish
-	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(2000000), 0, 7, _HandleRxTask, NULL);
+	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(500000), Scheduler_MicrosToTicks(100000), ETHERNET_HANDLING_TASK_PRIORITY,
+			_HandleRxTask, NULL);
 
 	//done
 

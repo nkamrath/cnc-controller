@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date             : Tue Sep 26 15:50:54 2017
+| Date             : Thu Oct  5 17:45:37 2017
 | Host             : Nate-PC running 64-bit Service Pack 1  (build 7601)
 | Command          : report_power -file cnc_controller_design_1_wrapper_power_routed.rpt -pb cnc_controller_design_1_wrapper_power_summary_routed.pb -rpx cnc_controller_design_1_wrapper_power_routed.rpx
 | Design           : cnc_controller_design_1_wrapper
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+--------+
-| Total On-Chip Power (W)  | 1.700  |
-| Dynamic (W)              | 1.573  |
+| Total On-Chip Power (W)  | 1.702  |
+| Dynamic (W)              | 1.575  |
 | Device Static (W)        | 0.127  |
 | Effective TJA (C/W)      | 11.5   |
 | Max Ambient (C)          | 65.4   |
@@ -49,20 +49,20 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.008 |        3 |       --- |             --- |
-| Slice Logic             |     0.003 |     5687 |       --- |             --- |
-|   LUT as Logic          |     0.003 |     1887 |     17600 |           10.72 |
-|   CARRY4                |    <0.001 |      118 |      4400 |            2.68 |
-|   Register              |    <0.001 |     2980 |     35200 |            8.47 |
+| Clocks                  |     0.009 |        3 |       --- |             --- |
+| Slice Logic             |     0.003 |     6812 |       --- |             --- |
+|   LUT as Logic          |     0.003 |     2599 |     17600 |           14.77 |
+|   CARRY4                |    <0.001 |      284 |      4400 |            6.45 |
+|   Register              |    <0.001 |     3208 |     35200 |            9.11 |
 |   BUFG                  |    <0.001 |        1 |        32 |            3.13 |
 |   LUT as Shift Register |    <0.001 |       67 |      6000 |            1.12 |
-|   Others                |     0.000 |      222 |       --- |             --- |
+|   Others                |     0.000 |      233 |       --- |             --- |
 |   F7/F8 Muxes           |     0.000 |      192 |     17600 |            1.09 |
-| Signals                 |     0.005 |     4490 |       --- |             --- |
+| Signals                 |     0.006 |     5361 |       --- |             --- |
 | I/O                     |     0.000 |        8 |       100 |            8.00 |
 | PS7                     |     1.556 |        1 |       --- |             --- |
 | Static Power            |     0.127 |          |           |                 |
-| Total                   |     1.700 |          |           |                 |
+| Total                   |     1.702 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.023 |       0.016 |      0.007 |
+| Vccint    |       1.000 |     0.025 |       0.018 |      0.007 |
 | Vccaux    |       1.800 |     0.012 |       0.000 |      0.012 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -148,8 +148,8 @@ Table of Contents
 +--------------------------------------------------------------+-----------+
 | Name                                                         | Power (W) |
 +--------------------------------------------------------------+-----------+
-| cnc_controller_design_1_wrapper                              |     1.573 |
-|   cnc_controller_design_1_i                                  |     1.573 |
+| cnc_controller_design_1_wrapper                              |     1.575 |
+|   cnc_controller_design_1_i                                  |     1.575 |
 |     axi_interconnect_0                                       |     0.007 |
 |       m00_couplers                                           |     0.004 |
 |         auto_pc                                              |     0.004 |
@@ -202,12 +202,18 @@ Table of Contents
 |               wrouter_aw_fifo                                |    <0.001 |
 |                 gen_srls[0].gen_rep[1].srl_nx1               |    <0.001 |
 |             splitter_aw_mi                                   |    <0.001 |
-|     pl_pwm_0                                                 |     0.007 |
-|       U0                                                     |     0.007 |
-|         pl_pwm_v1_0_S00_AXI_inst                             |     0.007 |
-|           pwm_controller_inst                                |    <0.001 |
-|             pwm_channel_1                                    |    <0.001 |
-|             pwm_channel_2                                    |    <0.001 |
+|     pl_pwm_0                                                 |     0.008 |
+|       U0                                                     |     0.008 |
+|         pl_pwm_v1_0_S00_AXI_inst                             |     0.008 |
+|           pwm_controller_inst                                |     0.002 |
+|             gen_1[1].pwm_channel_i                           |    <0.001 |
+|             gen_1[2].pwm_channel_i                           |    <0.001 |
+|             gen_1[3].pwm_channel_i                           |    <0.001 |
+|             gen_1[4].pwm_channel_i                           |    <0.001 |
+|             gen_1[5].pwm_channel_i                           |    <0.001 |
+|             gen_1[6].pwm_channel_i                           |    <0.001 |
+|             gen_1[7].pwm_channel_i                           |    <0.001 |
+|             gen_1[8].pwm_channel_i                           |    <0.001 |
 |     processing_system7_0                                     |     1.559 |
 |       inst                                                   |     1.559 |
 |     rst_ps7_0_100M                                           |    <0.001 |

@@ -4,19 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/network/ethernet/discovery_socket.c \
-../src/network/ethernet/ethernet.c \
-../src/network/ethernet/ethernet_command.c 
+../src/network/ethernet/cdp_socket.c \
+../src/network/ethernet/ethernet.c 
 
 OBJS += \
-./src/network/ethernet/discovery_socket.o \
-./src/network/ethernet/ethernet.o \
-./src/network/ethernet/ethernet_command.o 
+./src/network/ethernet/cdp_socket.o \
+./src/network/ethernet/ethernet.o 
 
 C_DEPS += \
-./src/network/ethernet/discovery_socket.d \
-./src/network/ethernet/ethernet.d \
-./src/network/ethernet/ethernet_command.d 
+./src/network/ethernet/cdp_socket.d \
+./src/network/ethernet/ethernet.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:pl_pwm:1.0
--- IP Revision: 35
+-- IP Revision: 40
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -118,7 +118,7 @@ ARCHITECTURE cnc_controller_design_1_pl_pwm_0_0_arch OF cnc_controller_design_1_
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF cnc_controller_design_1_pl_pwm_0_0_arch : ARCHITECTURE IS "cnc_controller_design_1_pl_pwm_0_0,pl_pwm_v1_0,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF cnc_controller_design_1_pl_pwm_0_0_arch: ARCHITECTURE IS "cnc_controller_design_1_pl_pwm_0_0,pl_pwm_v1_0,{x_ipProduct=Vivado 2017.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=pl_pwm,x_ipVersion=1.0,x_ipCoreRevision=35,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=8}";
+  ATTRIBUTE CORE_GENERATION_INFO OF cnc_controller_design_1_pl_pwm_0_0_arch: ARCHITECTURE IS "cnc_controller_design_1_pl_pwm_0_0,pl_pwm_v1_0,{x_ipProduct=Vivado 2017.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=pl_pwm,x_ipVersion=1.0,x_ipCoreRevision=40,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=8}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF s00_axi_awaddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR";
   ATTRIBUTE X_INTERFACE_INFO OF s00_axi_awprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI AWPROT";

@@ -3,37 +3,88 @@ import socket
 import struct
 import cdp_packets
 
+class DeviceConnection:
+	def __init__(self):
+		self.connected = False
+		self.ip = None
+		self.port = None
+		self.socket = None
+
+	def connect(self, ip):
+		self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+		self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+		self.ip = ip
+		self.socket.bind(('', self.port))  # use MCAST_GRP instead of '' to listen only to MCAST_GRP, not all groups on MCAST_PORT
+		self.socket.settimeout(2) #2 second timeout
+
+	def disconnect(self):
+		self.socket.close()
+
+	def send(self, data):
+		self.socket.sendto(data, (self.ip, self.port))
+
+	def receive(self):
+		try:
+			self.socket.recvfrom(4096)
+		except:
+			return None
+
+class DiscoveryConnection:
+	def __init__(self, group, port):
+		self.group = group
+		self.port = port
+		self.socket = None
+
+	def connect(self):
+		self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+		self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+		self.socket.bind(('', self.port))  # use MCAST_GRP instead of '' to listen only to MCAST_GRP, not all groups on MCAST_PORT
+		mreq = struct.pack("4sl", socket.inet_aton(self.group), socket.INADDR_ANY)
+		self.socket.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+		self.socket.settimeout(2) #2 second timeout
+
+	def disconnect(self):
+		self.socket.close()
+
+	def listen(self):
+		return self.socket.recvfrom(256)
+
 class CommandHandler:
-	def __init__(self, discovery_group, discovery_port):
-		self.discovery_group = discovery_group
-		self.discovery_port = discovery_port
-		self.discovery_socket = None
-
-	def discovery_socket_create(self):
-		self.discovery_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-		self.discovery_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-		self.discovery_socket.bind(('', self.discovery_port))  # use MCAST_GRP instead of '' to listen only
-		                             # to MCAST_GRP, not all groups on MCAST_PORT
-		mreq = struct.pack("4sl", socket.inet_aton(self.discovery_group), socket.INADDR_ANY)
-		self.discovery_socket.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
-		self.discovery_socket.settimeout(2) #2 second timeout
-
-	def discovery_socket_destroy(self):
-		self.discovery_socket.close()
+	def __init__(self, discovery_group, discovery_port, device_unicast_port):
+		self.discovery_connection = DiscoveryConnection(discovery_group, discovery_port)
+		self.device_connection = DeviceConnection()
+		self.device_connection.port = device_unicast_port
 
 	def discover_devices(self):
-		self.discovery_socket_create()
+		self.discovery_connection.connect()
 		devices = []
 		try:
-			data, addr = self.discovery_socket.recvfrom(256)
+			data, addr = self.discovery_connection.listen()
 			packet = cdp_packets.CdpPacket(data)
 			if(packet.valid == True):
 				for x in range(0, len(packet.data_items)):
 					if(packet.data_items[x].type == cdp_packets.DISCOVERY_TYPE):
-						discovery = cdp_packets.DeviceDiscovery(packet.data_items[x].data)
+						discovery = cdp_packets.CdpDeviceDiscovery(packet.data_items[x].data)
 						devices.append("\r\nIP: " + addr[0] + " - Info: " + str(discovery) + "\r\n")
 		except:
 			pass
 
-		self.discovery_socket_destroy()
+		self.discovery_connection.disconnect()
 		return devices
+
+	def connect_to_device(self, ip):
+		self.device_connection.connect(ip)
+		connect_packet = cdp_packets.CdpPacket()
+		connect_packet.add_data_item(cdp_packets.CdpConnectCommand())
+		
+		self.device_connection.send(connect_packet.serialize())
+
+	def send_step_motor_command(self, motor_axis, motor_index, direction, number_steps):
+		packet = cdp_packets.CdpPacket()
+		packet.add_data_item(cdp_packets.CdpStepMotorCommand(motor_axis, motor_index, direction, number_steps))
+		self.device_connection.send(packet.serialize())
+
+	def send_step_axis_command(self, motor_axis, direction, number_steps):
+		packet = cdp_packets.CdpPacket()
+		packet.add_data_item(cdp_packets.CdpStepAxisCommand(motor_axis, direction, number_steps))
+		self.device_connection.send(packet.serialize())

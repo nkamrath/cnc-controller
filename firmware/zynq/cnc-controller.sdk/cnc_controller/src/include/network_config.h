@@ -6,6 +6,4 @@
 
 #define CONTROL_SOCKET_PORT					50010
 
-#define CDP_PACKET_HEADER_MARK				0xCD01
-
 #endif

@@ -50,24 +50,24 @@ set rc [catch {
   create_project -in_memory -part xc7z010clg400-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/cnc-controller.cache/wt [current_project]
-  set_property parent.project_path D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/cnc-controller.xpr [current_project]
+  set_property webtalk.parent_dir D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.cache/wt [current_project]
+  set_property parent.project_path D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.xpr [current_project]
   set_property ip_repo_paths {
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm_v2/pl_pwm_2.0
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm_2.0
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/test11_1.0
+  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_pwm_v2/pl_pwm_2.0
+  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_pwm_2.0
+  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/test11_1.0
   D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0
   D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0
 } [current_project]
   set_property ip_cache_permissions disable [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/cnc-controller.runs/synth_1/cnc_controller_design_1_wrapper.dcp
+  add_files -quiet D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/synth_1/cnc_controller_design_1_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -suppress
   set_param project.isImplRun true
-  add_files D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd
-  set_property is_locked true [get_files D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd]
+  add_files D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd
+  set_property is_locked true [get_files D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd]
   set_param project.isImplRun false
-  read_xdc D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/cnc-controller.srcs/constrs_1/new/zybo_constraints.xdc
+  read_xdc D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/constrs_1/new/zybo_constraints.xdc
   set_param project.isImplRun true
   link_design -top cnc_controller_design_1_wrapper -part xc7z010clg400-1
   set_param project.isImplRun false

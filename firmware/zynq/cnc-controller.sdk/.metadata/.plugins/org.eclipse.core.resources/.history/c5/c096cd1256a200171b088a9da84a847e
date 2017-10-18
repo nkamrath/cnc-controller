@@ -1,6 +1,0 @@
-#ifndef UDP_BEACON_H
-#define UDP_BEACON_H
-
-void UdpBeacon_Create(void);
-
-#endif

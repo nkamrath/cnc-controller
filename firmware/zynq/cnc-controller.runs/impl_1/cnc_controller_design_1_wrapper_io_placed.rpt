@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date                      : Tue Sep 26 15:50:21 2017
+| Date                      : Thu Oct  5 17:45:07 2017
 | Host                      : Nate-PC running 64-bit Service Pack 1  (build 7601)
 | Command                   : report_io -file cnc_controller_design_1_wrapper_io_placed.rpt
 | Design                    : cnc_controller_design_1_wrapper
@@ -394,7 +394,7 @@ Table of Contents
 | V17        |                   | High Range | IO_L21P_T3_DQS_34       | User IO       |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |
 | V18        |                   | High Range | IO_L21N_T3_DQS_34       | User IO       |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |
 | V19        |                   |            | GND                     | GND           |                   |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
-| V20        | PWM_OUT[3]        | High Range | IO_L16P_T2_34           | TRISTATE      | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
+| V20        | PWM_OUT[3]        | High Range | IO_L16P_T2_34           | OUTPUT        | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | W1         | DDR_dq[26]        |            | PS_DDR_DQ26_502         | BIDIR         | SSTL15_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |
 | W2         |                   |            | GND                     | GND           |                   |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | W3         | DDR_dq[29]        |            | PS_DDR_DQ29_502         | BIDIR         | SSTL15_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |
@@ -412,9 +412,9 @@ Table of Contents
 | W15        |                   | High Range | IO_L10N_T1_34           | User IO       |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |
 | W16        |                   | High Range | IO_L18N_T2_34           | User IO       |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |
 | W17        |                   | High Range | VCCO_34                 | VCCO          |                   |      34 |            |      |                     |                      |    3.30 |            |           |          |      |                  |
-| W18        | PWM_OUT[7]        | High Range | IO_L22P_T3_34           | TRISTATE      | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
-| W19        | PWM_OUT[6]        | High Range | IO_L22N_T3_34           | TRISTATE      | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
-| W20        | PWM_OUT[2]        | High Range | IO_L16N_T2_34           | TRISTATE      | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
+| W18        | PWM_OUT[7]        | High Range | IO_L22P_T3_34           | OUTPUT        | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
+| W19        | PWM_OUT[6]        | High Range | IO_L22N_T3_34           | OUTPUT        | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
+| W20        | PWM_OUT[2]        | High Range | IO_L16N_T2_34           | OUTPUT        | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | Y1         | DDR_dm[3]         |            | PS_DDR_DM3_502          | BIDIR         | SSTL15_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |
 | Y2         | DDR_dq[28]        |            | PS_DDR_DQ28_502         | BIDIR         | SSTL15_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |
 | Y3         | DDR_dq[25]        |            | PS_DDR_DQ25_502         | BIDIR         | SSTL15_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |
@@ -432,8 +432,8 @@ Table of Contents
 | Y15        |                   |            | GND                     | GND           |                   |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | Y16        |                   | High Range | IO_L7P_T1_34            | User IO       |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |
 | Y17        |                   | High Range | IO_L7N_T1_34            | User IO       |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |
-| Y18        | PWM_OUT[5]        | High Range | IO_L17P_T2_34           | TRISTATE      | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
-| Y19        | PWM_OUT[4]        | High Range | IO_L17N_T2_34           | TRISTATE      | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
+| Y18        | PWM_OUT[5]        | High Range | IO_L17P_T2_34           | OUTPUT        | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
+| Y19        | PWM_OUT[4]        | High Range | IO_L17N_T2_34           | OUTPUT        | LVCMOS33          |      34 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | Y20        |                   | High Range | VCCO_34                 | VCCO          |                   |      34 |            |      |                     |                      |    3.30 |            |           |          |      |                  |
 +------------+-------------------+------------+-------------------------+---------------+-------------------+---------+------------+------+---------------------+----------------------+---------+------------+-----------+----------+------+------------------+
 * Default value

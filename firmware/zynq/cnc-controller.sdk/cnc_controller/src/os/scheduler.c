@@ -86,7 +86,7 @@ void _update_next_task(void)
 			InterruptController_TriggerSoftwareInterrupt(_next_task->priority, 1);
 			_next_task->state = TASK_STATE__RUNNING;
 			_next_task = NULL;
-			//Timer_SetCompareValue(_next_task_timer, 37500);
+			//Timer_SetCompareValue(_next_task_timer, 375);
 			//Timer_Reset(_next_task_timer);
 			//Timer_Start(_next_task_timer);
 		}

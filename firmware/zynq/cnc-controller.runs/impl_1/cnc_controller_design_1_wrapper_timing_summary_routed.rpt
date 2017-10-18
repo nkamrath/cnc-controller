@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Tue Sep 26 15:50:54 2017
+| Date         : Thu Oct  5 17:45:38 2017
 | Host         : Nate-PC running 64-bit Service Pack 1  (build 7601)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file cnc_controller_design_1_wrapper_timing_summary_routed.rpt -rpx cnc_controller_design_1_wrapper_timing_summary_routed.rpx
 | Design       : cnc_controller_design_1_wrapper
@@ -91,7 +91,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 2 ports with no output delay specified. (HIGH)
+ There are 8 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -136,7 +136,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      1.322        0.000                      0                 8192        0.023        0.000                      0                 8192        4.020        0.000                       0                  3016  
+      0.471        0.000                      0                 8870        0.026        0.000                      0                 8870        4.020        0.000                       0                  3244  
 
 
 All user specified timing constraints are met.
@@ -159,7 +159,7 @@ clk_fpga_0  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk_fpga_0          1.322        0.000                      0                 8192        0.023        0.000                      0                 8192        4.020        0.000                       0                  3016  
+clk_fpga_0          0.471        0.000                      0                 8870        0.026        0.000                      0                 8870        4.020        0.000                       0                  3244  
 
 
 ------------------------------------------------------------------------------------------------
@@ -190,28 +190,28 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  clk_fpga_0
   To Clock:  clk_fpga_0
 
-Setup :            0  Failing Endpoints,  Worst Slack        1.322ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.023ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.471ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.026ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.020ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             1.322ns  (required time - arrival time)
+Slack (MET) :             0.471ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[16]/CE
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg36_reg[22]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.078ns  (logic 1.550ns (19.188%)  route 6.528ns (80.812%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        -0.277ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.680ns = ( 12.680 - 10.000 ) 
+  Data Path Delay:        9.136ns  (logic 1.450ns (15.871%)  route 7.686ns (84.129%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.177ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.766ns = ( 12.766 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -225,15 +225,13 @@ Slack (MET) :             1.322ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WSTRB[2])
-                                                      1.426     4.499 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WSTRB[2]
-                         net (fo=53, routed)          6.007    10.505    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wstrb[2]
-    SLICE_X29Y59         LUT6 (Prop_lut6_I3_O)        0.124    10.629 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58[23]_i_1/O
-                         net (fo=8, routed)           0.522    11.151    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58[23]_i_1_n_1
-    SLICE_X30Y58         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[16]/CE
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[22])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[22]
+                         net (fo=53, routed)          7.686    12.209    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[22]
+    SLICE_X40Y11         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg36_reg[22]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -241,31 +239,31 @@ Slack (MET) :             1.322ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.488    12.680    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X30Y58         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[16]/C
-                         clock pessimism              0.116    12.796    
-                         clock uncertainty           -0.154    12.642    
-    SLICE_X30Y58         FDRE (Setup_fdre_C_CE)      -0.169    12.473    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[16]
+                         net (fo=3244, routed)        1.573    12.765    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X40Y11         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg36_reg[22]/C
+                         clock pessimism              0.130    12.895    
+                         clock uncertainty           -0.154    12.741    
+    SLICE_X40Y11         FDRE (Setup_fdre_C_D)       -0.061    12.680    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg36_reg[22]
   -------------------------------------------------------------------
-                         required time                         12.473    
-                         arrival time                         -11.151    
+                         required time                         12.680    
+                         arrival time                         -12.209    
   -------------------------------------------------------------------
-                         slack                                  1.322    
+                         slack                                  0.471    
 
-Slack (MET) :             1.322ns  (required time - arrival time)
+Slack (MET) :             0.471ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[17]/CE
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg39_reg[22]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.078ns  (logic 1.550ns (19.188%)  route 6.528ns (80.812%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        -0.277ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.680ns = ( 12.680 - 10.000 ) 
+  Data Path Delay:        9.136ns  (logic 1.450ns (15.871%)  route 7.686ns (84.129%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.177ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.766ns = ( 12.766 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -279,15 +277,13 @@ Slack (MET) :             1.322ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WSTRB[2])
-                                                      1.426     4.499 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WSTRB[2]
-                         net (fo=53, routed)          6.007    10.505    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wstrb[2]
-    SLICE_X29Y59         LUT6 (Prop_lut6_I3_O)        0.124    10.629 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58[23]_i_1/O
-                         net (fo=8, routed)           0.522    11.151    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58[23]_i_1_n_1
-    SLICE_X30Y58         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[17]/CE
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[22])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[22]
+                         net (fo=53, routed)          7.686    12.209    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[22]
+    SLICE_X41Y11         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg39_reg[22]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -295,31 +291,31 @@ Slack (MET) :             1.322ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.488    12.680    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X30Y58         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[17]/C
-                         clock pessimism              0.116    12.796    
-                         clock uncertainty           -0.154    12.642    
-    SLICE_X30Y58         FDRE (Setup_fdre_C_CE)      -0.169    12.473    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[17]
+                         net (fo=3244, routed)        1.573    12.765    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X41Y11         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg39_reg[22]/C
+                         clock pessimism              0.130    12.895    
+                         clock uncertainty           -0.154    12.741    
+    SLICE_X41Y11         FDRE (Setup_fdre_C_D)       -0.061    12.680    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg39_reg[22]
   -------------------------------------------------------------------
-                         required time                         12.473    
-                         arrival time                         -11.151    
+                         required time                         12.680    
+                         arrival time                         -12.209    
   -------------------------------------------------------------------
-                         slack                                  1.322    
+                         slack                                  0.471    
 
-Slack (MET) :             1.322ns  (required time - arrival time)
+Slack (MET) :             0.520ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[19]/CE
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg22_reg[18]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.078ns  (logic 1.550ns (19.188%)  route 6.528ns (80.812%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        -0.277ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.680ns = ( 12.680 - 10.000 ) 
+  Data Path Delay:        8.969ns  (logic 1.450ns (16.168%)  route 7.519ns (83.832%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.252ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.690ns = ( 12.691 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -333,15 +329,13 @@ Slack (MET) :             1.322ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WSTRB[2])
-                                                      1.426     4.499 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WSTRB[2]
-                         net (fo=53, routed)          6.007    10.505    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wstrb[2]
-    SLICE_X29Y59         LUT6 (Prop_lut6_I3_O)        0.124    10.629 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58[23]_i_1/O
-                         net (fo=8, routed)           0.522    11.151    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58[23]_i_1_n_1
-    SLICE_X30Y58         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[19]/CE
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[18])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[18]
+                         net (fo=53, routed)          7.519    12.041    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[18]
+    SLICE_X31Y7          FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg22_reg[18]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -349,31 +343,31 @@ Slack (MET) :             1.322ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.488    12.680    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X30Y58         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[19]/C
-                         clock pessimism              0.116    12.796    
-                         clock uncertainty           -0.154    12.642    
-    SLICE_X30Y58         FDRE (Setup_fdre_C_CE)      -0.169    12.473    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[19]
+                         net (fo=3244, routed)        1.498    12.690    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X31Y7          FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg22_reg[18]/C
+                         clock pessimism              0.130    12.820    
+                         clock uncertainty           -0.154    12.666    
+    SLICE_X31Y7          FDRE (Setup_fdre_C_D)       -0.105    12.561    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg22_reg[18]
   -------------------------------------------------------------------
-                         required time                         12.473    
-                         arrival time                         -11.151    
+                         required time                         12.561    
+                         arrival time                         -12.041    
   -------------------------------------------------------------------
-                         slack                                  1.322    
+                         slack                                  0.520    
 
-Slack (MET) :             1.322ns  (required time - arrival time)
+Slack (MET) :             0.521ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[20]/CE
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg20_reg[11]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.078ns  (logic 1.550ns (19.188%)  route 6.528ns (80.812%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        -0.277ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.680ns = ( 12.680 - 10.000 ) 
+  Data Path Delay:        8.969ns  (logic 1.450ns (16.168%)  route 7.519ns (83.832%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.251ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.691ns = ( 12.691 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -387,15 +381,13 @@ Slack (MET) :             1.322ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WSTRB[2])
-                                                      1.426     4.499 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WSTRB[2]
-                         net (fo=53, routed)          6.007    10.505    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wstrb[2]
-    SLICE_X29Y59         LUT6 (Prop_lut6_I3_O)        0.124    10.629 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58[23]_i_1/O
-                         net (fo=8, routed)           0.522    11.151    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58[23]_i_1_n_1
-    SLICE_X30Y58         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[20]/CE
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[11])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[11]
+                         net (fo=53, routed)          7.519    12.041    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[11]
+    SLICE_X31Y3          FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg20_reg[11]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -403,31 +395,31 @@ Slack (MET) :             1.322ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.488    12.680    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X30Y58         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[20]/C
-                         clock pessimism              0.116    12.796    
-                         clock uncertainty           -0.154    12.642    
-    SLICE_X30Y58         FDRE (Setup_fdre_C_CE)      -0.169    12.473    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg58_reg[20]
+                         net (fo=3244, routed)        1.499    12.691    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X31Y3          FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg20_reg[11]/C
+                         clock pessimism              0.130    12.821    
+                         clock uncertainty           -0.154    12.667    
+    SLICE_X31Y3          FDRE (Setup_fdre_C_D)       -0.105    12.562    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg20_reg[11]
   -------------------------------------------------------------------
-                         required time                         12.473    
-                         arrival time                         -11.151    
+                         required time                         12.562    
+                         arrival time                         -12.041    
   -------------------------------------------------------------------
-                         slack                                  1.322    
+                         slack                                  0.521    
 
-Slack (MET) :             1.348ns  (required time - arrival time)
+Slack (MET) :             0.530ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[16]/CE
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg38_reg[22]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.058ns  (logic 2.605ns (32.329%)  route 5.453ns (67.671%))
-  Logic Levels:           6  (CARRY4=1 LUT4=2 LUT6=3)
-  Clock Path Skew:        -0.271ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.686ns = ( 12.686 - 10.000 ) 
+  Data Path Delay:        9.111ns  (logic 1.450ns (15.915%)  route 7.661ns (84.085%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.177ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.766ns = ( 12.766 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -441,26 +433,13 @@ Slack (MET) :             1.348ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0AWID[1])
-                                                      1.453     4.526 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0AWID[1]
-                         net (fo=17, routed)          1.883     6.409    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/s_axi_awid[1]
-    SLICE_X7Y57          LUT6 (Prop_lut6_I1_O)        0.124     6.533 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0/O
-                         net (fo=1, routed)           0.000     6.533    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0_n_1
-    SLICE_X7Y57          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532     7.065 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry/CO[3]
-                         net (fo=3, routed)           1.138     8.203    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20
-    SLICE_X4Y58          LUT4 (Prop_lut4_I1_O)        0.124     8.327 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12/O
-                         net (fo=2, routed)           0.856     9.184    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12_n_1
-    SLICE_X5Y59          LUT6 (Prop_lut6_I0_O)        0.124     9.308 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4/O
-                         net (fo=6, routed)           0.587     9.895    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4_n_1
-    SLICE_X6Y58          LUT6 (Prop_lut6_I5_O)        0.124    10.019 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_target[17]_i_1/O
-                         net (fo=17, routed)          0.657    10.676    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst/cmd_push_2
-    SLICE_X6Y58          LUT4 (Prop_lut4_I0_O)        0.124    10.800 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst/gen_multi_thread.gen_thread_loop[2].active_cnt[19]_i_1/O
-                         net (fo=4, routed)           0.331    11.130    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst_n_10
-    SLICE_X6Y59          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[16]/CE
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[22])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[22]
+                         net (fo=53, routed)          7.661    12.184    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[22]
+    SLICE_X42Y11         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg38_reg[22]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -468,31 +447,31 @@ Slack (MET) :             1.348ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.494    12.686    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aclk
-    SLICE_X6Y59          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[16]/C
-                         clock pessimism              0.116    12.802    
-                         clock uncertainty           -0.154    12.648    
-    SLICE_X6Y59          FDRE (Setup_fdre_C_CE)      -0.169    12.479    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[16]
+                         net (fo=3244, routed)        1.573    12.765    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X42Y11         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg38_reg[22]/C
+                         clock pessimism              0.130    12.895    
+                         clock uncertainty           -0.154    12.741    
+    SLICE_X42Y11         FDRE (Setup_fdre_C_D)       -0.028    12.713    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg38_reg[22]
   -------------------------------------------------------------------
-                         required time                         12.479    
-                         arrival time                         -11.130    
+                         required time                         12.713    
+                         arrival time                         -12.184    
   -------------------------------------------------------------------
-                         slack                                  1.348    
+                         slack                                  0.530    
 
-Slack (MET) :             1.348ns  (required time - arrival time)
+Slack (MET) :             0.654ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[17]/CE
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg52_reg[22]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.058ns  (logic 2.605ns (32.329%)  route 5.453ns (67.671%))
-  Logic Levels:           6  (CARRY4=1 LUT4=2 LUT6=3)
-  Clock Path Skew:        -0.271ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.686ns = ( 12.686 - 10.000 ) 
+  Data Path Delay:        8.970ns  (logic 1.450ns (16.165%)  route 7.520ns (83.835%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.175ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.767ns = ( 12.767 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -506,26 +485,13 @@ Slack (MET) :             1.348ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0AWID[1])
-                                                      1.453     4.526 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0AWID[1]
-                         net (fo=17, routed)          1.883     6.409    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/s_axi_awid[1]
-    SLICE_X7Y57          LUT6 (Prop_lut6_I1_O)        0.124     6.533 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0/O
-                         net (fo=1, routed)           0.000     6.533    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0_n_1
-    SLICE_X7Y57          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532     7.065 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry/CO[3]
-                         net (fo=3, routed)           1.138     8.203    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20
-    SLICE_X4Y58          LUT4 (Prop_lut4_I1_O)        0.124     8.327 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12/O
-                         net (fo=2, routed)           0.856     9.184    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12_n_1
-    SLICE_X5Y59          LUT6 (Prop_lut6_I0_O)        0.124     9.308 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4/O
-                         net (fo=6, routed)           0.587     9.895    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4_n_1
-    SLICE_X6Y58          LUT6 (Prop_lut6_I5_O)        0.124    10.019 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_target[17]_i_1/O
-                         net (fo=17, routed)          0.657    10.676    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst/cmd_push_2
-    SLICE_X6Y58          LUT4 (Prop_lut4_I0_O)        0.124    10.800 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst/gen_multi_thread.gen_thread_loop[2].active_cnt[19]_i_1/O
-                         net (fo=4, routed)           0.331    11.130    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst_n_10
-    SLICE_X6Y59          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[17]/CE
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[22])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[22]
+                         net (fo=53, routed)          7.520    12.043    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[22]
+    SLICE_X41Y8          FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg52_reg[22]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -533,31 +499,31 @@ Slack (MET) :             1.348ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.494    12.686    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aclk
-    SLICE_X6Y59          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[17]/C
-                         clock pessimism              0.116    12.802    
-                         clock uncertainty           -0.154    12.648    
-    SLICE_X6Y59          FDRE (Setup_fdre_C_CE)      -0.169    12.479    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[17]
+                         net (fo=3244, routed)        1.575    12.767    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X41Y8          FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg52_reg[22]/C
+                         clock pessimism              0.130    12.897    
+                         clock uncertainty           -0.154    12.743    
+    SLICE_X41Y8          FDRE (Setup_fdre_C_D)       -0.047    12.696    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg52_reg[22]
   -------------------------------------------------------------------
-                         required time                         12.479    
-                         arrival time                         -11.130    
+                         required time                         12.696    
+                         arrival time                         -12.043    
   -------------------------------------------------------------------
-                         slack                                  1.348    
+                         slack                                  0.654    
 
-Slack (MET) :             1.348ns  (required time - arrival time)
+Slack (MET) :             0.664ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[18]/CE
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg61_reg[20]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.058ns  (logic 2.605ns (32.329%)  route 5.453ns (67.671%))
-  Logic Levels:           6  (CARRY4=1 LUT4=2 LUT6=3)
-  Clock Path Skew:        -0.271ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.686ns = ( 12.686 - 10.000 ) 
+  Data Path Delay:        8.893ns  (logic 1.450ns (16.306%)  route 7.443ns (83.694%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.258ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.684ns = ( 12.684 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -571,26 +537,13 @@ Slack (MET) :             1.348ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0AWID[1])
-                                                      1.453     4.526 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0AWID[1]
-                         net (fo=17, routed)          1.883     6.409    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/s_axi_awid[1]
-    SLICE_X7Y57          LUT6 (Prop_lut6_I1_O)        0.124     6.533 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0/O
-                         net (fo=1, routed)           0.000     6.533    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0_n_1
-    SLICE_X7Y57          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532     7.065 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry/CO[3]
-                         net (fo=3, routed)           1.138     8.203    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20
-    SLICE_X4Y58          LUT4 (Prop_lut4_I1_O)        0.124     8.327 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12/O
-                         net (fo=2, routed)           0.856     9.184    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12_n_1
-    SLICE_X5Y59          LUT6 (Prop_lut6_I0_O)        0.124     9.308 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4/O
-                         net (fo=6, routed)           0.587     9.895    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4_n_1
-    SLICE_X6Y58          LUT6 (Prop_lut6_I5_O)        0.124    10.019 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_target[17]_i_1/O
-                         net (fo=17, routed)          0.657    10.676    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst/cmd_push_2
-    SLICE_X6Y58          LUT4 (Prop_lut4_I0_O)        0.124    10.800 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst/gen_multi_thread.gen_thread_loop[2].active_cnt[19]_i_1/O
-                         net (fo=4, routed)           0.331    11.130    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst_n_10
-    SLICE_X6Y59          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[18]/CE
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[20])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[20]
+                         net (fo=53, routed)          7.443    11.965    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[20]
+    SLICE_X30Y33         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg61_reg[20]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -598,31 +551,31 @@ Slack (MET) :             1.348ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.494    12.686    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aclk
-    SLICE_X6Y59          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[18]/C
-                         clock pessimism              0.116    12.802    
-                         clock uncertainty           -0.154    12.648    
-    SLICE_X6Y59          FDRE (Setup_fdre_C_CE)      -0.169    12.479    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[18]
+                         net (fo=3244, routed)        1.492    12.684    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X30Y33         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg61_reg[20]/C
+                         clock pessimism              0.130    12.814    
+                         clock uncertainty           -0.154    12.660    
+    SLICE_X30Y33         FDRE (Setup_fdre_C_D)       -0.031    12.629    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg61_reg[20]
   -------------------------------------------------------------------
-                         required time                         12.479    
-                         arrival time                         -11.130    
+                         required time                         12.629    
+                         arrival time                         -11.965    
   -------------------------------------------------------------------
-                         slack                                  1.348    
+                         slack                                  0.664    
 
-Slack (MET) :             1.348ns  (required time - arrival time)
+Slack (MET) :             0.667ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[19]/CE
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg37_reg[22]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.058ns  (logic 2.605ns (32.329%)  route 5.453ns (67.671%))
-  Logic Levels:           6  (CARRY4=1 LUT4=2 LUT6=3)
-  Clock Path Skew:        -0.271ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.686ns = ( 12.686 - 10.000 ) 
+  Data Path Delay:        8.941ns  (logic 1.450ns (16.217%)  route 7.491ns (83.783%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.176ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.766ns = ( 12.767 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -636,26 +589,13 @@ Slack (MET) :             1.348ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0AWID[1])
-                                                      1.453     4.526 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0AWID[1]
-                         net (fo=17, routed)          1.883     6.409    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/s_axi_awid[1]
-    SLICE_X7Y57          LUT6 (Prop_lut6_I1_O)        0.124     6.533 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0/O
-                         net (fo=1, routed)           0.000     6.533    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0_n_1
-    SLICE_X7Y57          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532     7.065 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry/CO[3]
-                         net (fo=3, routed)           1.138     8.203    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20
-    SLICE_X4Y58          LUT4 (Prop_lut4_I1_O)        0.124     8.327 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12/O
-                         net (fo=2, routed)           0.856     9.184    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12_n_1
-    SLICE_X5Y59          LUT6 (Prop_lut6_I0_O)        0.124     9.308 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4/O
-                         net (fo=6, routed)           0.587     9.895    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4_n_1
-    SLICE_X6Y58          LUT6 (Prop_lut6_I5_O)        0.124    10.019 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_target[17]_i_1/O
-                         net (fo=17, routed)          0.657    10.676    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst/cmd_push_2
-    SLICE_X6Y58          LUT4 (Prop_lut4_I0_O)        0.124    10.800 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst/gen_multi_thread.gen_thread_loop[2].active_cnt[19]_i_1/O
-                         net (fo=4, routed)           0.331    11.130    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.arbiter_resp_inst_n_10
-    SLICE_X6Y59          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[19]/CE
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[22])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[22]
+                         net (fo=53, routed)          7.491    12.014    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[22]
+    SLICE_X41Y10         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg37_reg[22]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -663,31 +603,31 @@ Slack (MET) :             1.348ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.494    12.686    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aclk
-    SLICE_X6Y59          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[19]/C
-                         clock pessimism              0.116    12.802    
-                         clock uncertainty           -0.154    12.648    
-    SLICE_X6Y59          FDRE (Setup_fdre_C_CE)      -0.169    12.479    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[2].active_cnt_reg[19]
+                         net (fo=3244, routed)        1.574    12.766    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X41Y10         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg37_reg[22]/C
+                         clock pessimism              0.130    12.896    
+                         clock uncertainty           -0.154    12.742    
+    SLICE_X41Y10         FDRE (Setup_fdre_C_D)       -0.061    12.681    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg37_reg[22]
   -------------------------------------------------------------------
-                         required time                         12.479    
-                         arrival time                         -11.130    
+                         required time                         12.681    
+                         arrival time                         -12.014    
   -------------------------------------------------------------------
-                         slack                                  1.348    
+                         slack                                  0.667    
 
-Slack (MET) :             1.380ns  (required time - arrival time)
+Slack (MET) :             0.711ns  (required time - arrival time)
   Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_cnt_reg[43]/D
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg62_reg[20]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        8.180ns  (logic 2.605ns (31.847%)  route 5.575ns (68.153%))
-  Logic Levels:           6  (CARRY4=1 LUT4=1 LUT5=1 LUT6=3)
-  Clock Path Skew:        -0.225ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.732ns = ( 12.732 - 10.000 ) 
+  Data Path Delay:        8.797ns  (logic 1.450ns (16.483%)  route 7.347ns (83.517%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.257ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.685ns = ( 12.686 - 10.000 ) 
     Source Clock Delay      (SCD):    3.073ns
-    Clock Pessimism Removal (CPR):    0.116ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -701,26 +641,13 @@ Slack (MET) :             1.380ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0AWID[1])
-                                                      1.453     4.526 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0AWID[1]
-                         net (fo=17, routed)          1.883     6.409    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/s_axi_awid[1]
-    SLICE_X7Y57          LUT6 (Prop_lut6_I1_O)        0.124     6.533 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0/O
-                         net (fo=1, routed)           0.000     6.533    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry_i_4__0_n_1
-    SLICE_X7Y57          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532     7.065 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20_carry/CO[3]
-                         net (fo=3, routed)           1.138     8.203    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aid_match_20
-    SLICE_X4Y58          LUT4 (Prop_lut4_I1_O)        0.124     8.327 f  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12/O
-                         net (fo=2, routed)           0.856     9.184    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[7].active_target[57]_i_12_n_1
-    SLICE_X5Y59          LUT6 (Prop_lut6_I0_O)        0.124     9.308 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4/O
-                         net (fo=6, routed)           0.609     9.917    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_4_n_1
-    SLICE_X4Y58          LUT6 (Prop_lut6_I5_O)        0.124    10.041 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_target[41]_i_1/O
-                         net (fo=17, routed)          0.446    10.487    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/cmd_push_5
-    SLICE_X3Y58          LUT5 (Prop_lut5_I4_O)        0.124    10.611 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_cnt[43]_i_2/O
-                         net (fo=1, routed)           0.641    11.253    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_cnt[43]_i_2_n_1
-    SLICE_X3Y58          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_cnt_reg[43]/D
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[20])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[20]
+                         net (fo=53, routed)          7.347    11.870    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[20]
+    SLICE_X31Y34         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg62_reg[20]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -728,31 +655,31 @@ Slack (MET) :             1.380ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.540    12.732    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/aclk
-    SLICE_X3Y58          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_cnt_reg[43]/C
-                         clock pessimism              0.116    12.848    
-                         clock uncertainty           -0.154    12.694    
-    SLICE_X3Y58          FDRE (Setup_fdre_C_D)       -0.061    12.633    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.si_transactor_aw/gen_multi_thread.gen_thread_loop[5].active_cnt_reg[43]
+                         net (fo=3244, routed)        1.493    12.685    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X31Y34         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg62_reg[20]/C
+                         clock pessimism              0.130    12.815    
+                         clock uncertainty           -0.154    12.661    
+    SLICE_X31Y34         FDRE (Setup_fdre_C_D)       -0.081    12.580    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg62_reg[20]
   -------------------------------------------------------------------
-                         required time                         12.633    
-                         arrival time                         -11.253    
+                         required time                         12.580    
+                         arrival time                         -11.870    
   -------------------------------------------------------------------
-                         slack                                  1.380    
+                         slack                                  0.711    
 
-Slack (MET) :             1.395ns  (required time - arrival time)
-  Source:                 cnc_controller_design_1_i/rst_ps7_0_100M/U0/ACTIVE_LOW_PR_OUT_DFF[0].peripheral_aresetn_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg45_reg[17]/R
+Slack (MET) :             0.748ns  (required time - arrival time)
+  Source:                 cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg20_reg[16]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        7.800ns  (logic 0.580ns (7.436%)  route 7.220ns (92.564%))
-  Logic Levels:           1  (LUT1=1)
-  Clock Path Skew:        -0.221ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.681ns = ( 12.681 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.018ns
-    Clock Pessimism Removal (CPR):    0.116ns
+  Data Path Delay:        8.778ns  (logic 1.450ns (16.518%)  route 7.328ns (83.482%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.252ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.690ns = ( 12.691 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.073ns
+    Clock Pessimism Removal (CPR):    0.130ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.300ns
@@ -766,14 +693,13 @@ Slack (MET) :             1.395ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.207     1.207    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     1.308 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.710     3.018    cnc_controller_design_1_i/rst_ps7_0_100M/U0/slowest_sync_clk
-    SLICE_X2Y26          FDRE                                         r  cnc_controller_design_1_i/rst_ps7_0_100M/U0/ACTIVE_LOW_PR_OUT_DFF[0].peripheral_aresetn_reg[0]/C
+                         net (fo=3244, routed)        1.765     3.073    cnc_controller_design_1_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+    PS7_X0Y0             PS7                                          r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X2Y26          FDRE (Prop_fdre_C_Q)         0.456     3.474 f  cnc_controller_design_1_i/rst_ps7_0_100M/U0/ACTIVE_LOW_PR_OUT_DFF[0].peripheral_aresetn_reg[0]/Q
-                         net (fo=3, routed)           0.804     4.278    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_2/s00_axi_aresetn
-    SLICE_X2Y29          LUT1 (Prop_lut1_I0_O)        0.124     4.402 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_2/PWM_OUT_i_1__0/O
-                         net (fo=1814, routed)        6.417    10.818    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/p_0_in
-    SLICE_X31Y55         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg45_reg[17]/R
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[16])
+                                                      1.450     4.523 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[16]
+                         net (fo=53, routed)          7.328    11.851    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[16]
+    SLICE_X29Y7          FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg20_reg[16]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -781,16 +707,16 @@ Slack (MET) :             1.395ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.101    11.101    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    11.192 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        1.489    12.681    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X31Y55         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg45_reg[17]/C
-                         clock pessimism              0.116    12.797    
-                         clock uncertainty           -0.154    12.643    
-    SLICE_X31Y55         FDRE (Setup_fdre_C_R)       -0.429    12.214    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg45_reg[17]
+                         net (fo=3244, routed)        1.498    12.690    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X29Y7          FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg20_reg[16]/C
+                         clock pessimism              0.130    12.820    
+                         clock uncertainty           -0.154    12.666    
+    SLICE_X29Y7          FDRE (Setup_fdre_C_D)       -0.067    12.599    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg20_reg[16]
   -------------------------------------------------------------------
-                         required time                         12.214    
-                         arrival time                         -10.818    
+                         required time                         12.599    
+                         arrival time                         -11.851    
   -------------------------------------------------------------------
-                         slack                                  1.395    
+                         slack                                  0.748    
 
 
 
@@ -798,19 +724,19 @@ Slack (MET) :             1.395ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.023ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg18_reg[1]/C
+Slack (MET) :             0.026ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[21]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining_reg[1]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][21]_srl32/D
+                            (rising edge-triggered cell SRLC32E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.409ns  (logic 0.186ns (45.479%)  route 0.223ns (54.521%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.266ns (DCD - SCD - CPR)
+  Data Path Delay:        0.348ns  (logic 0.128ns (36.788%)  route 0.220ns (63.212%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.267ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.193ns
-    Source Clock Delay      (SCD):    0.893ns
+    Source Clock Delay      (SCD):    0.892ns
     Clock Pessimism Removal (CPR):    0.034ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -820,14 +746,12 @@ Slack (MET) :             0.023ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.552     0.893    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X21Y30         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg18_reg[1]/C
+                         net (fo=3244, routed)        0.551     0.892    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X22Y29         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[21]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X21Y30         FDRE (Prop_fdre_C_Q)         0.141     1.034 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg18_reg[1]/Q
-                         net (fo=2, routed)           0.223     1.256    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/slv_reg18_reg[26][1]
-    SLICE_X24Y35         LUT6 (Prop_lut6_I0_O)        0.045     1.301 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining[1]_i_1/O
-                         net (fo=1, routed)           0.000     1.301    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/p_1_in[1]
-    SLICE_X24Y35         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining_reg[1]/D
+    SLICE_X22Y29         FDRE (Prop_fdre_C_Q)         0.128     1.020 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[21]/Q
+                         net (fo=1, routed)           0.220     1.239    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[21]
+    SLICE_X20Y33         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][21]_srl32/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -835,17 +759,63 @@ Slack (MET) :             0.023ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.823     1.193    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/s00_axi_aclk
-    SLICE_X24Y35         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining_reg[1]/C
+                         net (fo=3244, routed)        0.823     1.193    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
+    SLICE_X20Y33         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][21]_srl32/CLK
                          clock pessimism             -0.034     1.159    
-    SLICE_X24Y35         FDRE (Hold_fdre_C_D)         0.120     1.279    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining_reg[1]
+    SLICE_X20Y33         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.055     1.214    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][21]_srl32
   -------------------------------------------------------------------
-                         required time                         -1.279    
-                         arrival time                           1.301    
+                         required time                         -1.214    
+                         arrival time                           1.239    
   -------------------------------------------------------------------
-                         slack                                  0.023    
+                         slack                                  0.026    
 
-Slack (MET) :             0.066ns  (arrival time - required time)
+Slack (MET) :             0.038ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/addr_arbiter_aw/gen_no_arbiter.m_mesg_i_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_decerr_slave.decerr_slave_inst/gen_axi.s_axi_bid_i_reg[10]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.351ns  (logic 0.141ns (40.182%)  route 0.210ns (59.818%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.267ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.201ns
+    Source Clock Delay      (SCD):    0.905ns
+    Clock Pessimism Removal (CPR):    0.029ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.564     0.905    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/addr_arbiter_aw/aclk
+    SLICE_X14Y49         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/addr_arbiter_aw/gen_no_arbiter.m_mesg_i_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X14Y49         FDRE (Prop_fdre_C_Q)         0.141     1.046 r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/addr_arbiter_aw/gen_no_arbiter.m_mesg_i_reg[10]/Q
+                         net (fo=3, routed)           0.210     1.255    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_decerr_slave.decerr_slave_inst/gen_no_arbiter.m_mesg_i_reg[11][10]
+    SLICE_X15Y50         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_decerr_slave.decerr_slave_inst/gen_axi.s_axi_bid_i_reg[10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.831     1.201    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_decerr_slave.decerr_slave_inst/aclk
+    SLICE_X15Y50         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_decerr_slave.decerr_slave_inst/gen_axi.s_axi_bid_i_reg[10]/C
+                         clock pessimism             -0.029     1.172    
+    SLICE_X15Y50         FDRE (Hold_fdre_C_D)         0.046     1.218    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_decerr_slave.decerr_slave_inst/gen_axi.s_axi_bid_i_reg[10]
+  -------------------------------------------------------------------
+                         required time                         -1.218    
+                         arrival time                           1.255    
+  -------------------------------------------------------------------
+                         slack                                  0.038    
+
+Slack (MET) :             0.069ns  (arrival time - required time)
   Source:                 cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][4]_srl32/D
@@ -853,11 +823,11 @@ Slack (MET) :             0.066ns  (arrival time - required time)
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.264ns  (logic 0.164ns (62.064%)  route 0.100ns (37.936%))
+  Data Path Delay:        0.266ns  (logic 0.164ns (61.653%)  route 0.102ns (38.347%))
   Logic Levels:           0  
-  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.203ns
-    Source Clock Delay      (SCD):    0.907ns
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.198ns
+    Source Clock Delay      (SCD):    0.903ns
     Clock Pessimism Removal (CPR):    0.281ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -867,58 +837,12 @@ Slack (MET) :             0.066ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.566     0.907    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
-    SLICE_X10Y43         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[3]/C
+                         net (fo=3244, routed)        0.562     0.903    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+    SLICE_X10Y34         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X10Y43         FDRE (Prop_fdre_C_Q)         0.164     1.071 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[3]/Q
-                         net (fo=1, routed)           0.100     1.171    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/in[4]
-    SLICE_X12Y42         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][4]_srl32/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.833     1.203    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
-    SLICE_X12Y42         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][4]_srl32/CLK
-                         clock pessimism             -0.281     0.922    
-    SLICE_X12Y42         SRLC32E (Hold_srlc32e_CLK_D)
-                                                      0.183     1.105    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][4]_srl32
-  -------------------------------------------------------------------
-                         required time                         -1.105    
-                         arrival time                           1.171    
-  -------------------------------------------------------------------
-                         slack                                  0.066    
-
-Slack (MET) :             0.076ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r_pipe/m_payload_i_reg[41]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/skid_buffer_reg[41]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.406ns  (logic 0.164ns (40.376%)  route 0.242ns (59.624%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.267ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.204ns
-    Source Clock Delay      (SCD):    0.908ns
-    Clock Pessimism Removal (CPR):    0.029ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.567     0.908    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r_pipe/aclk
-    SLICE_X10Y49         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r_pipe/m_payload_i_reg[41]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X10Y49         FDRE (Prop_fdre_C_Q)         0.164     1.072 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r_pipe/m_payload_i_reg[41]/Q
-                         net (fo=2, routed)           0.242     1.314    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/m_axi_rid[6]
-    SLICE_X8Y51          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/skid_buffer_reg[41]/D
+    SLICE_X10Y34         FDRE (Prop_fdre_C_Q)         0.164     1.067 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[3]/Q
+                         net (fo=1, routed)           0.102     1.169    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/in[4]
+    SLICE_X12Y34         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][4]_srl32/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -926,165 +850,29 @@ Slack (MET) :             0.076ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.834     1.204    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/aclk
-    SLICE_X8Y51          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/skid_buffer_reg[41]/C
-                         clock pessimism             -0.029     1.175    
-    SLICE_X8Y51          FDRE (Hold_fdre_C_D)         0.063     1.238    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/skid_buffer_reg[41]
+                         net (fo=3244, routed)        0.828     1.198    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
+    SLICE_X12Y34         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][4]_srl32/CLK
+                         clock pessimism             -0.281     0.917    
+    SLICE_X12Y34         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.183     1.100    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][4]_srl32
   -------------------------------------------------------------------
-                         required time                         -1.238    
-                         arrival time                           1.314    
+                         required time                         -1.100    
+                         arrival time                           1.169    
   -------------------------------------------------------------------
-                         slack                                  0.076    
+                         slack                                  0.069    
 
-Slack (MET) :             0.081ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r_pipe/m_payload_i_reg[42]/C
+Slack (MET) :             0.073ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/m_payload_i_reg[56]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/skid_buffer_reg[42]/D
+  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[3]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.358ns  (logic 0.148ns (41.369%)  route 0.210ns (58.631%))
+  Data Path Delay:        0.356ns  (logic 0.148ns (41.578%)  route 0.208ns (58.422%))
   Logic Levels:           0  
-  Clock Path Skew:        0.267ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.204ns
-    Source Clock Delay      (SCD):    0.908ns
-    Clock Pessimism Removal (CPR):    0.029ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.567     0.908    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r_pipe/aclk
-    SLICE_X10Y49         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r_pipe/m_payload_i_reg[42]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X10Y49         FDRE (Prop_fdre_C_Q)         0.148     1.056 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r_pipe/m_payload_i_reg[42]/Q
-                         net (fo=2, routed)           0.210     1.265    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/m_axi_rid[7]
-    SLICE_X8Y51          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/skid_buffer_reg[42]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.834     1.204    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/aclk
-    SLICE_X8Y51          FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/skid_buffer_reg[42]/C
-                         clock pessimism             -0.029     1.175    
-    SLICE_X8Y51          FDRE (Hold_fdre_C_D)         0.009     1.184    cnc_controller_design_1_i/axi_interconnect_0/xbar/inst/gen_samd.crossbar_samd/gen_master_slots[0].reg_slice_mi/r_pipe/skid_buffer_reg[42]
-  -------------------------------------------------------------------
-                         required time                         -1.184    
-                         arrival time                           1.265    
-  -------------------------------------------------------------------
-                         slack                                  0.081    
-
-Slack (MET) :             0.087ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[24]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][24]_srl32/D
-                            (rising edge-triggered cell SRLC32E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.233ns  (logic 0.128ns (54.911%)  route 0.105ns (45.089%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+  Clock Path Skew:        0.270ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.202ns
-    Source Clock Delay      (SCD):    0.905ns
-    Clock Pessimism Removal (CPR):    0.281ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.564     0.905    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X18Y49         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[24]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X18Y49         FDRE (Prop_fdre_C_Q)         0.128     1.033 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[24]/Q
-                         net (fo=1, routed)           0.105     1.138    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[24]
-    SLICE_X16Y49         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][24]_srl32/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.832     1.202    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
-    SLICE_X16Y49         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][24]_srl32/CLK
-                         clock pessimism             -0.281     0.921    
-    SLICE_X16Y49         SRLC32E (Hold_srlc32e_CLK_D)
-                                                      0.130     1.051    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][24]_srl32
-  -------------------------------------------------------------------
-                         required time                         -1.051    
-                         arrival time                           1.138    
-  -------------------------------------------------------------------
-                         slack                                  0.087    
-
-Slack (MET) :             0.090ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[23]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][23]_srl32/D
-                            (rising edge-triggered cell SRLC32E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.236ns  (logic 0.128ns (54.337%)  route 0.108ns (45.663%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.202ns
-    Source Clock Delay      (SCD):    0.905ns
-    Clock Pessimism Removal (CPR):    0.281ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.564     0.905    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X18Y49         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[23]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X18Y49         FDRE (Prop_fdre_C_Q)         0.128     1.033 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[23]/Q
-                         net (fo=1, routed)           0.108     1.140    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[23]
-    SLICE_X16Y48         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][23]_srl32/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.832     1.202    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
-    SLICE_X16Y48         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][23]_srl32/CLK
-                         clock pessimism             -0.281     0.921    
-    SLICE_X16Y48         SRLC32E (Hold_srlc32e_CLK_D)
-                                                      0.130     1.051    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][23]_srl32
-  -------------------------------------------------------------------
-                         required time                         -1.051    
-                         arrival time                           1.140    
-  -------------------------------------------------------------------
-                         slack                                  0.090    
-
-Slack (MET) :             0.108ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[26]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][26]_srl32/D
-                            (rising edge-triggered cell SRLC32E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.496ns  (logic 0.141ns (28.426%)  route 0.355ns (71.574%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.273ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.205ns
     Source Clock Delay      (SCD):    0.903ns
     Clock Pessimism Removal (CPR):    0.029ns
 
@@ -1095,58 +883,12 @@ Slack (MET) :             0.108ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.562     0.903    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X17Y50         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[26]/C
+                         net (fo=3244, routed)        0.562     0.903    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/aclk
+    SLICE_X16Y50         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/m_payload_i_reg[56]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X17Y50         FDRE (Prop_fdre_C_Q)         0.141     1.044 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[26]/Q
-                         net (fo=1, routed)           0.355     1.399    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[26]
-    SLICE_X12Y49         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][26]_srl32/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.835     1.205    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
-    SLICE_X12Y49         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][26]_srl32/CLK
-                         clock pessimism             -0.029     1.176    
-    SLICE_X12Y49         SRLC32E (Hold_srlc32e_CLK_D)
-                                                      0.115     1.291    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][26]_srl32
-  -------------------------------------------------------------------
-                         required time                         -1.291    
-                         arrival time                           1.399    
-  -------------------------------------------------------------------
-                         slack                                  0.108    
-
-Slack (MET) :             0.111ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][2]_srl32/D
-                            (rising edge-triggered cell SRLC32E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.242ns  (logic 0.141ns (58.263%)  route 0.101ns (41.737%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.203ns
-    Source Clock Delay      (SCD):    0.906ns
-    Clock Pessimism Removal (CPR):    0.281ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.565     0.906    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
-    SLICE_X11Y42         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X11Y42         FDRE (Prop_fdre_C_Q)         0.141     1.047 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/Q
-                         net (fo=1, routed)           0.101     1.148    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/in[2]
-    SLICE_X12Y42         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][2]_srl32/D
+    SLICE_X16Y50         FDRE (Prop_fdre_C_Q)         0.148     1.051 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/m_payload_i_reg[56]/Q
+                         net (fo=1, routed)           0.208     1.259    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/m_payload_i_reg[64][27]
+    SLICE_X17Y47         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1154,30 +896,29 @@ Slack (MET) :             0.111ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.833     1.203    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
-    SLICE_X12Y42         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][2]_srl32/CLK
-                         clock pessimism             -0.281     0.922    
-    SLICE_X12Y42         SRLC32E (Hold_srlc32e_CLK_D)
-                                                      0.115     1.037    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][2]_srl32
+                         net (fo=3244, routed)        0.832     1.202    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aclk
+    SLICE_X17Y47         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[3]/C
+                         clock pessimism             -0.029     1.173    
+    SLICE_X17Y47         FDRE (Hold_fdre_C_D)         0.013     1.186    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[3]
   -------------------------------------------------------------------
-                         required time                         -1.037    
-                         arrival time                           1.148    
+                         required time                         -1.186    
+                         arrival time                           1.259    
   -------------------------------------------------------------------
-                         slack                                  0.111    
+                         slack                                  0.073    
 
-Slack (MET) :             0.116ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg18_reg[4]/C
+Slack (MET) :             0.093ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg0_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining_reg[4]/D
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[1].pwm_channel_i/PWM_OUT_reg/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.504ns  (logic 0.186ns (36.938%)  route 0.318ns (63.062%))
+  Data Path Delay:        0.471ns  (logic 0.209ns (44.382%)  route 0.262ns (55.618%))
   Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.266ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.193ns
-    Source Clock Delay      (SCD):    0.893ns
+  Clock Path Skew:        0.258ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.191ns
+    Source Clock Delay      (SCD):    0.899ns
     Clock Pessimism Removal (CPR):    0.034ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1187,14 +928,14 @@ Slack (MET) :             0.116ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.552     0.893    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X21Y30         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg18_reg[4]/C
+                         net (fo=3244, routed)        0.558     0.899    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X24Y11         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg0_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X21Y30         FDRE (Prop_fdre_C_Q)         0.141     1.034 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg18_reg[4]/Q
-                         net (fo=2, routed)           0.318     1.351    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/slv_reg18_reg[26][4]
-    SLICE_X24Y35         LUT6 (Prop_lut6_I0_O)        0.045     1.396 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining[4]_i_1/O
-                         net (fo=1, routed)           0.000     1.396    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/p_1_in[4]
-    SLICE_X24Y35         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining_reg[4]/D
+    SLICE_X24Y11         FDRE (Prop_fdre_C_Q)         0.164     1.063 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg0_reg[2]/Q
+                         net (fo=2, routed)           0.262     1.324    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[1].pwm_channel_i/Q[1]
+    SLICE_X20Y18         LUT6 (Prop_lut6_I0_O)        0.045     1.369 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[1].pwm_channel_i/PWM_OUT_i_2/O
+                         net (fo=1, routed)           0.000     1.369    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[1].pwm_channel_i/PWM_OUT_i_2_n_1
+    SLICE_X20Y18         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[1].pwm_channel_i/PWM_OUT_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1202,30 +943,30 @@ Slack (MET) :             0.116ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.823     1.193    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/s00_axi_aclk
-    SLICE_X24Y35         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining_reg[4]/C
-                         clock pessimism             -0.034     1.159    
-    SLICE_X24Y35         FDRE (Hold_fdre_C_D)         0.121     1.280    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/pwm_channel_1/cycles_remaining_reg[4]
+                         net (fo=3244, routed)        0.821     1.191    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[1].pwm_channel_i/s00_axi_aclk
+    SLICE_X20Y18         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[1].pwm_channel_i/PWM_OUT_reg/C
+                         clock pessimism             -0.034     1.157    
+    SLICE_X20Y18         FDRE (Hold_fdre_C_D)         0.120     1.277    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[1].pwm_channel_i/PWM_OUT_reg
   -------------------------------------------------------------------
-                         required time                         -1.280    
-                         arrival time                           1.396    
+                         required time                         -1.277    
+                         arrival time                           1.369    
   -------------------------------------------------------------------
-                         slack                                  0.116    
+                         slack                                  0.093    
 
-Slack (MET) :             0.118ns  (arrival time - required time)
-  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[19]/C
+Slack (MET) :             0.098ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[31]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][19]_srl32/D
+  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][31]_srl32/D
                             (rising edge-triggered cell SRLC32E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.243ns  (logic 0.141ns (58.002%)  route 0.102ns (41.998%))
+  Data Path Delay:        0.433ns  (logic 0.128ns (29.561%)  route 0.305ns (70.439%))
   Logic Levels:           0  
-  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.202ns
-    Source Clock Delay      (SCD):    0.905ns
-    Clock Pessimism Removal (CPR):    0.281ns
+  Clock Path Skew:        0.271ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.197ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.034ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1234,12 +975,12 @@ Slack (MET) :             0.118ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.564     0.905    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X18Y49         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[19]/C
+                         net (fo=3244, routed)        0.551     0.892    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X22Y29         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[31]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X18Y49         FDRE (Prop_fdre_C_Q)         0.141     1.046 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[19]/Q
-                         net (fo=1, routed)           0.102     1.148    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[19]
-    SLICE_X16Y48         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][19]_srl32/D
+    SLICE_X22Y29         FDRE (Prop_fdre_C_Q)         0.128     1.020 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/axi_rdata_reg[31]/Q
+                         net (fo=1, routed)           0.305     1.325    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[31]
+    SLICE_X16Y37         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][31]_srl32/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1247,16 +988,198 @@ Slack (MET) :             0.118ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=3016, routed)        0.832     1.202    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
-    SLICE_X16Y48         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][19]_srl32/CLK
-                         clock pessimism             -0.281     0.921    
-    SLICE_X16Y48         SRLC32E (Hold_srlc32e_CLK_D)
-                                                      0.109     1.030    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][19]_srl32
+                         net (fo=3244, routed)        0.827     1.197    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
+    SLICE_X16Y37         SRLC32E                                      r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][31]_srl32/CLK
+                         clock pessimism             -0.034     1.163    
+    SLICE_X16Y37         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.064     1.227    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][31]_srl32
   -------------------------------------------------------------------
-                         required time                         -1.030    
-                         arrival time                           1.148    
+                         required time                         -1.227    
+                         arrival time                           1.325    
+  -------------------------------------------------------------------
+                         slack                                  0.098    
+
+Slack (MET) :             0.118ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg25_reg[9]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/cycles_remaining_reg[9]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.252ns  (logic 0.186ns (73.721%)  route 0.066ns (26.279%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.198ns
+    Source Clock Delay      (SCD):    0.903ns
+    Clock Pessimism Removal (CPR):    0.282ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.562     0.903    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X13Y15         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg25_reg[9]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X13Y15         FDRE (Prop_fdre_C_Q)         0.141     1.044 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/slv_reg25_reg[9]/Q
+                         net (fo=2, routed)           0.066     1.110    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/slv_reg25_reg[26][9]
+    SLICE_X12Y15         LUT6 (Prop_lut6_I0_O)        0.045     1.155 r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/cycles_remaining[9]_i_1__4/O
+                         net (fo=1, routed)           0.000     1.155    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/p_1_in[9]
+    SLICE_X12Y15         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/cycles_remaining_reg[9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.828     1.198    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/s00_axi_aclk
+    SLICE_X12Y15         FDRE                                         r  cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/cycles_remaining_reg[9]/C
+                         clock pessimism             -0.282     0.916    
+    SLICE_X12Y15         FDRE (Hold_fdre_C_D)         0.121     1.037    cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/cycles_remaining_reg[9]
+  -------------------------------------------------------------------
+                         required time                         -1.037    
+                         arrival time                           1.155    
   -------------------------------------------------------------------
                          slack                                  0.118    
+
+Slack (MET) :             0.119ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[7]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.200ns
+    Source Clock Delay      (SCD):    0.904ns
+    Clock Pessimism Removal (CPR):    0.296ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.563     0.904    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/aclk
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y37         FDRE (Prop_fdre_C_Q)         0.141     1.044 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[7]/Q
+                         net (fo=1, routed)           0.056     1.100    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/D[7]
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.830     1.200    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[7]/C
+                         clock pessimism             -0.296     0.904    
+    SLICE_X11Y37         FDRE (Hold_fdre_C_D)         0.078     0.982    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[7]
+  -------------------------------------------------------------------
+                         required time                         -0.981    
+                         arrival time                           1.100    
+  -------------------------------------------------------------------
+                         slack                                  0.119    
+
+Slack (MET) :             0.121ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.200ns
+    Source Clock Delay      (SCD):    0.904ns
+    Clock Pessimism Removal (CPR):    0.296ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.563     0.904    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/aclk
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y37         FDRE (Prop_fdre_C_Q)         0.141     1.044 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[1]/Q
+                         net (fo=1, routed)           0.056     1.100    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/D[1]
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.830     1.200    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/C
+                         clock pessimism             -0.296     0.904    
+    SLICE_X11Y37         FDRE (Hold_fdre_C_D)         0.076     0.980    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -0.980    
+                         arrival time                           1.100    
+  -------------------------------------------------------------------
+                         slack                                  0.121    
+
+Slack (MET) :             0.122ns  (arrival time - required time)
+  Source:                 cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.200ns
+    Source Clock Delay      (SCD):    0.904ns
+    Clock Pessimism Removal (CPR):    0.296ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.341 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.563     0.904    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/aclk
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y37         FDRE (Prop_fdre_C_Q)         0.141     1.044 r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[0]/Q
+                         net (fo=1, routed)           0.056     1.100    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/D[0]
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    cnc_controller_design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     0.370 r  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=3244, routed)        0.830     1.200    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+    SLICE_X11Y37         FDRE                                         r  cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[0]/C
+                         clock pessimism             -0.296     0.904    
+    SLICE_X11Y37         FDRE (Hold_fdre_C_D)         0.075     0.979    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -0.979    
+                         arrival time                           1.100    
+  -------------------------------------------------------------------
+                         slack                                  0.122    
 
 
 
@@ -1271,35 +1194,35 @@ Sources:            { cnc_controller_design_1_i/processing_system7_0/inst/PS7_i/
 
 Check Type        Corner  Lib Pin      Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
 Min Period        n/a     BUFG/I       n/a            2.155         10.000      7.845      BUFGCTRL_X0Y0  cnc_controller_design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X11Y45   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[55]/C
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X11Y45   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[56]/C
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X11Y45   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[57]/C
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X11Y45   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[58]/C
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X6Y47    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[59]/C
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X0Y38    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[5]/C
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X6Y47    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[60]/C
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X8Y43    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[61]/C
-Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X8Y43    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/skid_buffer_reg[62]/C
-Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X12Y60   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][0]_srl4/CLK
-Low Pulse Width   Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X12Y60   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][0]_srl4/CLK
-Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X8Y64    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][10]_srl4/CLK
-Low Pulse Width   Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X8Y64    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][10]_srl4/CLK
-Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X8Y64    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][11]_srl4/CLK
-Low Pulse Width   Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X8Y64    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][11]_srl4/CLK
-Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X4Y66    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][12]_srl4/CLK
-Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X4Y66    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][13]_srl4/CLK
-Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X4Y66    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][14]_srl4/CLK
-Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X4Y66    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4/CLK
-High Pulse Width  Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X12Y59   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bresp_fifo_0/memory_reg[3][0]_srl4/CLK
-High Pulse Width  Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X12Y59   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bresp_fifo_0/memory_reg[3][1]_srl4/CLK
-High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X8Y39    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
-High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X8Y39    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
-High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X8Y39    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32/CLK
-High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X8Y39    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32/CLK
-High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X8Y39    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][11]_srl32/CLK
-High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X8Y39    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][11]_srl32/CLK
-High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X8Y40    cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][12]_srl32/CLK
-High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y40   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][13]_srl32/CLK
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y43   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[2]/C
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y42   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[35]/C
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y42   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[36]/C
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y44   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[38]/C
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y44   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[39]/C
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y42   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[3]/C
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y43   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[44]/C
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y43   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[45]/C
+Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X14Y42   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/skid_buffer_reg[46]/C
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y32   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X16Y31   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X16Y31   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][11]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y32   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][13]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X16Y31   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][14]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X24Y33   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][16]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X20Y35   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][17]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X20Y35   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][17]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X20Y35   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][18]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X20Y35   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][18]_srl32/CLK
+High Pulse Width  Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X4Y26    cnc_controller_design_1_i/rst_ps7_0_100M/U0/EXT_LPF/POR_SRL_I/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X24Y33   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][16]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y31   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][1]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y31   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][2]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X16Y37   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][31]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X16Y37   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][33]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y31   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][3]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y31   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][6]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y38   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][5]_srl32/CLK
+High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         5.000       4.020      SLICE_X12Y38   cnc_controller_design_1_i/axi_interconnect_0/m00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][5]_srl32/CLK
 
 
 

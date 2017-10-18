@@ -4,6 +4,7 @@ import command_handler
 
 DISCOVERY_MULTICAST_ADDRESS = "224.1.1.1"
 DISCOVERY_MULTICAST_PORT = 50009
+DEVICE_UNICAST_PORT = 50010
 
 class Console(cmd.Cmd):
     """Simple command processor example."""
@@ -18,7 +19,7 @@ class Console(cmd.Cmd):
         self.error_color = colorama.Fore.RED
         self.warning_color = colorama.Fore.YELLOW
         self.info_color = colorama.Fore.YELLOW
-        self.command_handler = command_handler.CommandHandler(DISCOVERY_MULTICAST_ADDRESS, DISCOVERY_MULTICAST_PORT)
+        self.command_handler = command_handler.CommandHandler(DISCOVERY_MULTICAST_ADDRESS, DISCOVERY_MULTICAST_PORT, DEVICE_UNICAST_PORT)
 
     def printc(self, color, text):
         print(color + text + self.normal_color)
@@ -37,19 +38,54 @@ class Console(cmd.Cmd):
 
     def do_connect(self, line):
         'USAGE: \"connect IP:PORT\" connect to a device on the specified ip and port.'
-        if(':' in line and line.count('.') == 3):
-            ip = line.split(':')[0]
-            port = line.split(':')[1]
-            if(len(port) > 0):
-                self.print_success("connecting to " + ip + ":" + port)
-            else:
-                self.print_error("Bad args, see command help for more information.")
+        if(line.count('.') == 3):
+            ip = line
+            
+            self.command_handler.connect_to_device(ip)
+            self.print_success("connecting to " + ip)
 
         else:
             self.print_error("Bad args, see command help for more information.")
 
-    def do_greet(self, line):
-        self.printc(self.success_color, "hello")
+    def do_step_motor(self, line):
+        #parse args
+        args = line.lower().split(' ')
+        axis = -1
+        motor_index = -1
+        direction = -1
+        step_count = -1
+        
+        if(args[0] == 'x'):
+            axis = 0
+        elif(args[0] == 'y'):
+            axis = 1
+        elif(args[0] == 'z'):
+            axis = 2
+
+        motor_index = int(args[1])
+        direction = int(args[2])
+        step_count = int(args[3])
+
+        self.command_handler.send_step_motor_command(axis, motor_index, direction, step_count)
+
+    def do_step_axis(self, line):
+        #parse args
+        args = line.lower().split(' ')
+        axis = -1
+        direction = -1
+        step_count = -1
+        
+        if(args[0] == 'x'):
+            axis = 0
+        elif(args[0] == 'y'):
+            axis = 1
+        elif(args[0] == 'z'):
+            axis = 2
+
+        direction = int(args[1])
+        step_count = int(args[2])
+
+        self.command_handler.send_step_axis_command(axis, direction, step_count)
 
     def do_search(self, line):
         devices = self.command_handler.discover_devices()
