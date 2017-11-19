@@ -62,18 +62,30 @@
   "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_xbar_0/sim/cnc_controller_design_1_xbar_0.v" \
 -endlib
 -makelib ies/xil_defaultlib \
-  "../../../bd/cnc_controller_design_1/ipshared/0f5e/hdl/pl_pwm_v1_0_S00_AXI.vhd" \
-  "../../../bd/cnc_controller_design_1/ipshared/edit_pl_pwm_v1_0.srcs/pwm_channel.vhd" \
-  "../../../bd/cnc_controller_design_1/ipshared/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd" \
-  "../../../bd/cnc_controller_design_1/ipshared/0f5e/hdl/pl_pwm_v1_0.vhd" \
-  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_pl_pwm_0_0/sim/cnc_controller_design_1_pl_pwm_0_0.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/pl_gpio_v1_0.srcs/pl_gpio_controller.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/aa24/hdl/pl_gpio_v1_0_pl_gpio.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/aa24/hdl/pl_gpio_v1_0.vhd" \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_pl_gpio_0_0/sim/cnc_controller_design_1_pl_gpio_0_0.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/fd76/hdl/pl_pwm_v1_0_S00_AXI.vhd" \
+  "../../../bd/cnc_controller_design_1/pl_pwm/edit_pl_pwm_v1_0.srcs/pwm_channel.vhd" \
+  "../../../bd/cnc_controller_design_1/pl_pwm/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/fd76/hdl/pl_pwm_v1_0.vhd" \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_pl_pwm_0_1/sim/cnc_controller_design_1_pl_pwm_0_1.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/367e/hdl/pl_interrupt_manager_v1_0_pl_interrupt_manager.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/367e/hdl/pl_interrupt_manager_v1_0.vhd" \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_pl_interrupt_manager_0_2/sim/cnc_controller_design_1_pl_interrupt_manager_0_2.vhd" \
+-endlib
+-makelib ies/xlconcat_v2_1_1 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/73b7/hdl/xlconcat_v2_1_vl_rfs.v" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_xlconcat_0_0/sim/cnc_controller_design_1_xlconcat_0_0.v" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_13 \
   "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/f0ae/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 -endlib
 -makelib ies/xil_defaultlib \
   "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_pc_0/sim/cnc_controller_design_1_auto_pc_0.v" \
-  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_pc_1/sim/cnc_controller_design_1_auto_pc_1.v" \
 -endlib
 -makelib ies/xil_defaultlib \
   glbl.v

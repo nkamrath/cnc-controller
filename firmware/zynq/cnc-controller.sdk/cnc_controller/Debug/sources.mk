@@ -22,5 +22,6 @@ src/hw_al \
 src \
 src/network/ethernet \
 src/os \
+src/stage \
 src/utils \
 

@@ -88,3 +88,18 @@ class CommandHandler:
 		packet = cdp_packets.CdpPacket()
 		packet.add_data_item(cdp_packets.CdpStepAxisCommand(motor_axis, direction, number_steps))
 		self.device_connection.send(packet.serialize())
+
+	def send_set_location_command(self, x, y, z):
+		packet = cdp_packets.CdpPacket()
+		packet.add_data_item(cdp_packets.CdpSetLocationCommand(x, y, z))
+		self.device_connection.send(packet.serialize())
+
+	def send_set_origin_command(self):
+		packet = cdp_packets.CdpPacket()
+		packet.add_data_item(cdp_packets.CdpSetOriginCommand())
+		self.device_connection.send(packet.serialize())
+
+	def send_vector_move_command(self, period_x, steps_x, period_y, steps_y, period_z, steps_z):
+		packet = cdp_packets.CdpPacket()
+		packet.add_data_item(cdp_packets.CdpVectorMoveCommand(period_x, steps_x, period_y, steps_y, period_z, steps_z))
+		self.device_connection.send(packet.serialize())

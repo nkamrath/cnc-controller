@@ -2,6 +2,7 @@
 #define _UTILS_STEPPER_MOTOR_H_
 
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef struct
 {
@@ -18,6 +19,9 @@ typedef struct
 } stepper_motor_options_t;
 
 stepper_motor_t* StepperMotor_Create(stepper_motor_options_t* options);
+void StepperMotor_SetSpeed(stepper_motor_t* motor, uint32_t period_us);
+void StepperMotor_Setup(stepper_motor_t* motor, uint8_t direction, uint32_t steps);
 void StepperMotor_Step(stepper_motor_t* motor, uint8_t direction, uint32_t number_steps);
+bool StepperMotor_IsBusy(stepper_motor_t* motor);
 
 #endif

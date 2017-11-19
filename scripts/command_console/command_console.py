@@ -1,6 +1,7 @@
 import cmd, sys
 import colorama
 import command_handler
+import printer
 
 DISCOVERY_MULTICAST_ADDRESS = "224.1.1.1"
 DISCOVERY_MULTICAST_PORT = 50009
@@ -87,6 +88,26 @@ class Console(cmd.Cmd):
 
         self.command_handler.send_step_axis_command(axis, direction, step_count)
 
+    def do_set_location(self, line):
+        #parse args
+        #args should be "x y z" in doubles
+        args = line.lower().split(' ')
+        x = float(args[0])
+        y = float(args[1])
+        z = float(args[2])
+        self.command_handler.send_set_location_command(x, y, z)
+
+    def do_print(self, line):
+        args = line.lower().split(' ')
+        filename = args[1]
+        extension = filename.split('.')[-1]
+        if(extension == 'bmp'):
+            printer.print_bitmap(self.command_handler, float(args[0]), args[1])
+        elif(extension == 'cnc'):
+            printer.print_cnc_file(self.command_handler, float(args[0]), args[1])
+        else:
+            print "invalid file extension " + extension 
+
     def do_search(self, line):
         devices = self.command_handler.discover_devices()
         if len(devices) == 0:
@@ -95,6 +116,20 @@ class Console(cmd.Cmd):
             self.print_success("Found devices:")
             for x in range(0, len(devices)):
                 self.print_info(str(devices[x]))
+
+    def do_set_origin(self, line):
+        self.command_handler.send_set_origin_command()
+
+    def do_vector_move(self, line):
+        args = line.lower().split(' ')
+        period_x = int(args[0])
+        steps_x = int(args[1])
+        period_y = int(args[2])
+        steps_y = int(args[3])
+        period_z = int(args[4])
+        steps_z = int(args[5])
+        
+        self.command_handler.send_vector_move_command(period_x, steps_x, period_y, steps_y, period_z, steps_z)
 
     def do_exit(self, line):
         return True

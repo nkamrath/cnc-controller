@@ -2,8 +2,8 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Thu Oct  5 17:44:14 2017
-# Process ID: 5112
+# Start of session at: Sat Nov  4 09:12:03 2017
+# Process ID: 9604
 # Current directory: D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/impl_1
 # Command line: vivado.exe -log cnc_controller_design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source cnc_controller_design_1_wrapper.tcl -notrace
 # Log file: D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/impl_1/cnc_controller_design_1_wrapper.vdi
@@ -11,20 +11,13 @@
 #-----------------------------------------------------------
 source cnc_controller_design_1_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_pwm_v2/pl_pwm_2.0'; Can't find the specified path.
-If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
-WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_pwm_2.0'; Can't find the specified path.
-If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
-WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/test11_1.0'; Can't find the specified path.
-If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0'.
-WARNING: [IP_Flow 19-2207] Repository 'd:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0' already exists; ignoring attempt to add it again.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_interrupt_manager_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_gpio_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/2017.2/data/ip'.
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
-INFO: [Netlist 29-17] Analyzing 290 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-17] Analyzing 264 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2017.2
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -34,49 +27,14 @@ Parsing XDC File [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmwa
 Finished Parsing XDC File [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/cnc_controller_design_1_rst_ps7_0_100M_0/cnc_controller_design_1_rst_ps7_0_100M_0_board.xdc] for cell 'cnc_controller_design_1_i/rst_ps7_0_100M/U0'
 Parsing XDC File [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/cnc_controller_design_1_rst_ps7_0_100M_0/cnc_controller_design_1_rst_ps7_0_100M_0.xdc] for cell 'cnc_controller_design_1_i/rst_ps7_0_100M/U0'
 Finished Parsing XDC File [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/cnc_controller_design_1_rst_ps7_0_100M_0/cnc_controller_design_1_rst_ps7_0_100M_0.xdc] for cell 'cnc_controller_design_1_i/rst_ps7_0_100M/U0'
-Parsing XDC File [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc] for cell 'cnc_controller_design_1_i/pl_pwm_0/U0'
-WARNING: [Vivado 12-584] No ports matched 'PWM[0]'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:198]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:198]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PWM[0]'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:199]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:199]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:202]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'IOSTANDARD', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:203]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:206]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'IOSTANDARD', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:207]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:210]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'IOSTANDARD', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:211]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:214]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'IOSTANDARD', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:215]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:218]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'IOSTANDARD', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:219]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:222]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'IOSTANDARD', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:223]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:226]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-CRITICAL WARNING: [Netlist 29-160] Cannot set property 'IOSTANDARD', because the property does not exist for objects of type 'pin'. [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:227]
-Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
-Finished Parsing XDC File [d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc] for cell 'cnc_controller_design_1_i/pl_pwm_0/U0'
 Parsing XDC File [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/constrs_1/new/zybo_constraints.xdc]
 Finished Parsing XDC File [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/constrs_1/new/zybo_constraints.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 8 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 8 instances
 
-link_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 557.836 ; gain = 292.137
+link_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 554.520 ; gain = 287.855
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z010-clg400'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010-clg400'
@@ -89,7 +47,7 @@ report_drc (run_mandatory_drcs) completed successfully
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.560 . Memory (MB): peak = 561.461 ; gain = 3.625
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.565 . Memory (MB): peak = 561.836 ; gain = 7.316
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Starting Logic Optimization Task
@@ -97,56 +55,56 @@ Starting Logic Optimization Task
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 1df58fec4
+Phase 1 Retarget | Checksum: 13dc8ac46
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.510 . Memory (MB): peak = 1059.488 ; gain = 0.000
-INFO: [Opt 31-389] Phase Retarget created 2 cells and removed 230 cells
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.444 . Memory (MB): peak = 1058.988 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 224 cells
 
 Phase 2 Constant propagation
-INFO: [Opt 31-138] Pushed 2 inverter(s) to 2 load pin(s).
-Phase 2 Constant propagation | Checksum: 15149dfc5
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 1119182b9
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.985 . Memory (MB): peak = 1059.488 ; gain = 0.000
-INFO: [Opt 31-389] Phase Constant propagation created 103 cells and removed 311 cells
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.760 . Memory (MB): peak = 1058.988 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 79 cells and removed 99 cells
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: 1526ee147
+Phase 3 Sweep | Checksum: d7760e7e
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1059.488 ; gain = 0.000
-INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 395 cells
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1058.988 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 243 cells
 
 Phase 4 BUFG optimization
-Phase 4 BUFG optimization | Checksum: 1526ee147
+Phase 4 BUFG optimization | Checksum: d7760e7e
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1058.988 ; gain = 0.000
 INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
 
 Phase 5 Shift Register Optimization
-Phase 5 Shift Register Optimization | Checksum: 1526ee147
+Phase 5 Shift Register Optimization | Checksum: d7760e7e
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1058.988 ; gain = 0.000
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1059.488 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 1526ee147
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1058.988 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: d7760e7e
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
-Ending Power Optimization Task | Checksum: 1bbacca99
+Ending Power Optimization Task | Checksum: 1f7f5ebfd
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1059.488 ; gain = 0.000
-25 Infos, 6 Warnings, 16 Critical Warnings and 0 Errors encountered.
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1058.988 ; gain = 0.000
+25 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1059.488 ; gain = 501.652
+opt_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.988 ; gain = 504.469
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.091 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.108 . Memory (MB): peak = 1058.988 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/impl_1/cnc_controller_design_1_wrapper_opt.dcp' has been generated.
 Command: report_drc -file cnc_controller_design_1_wrapper_drc_opted.rpt
 INFO: [DRC 23-27] Running DRC with 2 threads
@@ -176,82 +134,82 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1059.488 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: d25509f1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1058.988 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 182c71c6d
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1058.988 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1c5954af9
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 13b8f53d8
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 1ade54e01
+Phase 1.3 Build Placer Netlist Model | Checksum: 25e2a4fee
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 1ade54e01
+Phase 1.4 Constrain Clocks/Macros | Checksum: 25e2a4fee
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1059.488 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 1ade54e01
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1058.988 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 25e2a4fee
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 2 Global Placement
-Phase 2 Global Placement | Checksum: 214fef5e2
+Phase 2 Global Placement | Checksum: 1b8948e1c
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 214fef5e2
+Phase 3.1 Commit Multi Column Macros | Checksum: 1b8948e1c
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1527c05ad
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 255e041c4
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: d1a37000
+Phase 3.3 Area Swap Optimization | Checksum: 1a7ef053a
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: d1a37000
+Phase 3.4 Pipeline Register Optimization | Checksum: 1a7ef053a
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 3.5 Timing Path Optimizer
-Phase 3.5 Timing Path Optimizer | Checksum: 10d9956a8
+Phase 3.5 Timing Path Optimizer | Checksum: 2461e0e3f
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 10c26a2de
+Phase 3.6 Small Shape Detail Placement | Checksum: 180225d9a
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: f18e536d
+Phase 3.7 Re-assign LUT pins | Checksum: 2003efdb8
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: f18e536d
+Phase 3.8 Pipeline Register Optimization | Checksum: 2003efdb8
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1059.488 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: f18e536d
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1058.988 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 2003efdb8
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1059.488 ; gain = 0.000
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1058.988 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -259,55 +217,55 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 14e208fe0
+Post Placement Optimization Initialization | Checksum: 1cedf1ce8
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
-INFO: [Place 46-38] Processed net cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/SR[0], BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-38] Processed net cnc_controller_design_1_i/pl_pwm_0/U0/pl_pwm_v1_0_S00_AXI_inst/pwm_controller_inst/gen_1[8].pwm_channel_i/STATUS_REGISTERS_reg[0]_0, BUFG insertion was skipped due to placement/routing conflicts.
 INFO: [Place 46-41] BUFG insertion identified 1 candidate nets, 0 success, 1 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
-Phase 4.1.1.1 BUFG Insertion | Checksum: 14e208fe0
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1cedf1ce8
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1074.793 ; gain = 15.305
-INFO: [Place 30-746] Post Placement Timing Summary WNS=1.512. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 1bcfb3912
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1078.199 ; gain = 19.211
+INFO: [Place 30-746] Post Placement Timing Summary WNS=2.428. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 1bab5226b
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1074.793 ; gain = 15.305
-Phase 4.1 Post Commit Optimization | Checksum: 1bcfb3912
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1078.199 ; gain = 19.211
+Phase 4.1 Post Commit Optimization | Checksum: 1bab5226b
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1074.793 ; gain = 15.305
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1078.199 ; gain = 19.211
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 1bcfb3912
+Phase 4.2 Post Placement Cleanup | Checksum: 1bab5226b
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1074.793 ; gain = 15.305
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1078.199 ; gain = 19.211
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 1bcfb3912
+Phase 4.3 Placer Reporting | Checksum: 1bab5226b
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1074.793 ; gain = 15.305
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1078.199 ; gain = 19.211
 
 Phase 4.4 Final Placement Cleanup
-Phase 4.4 Final Placement Cleanup | Checksum: 17fac7207
+Phase 4.4 Final Placement Cleanup | Checksum: 1be8e3b05
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1074.793 ; gain = 15.305
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 17fac7207
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1078.199 ; gain = 19.211
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1be8e3b05
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1074.793 ; gain = 15.305
-Ending Placer Task | Checksum: a1ab71c4
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1078.199 ; gain = 19.211
+Ending Placer Task | Checksum: ef342d26
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1074.793 ; gain = 15.305
-45 Infos, 6 Warnings, 16 Critical Warnings and 0 Errors encountered.
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1078.199 ; gain = 19.211
+45 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 1074.793 ; gain = 15.305
+place_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:15 . Memory (MB): peak = 1078.199 ; gain = 19.211
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.665 . Memory (MB): peak = 1075.168 ; gain = 0.375
+Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.739 . Memory (MB): peak = 1078.566 ; gain = 0.367
 INFO: [Common 17-1381] The checkpoint 'D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/impl_1/cnc_controller_design_1_wrapper_placed.dcp' has been generated.
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1078.492 ; gain = 2.566
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.066 . Memory (MB): peak = 1078.492 ; gain = 0.000
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1078.492 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.072 . Memory (MB): peak = 1081.262 ; gain = 1.688
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 1081.262 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1081.262 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z010-clg400'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010-clg400'
@@ -321,116 +279,106 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
-Checksum: PlaceDB: 873fc0b7 ConstDB: 0 ShapeSum: 1a6bb10d RouteDB: 0
+Checksum: PlaceDB: cc604394 ConstDB: 0 ShapeSum: 22d3e992 RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: fb90b8f3
+Phase 1 Build RT Design | Checksum: e47f4bec
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: fb90b8f3
+Phase 2.1 Create Timer | Checksum: e47f4bec
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: fb90b8f3
+Phase 2.2 Fix Topology Constraints | Checksum: e47f4bec
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: fb90b8f3
+Phase 2.3 Pre Route Cleanup | Checksum: e47f4bec
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 1162.574 ; gain = 74.992
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: f90e8a20
+Phase 2.4 Update Timing | Checksum: cb5b676f
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 1155.305 ; gain = 67.254
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.691  | TNS=0.000  | WHS=-0.168 | THS=-23.223|
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 1162.574 ; gain = 74.992
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.478  | TNS=0.000  | WHS=-0.144 | THS=-24.645|
 
-Phase 2 Router Initialization | Checksum: 189a99b8f
+Phase 2 Router Initialization | Checksum: 100fa7991
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:16 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 28bf116bd
+Phase 3 Initial Routing | Checksum: 10fc265bd
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:17 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:17 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 555
- Number of Nodes with overlaps = 19
- Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 507
+ Number of Nodes with overlaps = 3
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.456  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.228  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 19779b8fb
+Phase 4.1 Global Iteration 0 | Checksum: 18ae2c785
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 4.2 Global Iteration 1
- Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.456  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.228  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: 1168fea41
+Phase 4.2 Global Iteration 1 | Checksum: 1720479cf
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1162.574 ; gain = 74.992
+Phase 4 Rip-up And Reroute | Checksum: 1720479cf
 
-Phase 4.3 Global Iteration 2
- Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.456  | TNS=0.000  | WHS=N/A    | THS=N/A    |
-
-Phase 4.3 Global Iteration 2 | Checksum: 1b9c73296
-
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
-Phase 4 Rip-up And Reroute | Checksum: 1b9c73296
-
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 1b9c73296
+Phase 5.1 Delay CleanUp | Checksum: 1720479cf
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 1b9c73296
+Phase 5.2 Clock Skew Optimization | Checksum: 1720479cf
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
-Phase 5 Delay and Skew Optimization | Checksum: 1b9c73296
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 1162.574 ; gain = 74.992
+Phase 5 Delay and Skew Optimization | Checksum: 1720479cf
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 178eb5737
+Phase 6.1.1 Update Timing | Checksum: 12c348613
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.469  | TNS=0.000  | WHS=0.023  | THS=0.000  |
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1162.574 ; gain = 74.992
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.343  | TNS=0.000  | WHS=0.039  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 1d052cb89
+Phase 6.1 Hold Fix Iter | Checksum: 1c4e8ad2b
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
-Phase 6 Post Hold Fix | Checksum: 1d052cb89
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1162.574 ; gain = 74.992
+Phase 6 Post Hold Fix | Checksum: 1c4e8ad2b
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 3.22734 %
-  Global Horizontal Routing Utilization  = 4.16912 %
+  Global Vertical Routing Utilization    = 3.45495 %
+  Global Horizontal Routing Utilization  = 4.40579 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -439,42 +387,42 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 1d0a0f594
+Phase 7 Route finalize | Checksum: 1adfa3c75
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 1d0a0f594
+Phase 8 Verifying routed nets | Checksum: 1adfa3c75
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 21918dc6a
+Phase 9 Depositing Routes | Checksum: 293c048ca
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:20 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:20 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.469  | TNS=0.000  | WHS=0.023  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.343  | TNS=0.000  | WHS=0.039  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 21918dc6a
+Phase 10 Post Router Timing | Checksum: 293c048ca
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:21 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:20 . Memory (MB): peak = 1162.574 ; gain = 74.992
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:21 . Memory (MB): peak = 1155.305 ; gain = 67.254
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:20 . Memory (MB): peak = 1162.574 ; gain = 74.992
 
 Routing Is Done.
-59 Infos, 6 Warnings, 16 Critical Warnings and 0 Errors encountered.
+58 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:22 . Memory (MB): peak = 1155.305 ; gain = 76.813
+route_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:22 . Memory (MB): peak = 1162.574 ; gain = 81.313
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:00.845 . Memory (MB): peak = 1155.305 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.921 . Memory (MB): peak = 1162.574 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/impl_1/cnc_controller_design_1_wrapper_routed.dcp' has been generated.
 Command: report_drc -file cnc_controller_design_1_wrapper_drc_routed.rpt -pb cnc_controller_design_1_wrapper_drc_routed.pb -rpx cnc_controller_design_1_wrapper_drc_routed.rpx
 INFO: [DRC 23-27] Running DRC with 2 threads
@@ -490,7 +438,9 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
-66 Infos, 6 Warnings, 16 Critical Warnings and 0 Errors encountered.
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+65 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
@@ -514,8 +464,8 @@ Creating bitstream...
 Writing bitstream ./cnc_controller_design_1_wrapper.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-186] 'D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Thu Oct  5 17:45:57 2017. For additional details about this file, please refer to the WebTalk help file at D:/Vivado/2017.2/doc/webtalk_introduction.html.
-77 Infos, 6 Warnings, 16 Critical Warnings and 0 Errors encountered.
+INFO: [Common 17-186] 'D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Sat Nov  4 09:13:45 2017. For additional details about this file, please refer to the WebTalk help file at D:/Vivado/2017.2/doc/webtalk_introduction.html.
+76 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:20 ; elapsed = 00:00:19 . Memory (MB): peak = 1569.344 ; gain = 363.023
-INFO: [Common 17-206] Exiting Vivado at Thu Oct  5 17:45:57 2017...
+write_bitstream: Time (s): cpu = 00:00:21 ; elapsed = 00:00:19 . Memory (MB): peak = 1573.230 ; gain = 356.176
+INFO: [Common 17-206] Exiting Vivado at Sat Nov  4 09:13:45 2017...

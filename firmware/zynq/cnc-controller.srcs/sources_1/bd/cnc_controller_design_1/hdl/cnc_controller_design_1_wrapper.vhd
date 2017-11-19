@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
---Date        : Thu Oct  5 17:41:31 2017
+--Date        : Sat Nov  4 09:09:41 2017
 --Host        : Nate-PC running 64-bit Service Pack 1  (build 7601)
 --Command     : generate_target cnc_controller_design_1_wrapper.bd
 --Design      : cnc_controller_design_1_wrapper
@@ -34,7 +34,8 @@ entity cnc_controller_design_1_wrapper is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
-    PWM_OUT : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    PWM_OUT : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    pl_gpio : inout STD_LOGIC_VECTOR ( 7 downto 0 )
   );
 end cnc_controller_design_1_wrapper;
 
@@ -62,6 +63,7 @@ architecture STRUCTURE of cnc_controller_design_1_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
+    pl_gpio : inout STD_LOGIC_VECTOR ( 7 downto 0 );
     PWM_OUT : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component cnc_controller_design_1;
@@ -89,6 +91,7 @@ cnc_controller_design_1_i: component cnc_controller_design_1
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
-      PWM_OUT(7 downto 0) => PWM_OUT(7 downto 0)
+      PWM_OUT(7 downto 0) => PWM_OUT(7 downto 0),
+      pl_gpio(7 downto 0) => pl_gpio(7 downto 0)
     );
 end STRUCTURE;

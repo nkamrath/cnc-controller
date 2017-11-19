@@ -1,0 +1,10 @@
+#ifndef _NETWORK_CDP_DATA_ITEMS_SET_STAGE_ORIGIN_COMMAND_H_
+#define _NETWORK_CDP_DATA_ITEMS_SET_STAGE_ORIGIN_COMMAND_H_
+
+#include <stdint.h>
+
+#define CDP_SET_STAGE_ORIGIN_COMMAND_TYPE		0x0007
+
+//no payload....
+
+#endif

@@ -5,14 +5,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/os/critical_section.c \
+../src/os/queue.c \
 ../src/os/scheduler.c 
 
 OBJS += \
 ./src/os/critical_section.o \
+./src/os/queue.o \
 ./src/os/scheduler.o 
 
 C_DEPS += \
 ./src/os/critical_section.d \
+./src/os/queue.d \
 ./src/os/scheduler.d 
 
 

@@ -14,11 +14,8 @@ set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_repo_paths {
-  d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_pwm_v2/pl_pwm_2.0
-  d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_pwm_2.0
-  d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/test11_1.0
-  d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0
-  d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0
+  d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_interrupt_manager_1.0
+  d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_gpio_1.0
 } [current_project]
 set_property ip_cache_permissions disable [current_project]
 read_vhdl -library xil_defaultlib D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/hdl/cnc_controller_design_1_wrapper.vhd
@@ -28,9 +25,7 @@ set_property used_in_implementation false [get_files -all d:/Nate/dev/FPGA_stuff
 set_property used_in_implementation false [get_files -all d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/cnc_controller_design_1_rst_ps7_0_100M_0/cnc_controller_design_1_rst_ps7_0_100M_0.xdc]
 set_property used_in_implementation false [get_files -all d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/cnc_controller_design_1_rst_ps7_0_100M_0/cnc_controller_design_1_rst_ps7_0_100M_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/cnc_controller_design_1_xbar_0/cnc_controller_design_1_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc]
 set_property used_in_implementation false [get_files -all d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_pc_0/cnc_controller_design_1_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_pc_1/cnc_controller_design_1_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1_ooc.xdc]
 set_property is_locked true [get_files D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd]
 

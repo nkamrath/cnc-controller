@@ -228,36 +228,36 @@ set_property IOSTANDARD LVCMOS33 [get_ports {PWM_OUT[7]}]
 
 ##Pmod Header JC
 ##IO_L10N_T1_34
-#set_property PACKAGE_PIN W15 [get_ports {jc_n[0]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {jc_n[0]}]
+set_property PACKAGE_PIN W15 [get_ports {pl_gpio[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_gpio[0]}]
 
 ##IO_L10P_T1_34
-#set_property PACKAGE_PIN V15 [get_ports {jc_p[0]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {jc_p[0]}]
+set_property PACKAGE_PIN V15 [get_ports {pl_gpio[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_gpio[1]}]
 
 ##IO_L1N_T0_34
-#set_property PACKAGE_PIN T10 [get_ports {jc_n[1]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {jc_n[1]}]
+set_property PACKAGE_PIN T10 [get_ports {pl_gpio[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_gpio[2]}]
 
 ##IO_L1P_T0_34
-#set_property PACKAGE_PIN T11 [get_ports {jc_p[1]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {jc_p[1]}]
+set_property PACKAGE_PIN T11 [get_ports {pl_gpio[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_gpio[3]}]
 
 ##IO_L8N_T1_34
-#set_property PACKAGE_PIN Y14 [get_ports {jc_n[2]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {jc_n[2]}]
+set_property PACKAGE_PIN Y14 [get_ports {pl_gpio[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_gpio[4]}]
 
 ##IO_L8P_T1_34
-#set_property PACKAGE_PIN W14 [get_ports {jc_p[2]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {jc_p[2]}]
+set_property PACKAGE_PIN W14 [get_ports {pl_gpio[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_gpio[5]}]
 
 ##IO_L2N_T0_34
-#set_property PACKAGE_PIN U12 [get_ports {jc_n[3]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {jc_n[3]}]
+set_property PACKAGE_PIN U12 [get_ports {pl_gpio[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_gpio[6]}]
 
 ##IO_L2P_T0_34
-#set_property PACKAGE_PIN T12 [get_ports {jc_p[3]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {jc_p[3]}]
+set_property PACKAGE_PIN T12 [get_ports {pl_gpio[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_gpio[7]}]
 
 ##Pmod Header JD
 ##IO_L5N_T0_34

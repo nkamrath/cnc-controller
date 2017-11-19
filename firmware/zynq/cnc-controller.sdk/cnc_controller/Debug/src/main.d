@@ -1,4 +1,6 @@
-src/main.o src/main.o: ../src/main.c ../src/network/ethernet/cdp_socket.h \
+src/main.o src/main.o: ../src/main.c ../src/applications/stage_manager.h \
+ D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/utils/stepper_motor.h \
+ ../src/network/ethernet/cdp_socket.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/udp.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/opt.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwipopts.h \
@@ -12,6 +14,7 @@ src/main.o src/main.o: ../src/main.c ../src/network/ethernet/cdp_socket.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/def.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/ip.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/inet.h \
+ ../src/stage/stage.h ../src/stage/stage_types.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_printf.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_types.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xparameters.h \
@@ -28,14 +31,16 @@ src/main.o src/main.o: ../src/main.c ../src/network/ethernet/cdp_socket.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xscugic_hw.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_exception.h \
  ../src/os/scheduler.h ../src/network/ethernet/ethernet.h \
- ../src/applications/device_discovery.h \
- ../src/applications/motor_manager.h \
- D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/utils/stepper_motor.h \
- ../src/utils/cdp_packet_handler.h \
+ ../src/applications/device_discovery.h ../src/utils/cdp_packet_handler.h \
  D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/network/cdp/cdp_data_item.h \
  ../src/utils/device_state.h ../src/drivers/pin.h \
  ../src/utils/stepper_motor.h ../src/include/motor_configs.h \
- ../src/drivers/pl_pwm.h
+ ../src/drivers/pl_pwm.h ../src/drivers/pl_gpio.h \
+ ../src/drivers/pl_interrupt_manager.h
+
+../src/applications/stage_manager.h:
+
+D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/utils/stepper_motor.h:
 
 ../src/network/ethernet/cdp_socket.h:
 
@@ -64,6 +69,10 @@ src/main.o src/main.o: ../src/main.c ../src/network/ethernet/cdp_socket.h \
 ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/ip.h:
 
 ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/inet.h:
+
+../src/stage/stage.h:
+
+../src/stage/stage_types.h:
 
 ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_printf.h:
 
@@ -101,10 +110,6 @@ src/main.o src/main.o: ../src/main.c ../src/network/ethernet/cdp_socket.h \
 
 ../src/applications/device_discovery.h:
 
-../src/applications/motor_manager.h:
-
-D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/utils/stepper_motor.h:
-
 ../src/utils/cdp_packet_handler.h:
 
 D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/network/cdp/cdp_data_item.h:
@@ -118,3 +123,7 @@ D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-contro
 ../src/include/motor_configs.h:
 
 ../src/drivers/pl_pwm.h:
+
+../src/drivers/pl_gpio.h:
+
+../src/drivers/pl_interrupt_manager.h:

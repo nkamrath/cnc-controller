@@ -157,3 +157,69 @@ class CdpStepAxisCommand(CdpData):
 
 	def deserialize(self, data):
 		self.motor_axis, self.direction, self.number_steps = struct.unpack("<BBL", data)
+
+"""
+====================================
+SET STAGE LOCATION COMMAND
+====================================
+"""
+SET_LOCATION_LENGTH = 24
+SET_LOCATION_TYPE = 0x0006
+
+class CdpSetLocationCommand(CdpData):
+	def __init__(self, x = 0, y = 0, z = 0):
+		self.type = SET_LOCATION_TYPE
+		self.length = SET_LOCATION_LENGTH
+		self.x = x
+		self.y = y
+		self.z = z
+
+	def serialize(self):
+		return struct.pack("<ddd", self.x, self.y, self. z)
+
+	def deserialize(self, data):
+		self.x, self.y, self.z = struct.unpack("<ddd", data)
+
+"""
+====================================
+SET STAGE ORIGIN
+====================================
+"""
+SET_ORIGIN_LENGTH = 0 #no payload
+SET_ORIGIN_TYPE = 0x0007
+
+class CdpSetOriginCommand(CdpData):
+	def __init__(self, x = 0, y = 0, z = 0):
+		self.type = SET_ORIGIN_TYPE
+		self.length = SET_ORIGIN_LENGTH
+
+	def serialize(self):
+		return ""
+
+	def deserialize(self, data):
+		return
+
+"""
+====================================
+VECTOR MOVE
+====================================
+"""
+VECTOR_MOVE_LENGTH = 24 #no payload
+VECTOR_MOVE_TYPE = 0x0008
+
+class CdpVectorMoveCommand(CdpData):
+	def __init__(self, period_x, steps_x, period_y, steps_y, period_z, steps_z):
+		self.type = VECTOR_MOVE_TYPE
+		self.length = VECTOR_MOVE_LENGTH
+		self.period_x = period_x
+		self.steps_x = steps_x
+		self.period_y = period_y
+		self.steps_y = steps_y
+		self.period_z = period_z
+		self.steps_z = steps_z
+
+	def serialize(self):
+		return struct.pack("<IiIiIi", self.period_x, self.steps_x, self.period_y, self.steps_y, self.period_z, self.steps_z)
+
+	def deserialize(self, data):
+		self.period_x, self.steps_x, self.period_y, self.steps_y, self.period_z, self.steps_z = struct,unpack("<IiIiIi, data")

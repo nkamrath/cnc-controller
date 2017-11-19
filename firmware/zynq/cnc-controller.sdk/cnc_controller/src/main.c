@@ -30,7 +30,29 @@
 *
 ******************************************************************************/
 
+
+/* TO BUILD IMAGE FILE FOR SD CARD BOOT:
+ * Vivado:
+- make sure that SD0 is activated in PS7 configuration
+
+SDK:
+- create application project FSBL + new BSP (FLASH-FS must be activated), Template FSBL
+- "Xilinx Tools"=>"Create Zynq Boot Image"
+- Boot image partititions:
+  1. FSBL.elf
+  2. <bitstream_file>.bit
+  3. <application>.elf
+- "Create Image"
+- Copy File to SD card (FAT): BOOT.bin
+
+Board:
+- insert SD card
+- set boot mode jumper to "SD", power on
+ */
+
+#include "applications/stage_manager.h"
 #include "network/ethernet/cdp_socket.h"
+#include "stage/stage.h"
 #include <stdio.h>
 
 #include "xil_printf.h"
@@ -39,8 +61,6 @@
 #include "os/scheduler.h"
 #include "network/ethernet/ethernet.h"
 #include "applications/device_discovery.h"
-#include "applications/motor_manager.h"
-
 #include "utils/cdp_packet_handler.h"
 #include "utils/device_state.h"
 
@@ -48,6 +68,9 @@
 #include "utils/stepper_motor.h"
 #include "include/motor_configs.h"
 #include "drivers/pl_pwm.h"
+
+#include "drivers/pl_gpio.h"
+#include "drivers/pl_interrupt_manager.h"
 
 uint8_t pin_number = 13;
 uint8_t pin_state = 0;
@@ -63,7 +86,36 @@ void pin_task(void* arg)
 		pin_state = 0;
 	}
 
-	Pin_Write(pin_number, pin_state);
+	PlGpio_Write(PL_GPIO0, 0, pin_state);
+	PlGpio_Write(PL_GPIO0, 1, pin_state);
+	PlGpio_Write(PL_GPIO0, 2, pin_state);
+	PlGpio_Write(PL_GPIO0, 3, pin_state);
+	PlGpio_Write(PL_GPIO0, 4, pin_state);
+	PlGpio_Write(PL_GPIO0, 5, pin_state);
+	PlGpio_Write(PL_GPIO0, 6, pin_state);
+	PlGpio_Write(PL_GPIO0, 7, pin_state);
+}
+
+void pin_read_task(void* arg)
+{
+	for(int i = 0; i < 8; i++)
+	{
+		if(PlGpio_Read(PL_GPIO0, i))
+		{
+			printf("Gpio %d high\r\n", i);
+		}
+		else
+		{
+			printf("Gpio %d low\r\n", i);
+		}
+	}
+
+	uint32_t interrupt_status = PlGpio_GetInterruptStatus(PL_GPIO0);
+	if(interrupt_status > 0)
+	{
+		printf("gpio interrupt has ocurred %d! clearing....\r\n", interrupt_status);
+		PlGpio_ClearInterrupt(PL_GPIO0, interrupt_status);
+	}
 }
 
 int main()
@@ -71,30 +123,60 @@ int main()
 
 	InterruptController_Init();
 	InterruptController_EnableInterrupts();
+	PlInterruptManager_Create();
+	PlGpio_Create();
 
 	Scheduler_Create();
 
-	//Pin_ConfigureOutput(pin_number);
-	//Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(5000000), 3, pin_task, NULL);
+//	PlGpio_EnablePin(PL_GPIO0, 0);
+//	PlGpio_EnablePin(PL_GPIO0, 1);
+//	PlGpio_EnablePin(PL_GPIO0, 2);
+//	PlGpio_EnablePin(PL_GPIO0, 3);
+//	PlGpio_EnablePin(PL_GPIO0, 4);
+//	PlGpio_EnablePin(PL_GPIO0, 5);
+//	PlGpio_EnablePin(PL_GPIO0, 6);
+//	PlGpio_EnablePin(PL_GPIO0, 7);
+//	PlGpio_ConfigureOutput(PL_GPIO0, 0);
+//	PlGpio_ConfigureOutput(PL_GPIO0, 1);
+//	PlGpio_ConfigureOutput(PL_GPIO0, 2);
+//	PlGpio_ConfigureOutput(PL_GPIO0, 3);
+//	PlGpio_ConfigureOutput(PL_GPIO0, 4);
+//	PlGpio_ConfigureOutput(PL_GPIO0, 5);
+//	PlGpio_ConfigureOutput(PL_GPIO0, 6);
+//	PlGpio_ConfigureOutput(PL_GPIO0, 7);
+//	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(1000000), 3, pin_task, NULL);
+
+	//setup an interrupt on plgpio
+	//PlGpio_EnableInterrupt(PL_GPIO0, 1, PL_GPIO_LEVEL_CHANGE);
+	//Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(1000000), 3, pin_read_task, NULL);
 
 	Ethernet_Create();
 
 	stepper_motor_options_t motor_options = MOTOR_CONFIGS_Y_0;
 	stepper_motor_t* motor = StepperMotor_Create(&motor_options);
-	MotorManager_Create();
-	MotorManager_Add(motor, MOTOR_AXIS_Y);
+	Stage_Create();
+	Stage_AddMotor(motor, AXIS_Y);
 
 	stepper_motor_options_t motor_options_z0 = MOTOR_CONFIGS_Z_0;
 	motor = StepperMotor_Create(&motor_options_z0);
-	MotorManager_Add(motor, MOTOR_AXIS_Z);
+	Stage_AddMotor(motor, AXIS_Z);
 
 	stepper_motor_options_t motor_options_z1 = MOTOR_CONFIGS_Z_1;
 	motor = StepperMotor_Create(&motor_options_z1);
-	MotorManager_Add(motor, MOTOR_AXIS_Z);
+	Stage_AddMotor(motor, AXIS_Z);
+
+	stepper_motor_options_t motor_options_x0 = MOTOR_CONFIGS_X_0;
+	motor = StepperMotor_Create(&motor_options_x0);
+	Stage_AddMotor(motor, AXIS_X);
+
+	stepper_motor_options_t motor_options_x1 = MOTOR_CONFIGS_X_1;
+	motor = StepperMotor_Create(&motor_options_x1);
+	Stage_AddMotor(motor, AXIS_X);
 
 	DeviceDiscovery_Create();
 	CdpPacketHandler_Create();
 	DeviceState_Create();
+	StageManager_Create();
 
 	/* receive and process packets */
 	while (1) {

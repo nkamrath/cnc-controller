@@ -5,15 +5,15 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/applications/device_discovery.c \
-../src/applications/motor_manager.c 
+../src/applications/stage_manager.c 
 
 OBJS += \
 ./src/applications/device_discovery.o \
-./src/applications/motor_manager.o 
+./src/applications/stage_manager.o 
 
 C_DEPS += \
 ./src/applications/device_discovery.d \
-./src/applications/motor_manager.d 
+./src/applications/stage_manager.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

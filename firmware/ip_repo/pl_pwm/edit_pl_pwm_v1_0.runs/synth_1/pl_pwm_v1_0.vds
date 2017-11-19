@@ -1,0 +1,729 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Sep 20 15:01:57 2017
+# Process ID: 10588
+# Current directory: D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.runs/synth_1
+# Command line: vivado.exe -log pl_pwm_v1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pl_pwm_v1_0.tcl
+# Log file: D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.runs/synth_1/pl_pwm_v1_0.vds
+# Journal file: D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source pl_pwm_v1_0.tcl -notrace
+Command: synth_design -top pl_pwm_v1_0 -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010-clg400'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010-clg400'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 9408 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 314.262 ; gain = 80.664
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'pl_pwm_v1_0' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0.vhd:49]
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'pl_pwm_v1_0_S00_AXI' declared at 'D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:5' bound to instance 'pl_pwm_v1_0_S00_AXI_inst' of component 'pl_pwm_v1_0_S00_AXI' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'pl_pwm_v1_0_S00_AXI' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:87]
+	Parameter gNUM_PWM_CHANNELS bound to: 8 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-226] default block is never used [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:363]
+INFO: [Synth 8-226] default block is never used [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:1033]
+INFO: [Synth 8-3491] module 'pwm_controller' declared at 'D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd:34' bound to instance 'pwm_controller_inst' of component 'pwm_controller' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:1188]
+INFO: [Synth 8-638] synthesizing module 'pwm_controller' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd:58]
+	Parameter gNUM_CHANNELS bound to: 8 - type: integer 
+	Parameter gREGISTER_BIT_WIDTH bound to: 32 - type: integer 
+	Parameter gCONTROL_REGISTER_BIT_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-637] synthesizing blackbox instance 'pwm_channel_1' of component 'pwm_channel' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd:83]
+INFO: [Synth 8-637] synthesizing blackbox instance 'pwm_channel_2' of component 'pwm_channel' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd:96]
+INFO: [Synth 8-256] done synthesizing module 'pwm_controller' (1#1) [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/pwm_controller.vhd:58]
+WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:361]
+WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:1032]
+INFO: [Synth 8-256] done synthesizing module 'pl_pwm_v1_0_S00_AXI' (2#1) [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:87]
+INFO: [Synth 8-256] done synthesizing module 'pl_pwm_v1_0' (3#1) [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0.vhd:49]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[255]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[254]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[253]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[252]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[251]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[250]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[249]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[248]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[247]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[246]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[245]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[244]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[243]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[242]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[241]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[240]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[239]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[238]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[237]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[236]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[235]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[234]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[233]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[232]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[231]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[230]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[229]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[228]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[227]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[226]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[225]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[224]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[223]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[222]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[221]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[220]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[219]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[218]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[217]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[216]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[215]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[214]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[213]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[212]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[211]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[210]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[209]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[208]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[207]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[206]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[205]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[204]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[203]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[202]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[201]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[200]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[199]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[198]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[197]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[196]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[195]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[194]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[193]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[192]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[191]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[190]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[189]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[188]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[187]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[186]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[185]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[184]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[183]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[182]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[181]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[180]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[179]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[178]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[177]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[176]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[175]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[174]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[173]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[172]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[171]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[170]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[169]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[168]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[167]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[166]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[165]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[164]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[163]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[162]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[161]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[160]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[159]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[158]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[157]
+WARNING: [Synth 8-3331] design pwm_controller has unconnected port STATUS_REGISTERS[156]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 381.766 ; gain = 148.168
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 381.766 ; gain = 148.168
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'PWM[0]'. [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:198]
+WARNING: [Vivado 12-584] No ports matched 'PWM[0]'. [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc:199]
+Finished Parsing XDC File [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/pl_pwm_v1_0_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.srcs/constrs_1/zybo_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/pl_pwm_v1_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/pl_pwm_v1_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 699.309 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'slv_reg24_reg[31:0]' into 'slv_reg23_reg[31:0]' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:320]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg24_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:320]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_data_out_reg' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:1035]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 63    
+	                8 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 53    
+	   2 Input      1 Bit        Muxes := 5     
+	  64 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module pl_pwm_v1_0_S00_AXI 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 63    
+	                8 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 53    
+	   2 Input      1 Bit        Muxes := 5     
+	  64 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'slv_reg28_reg[31:0]' into 'slv_reg23_reg[31:0]' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:324]
+INFO: [Synth 8-4471] merging register 'slv_reg29_reg[31:0]' into 'slv_reg23_reg[31:0]' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:325]
+INFO: [Synth 8-4471] merging register 'slv_reg30_reg[31:0]' into 'slv_reg23_reg[31:0]' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:326]
+INFO: [Synth 8-4471] merging register 'slv_reg31_reg[31:0]' into 'slv_reg23_reg[31:0]' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:327]
+INFO: [Synth 8-4471] merging register 'slv_reg32_reg[31:0]' into 'slv_reg23_reg[31:0]' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:328]
+INFO: [Synth 8-4471] merging register 'slv_reg33_reg[31:0]' into 'slv_reg23_reg[31:0]' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:329]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg28_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:324]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg29_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:325]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg30_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:326]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg31_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:327]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg32_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:328]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg33_reg was removed.  [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:329]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\slv_reg23_reg[31] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (pl_pwm_v1_0_S00_AXI_inst/aw_en_reg)
+INFO: [Synth 8-3886] merging instance 'pl_pwm_v1_0_S00_AXI_inst/axi_rresp_reg[0]' (FDRE) to 'pl_pwm_v1_0_S00_AXI_inst/axi_rresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\axi_rresp_reg[1] )
+INFO: [Synth 8-3886] merging instance 'pl_pwm_v1_0_S00_AXI_inst/axi_bresp_reg[0]' (FDRE) to 'pl_pwm_v1_0_S00_AXI_inst/axi_bresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pl_pwm_v1_0_S00_AXI_inst/\axi_bresp_reg[1] )
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[31]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[31]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[30]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[30]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[29]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[29]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[28]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[28]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[27]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[27]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[26]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[26]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[25]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[25]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[24]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[24]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[23]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[23]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[22]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[22]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[21]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[21]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[20]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[20]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[19]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[19]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[18]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[18]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[17]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[17]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[16]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[16]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[15]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[15]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[14]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[14]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[13]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[13]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[12]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[12]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[11]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[11]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[10]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[10]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[9]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[9]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[8]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[8]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[7]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[7]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[6]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[6]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[5]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[5]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[4]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[4]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[3]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[3]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[2]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[2]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[1]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[1]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg26_reg[0]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg26_reg[0]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:322]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[31]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[31]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[30]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[30]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[29]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[29]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[28]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[28]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[27]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[27]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[26]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[26]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[25]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[25]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[24]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[24]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[23]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[23]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[22]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[22]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[21]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[21]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[20]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[20]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[19]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[19]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[18]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[18]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[17]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[17]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[16]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[16]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[15]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[15]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[14]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pl_pwm_v1_0_S00_AXI_inst/slv_reg27_reg[14]/Q' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+INFO: [Common 17-14] Message 'Synth 8-3352' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[13]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[12]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[11]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[10]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[9]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[8]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[7]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[6]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[5]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[4]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[3]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[2]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[1]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (slv_reg27_reg[0]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0/hdl/pl_pwm_v1_0_S00_AXI.vhd:323]
+WARNING: [Synth 8-3332] Sequential element (aw_en_reg) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (axi_bresp_reg[1]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (axi_rresp_reg[1]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (axi_awaddr_reg[1]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (axi_awaddr_reg[0]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (axi_araddr_reg[1]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (axi_araddr_reg[0]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[31]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[30]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[29]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[28]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[27]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[26]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[25]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[24]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[23]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[22]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[21]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[20]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[19]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[18]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[17]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[16]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[15]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[14]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[13]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[12]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[11]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[10]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[9]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[8]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[7]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[6]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[5]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[4]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+WARNING: [Synth 8-3332] Sequential element (slv_reg23_reg[3]) is unused and will be removed from module pl_pwm_v1_0_S00_AXI.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |pwm_channel   |         2|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+-------------------+------+
+|      |Cell               |Count |
++------+-------------------+------+
+|1     |pwm_channel_bbox   |     1|
+|2     |pwm_channel_bbox_0 |     1|
+|3     |BUFG               |     2|
+|4     |LUT1               |     1|
+|5     |LUT2               |     2|
+|6     |LUT3               |     4|
+|7     |LUT4               |    33|
+|8     |LUT5               |    32|
+|9     |LUT6               |   698|
+|10    |MUXF7              |   192|
+|11    |FDRE               |  1743|
+|12    |FDSE               |    13|
+|13    |LD                 |    32|
+|14    |IBUF               |    55|
+|15    |OBUF               |    43|
+|16    |OBUFT              |     6|
++------+-------------------+------+
+
+Report Instance Areas: 
++------+---------------------------+--------------------+------+
+|      |Instance                   |Module              |Cells |
++------+---------------------------+--------------------+------+
+|1     |top                        |                    |  2922|
+|2     |  pl_pwm_v1_0_S00_AXI_inst |pl_pwm_v1_0_S00_AXI |  2816|
+|3     |    pwm_controller_inst    |pwm_controller      |    67|
++------+---------------------------+--------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 699.309 ; gain = 465.711
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 192 critical warnings and 129 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:29 . Memory (MB): peak = 699.309 ; gain = 148.168
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 699.309 ; gain = 465.711
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 87 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'pl_pwm_v1_0' is not ideal for floorplanning, since the cellview 'pl_pwm_v1_0_S00_AXI' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 32 instances were transformed.
+  LD => LDCE: 32 instances
+
+70 Infos, 214 Warnings, 164 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 699.309 ; gain = 473.648
+INFO: [Common 17-1381] The checkpoint 'D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.runs/synth_1/pl_pwm_v1_0.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.070 . Memory (MB): peak = 699.309 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 20 15:02:43 2017...

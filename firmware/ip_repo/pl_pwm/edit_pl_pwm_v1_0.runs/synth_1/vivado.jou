@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Sep 20 15:01:57 2017
+# Process ID: 10588
+# Current directory: D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.runs/synth_1
+# Command line: vivado.exe -log pl_pwm_v1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pl_pwm_v1_0.tcl
+# Log file: D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.runs/synth_1/pl_pwm_v1_0.vds
+# Journal file: D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/edit_pl_pwm_v1_0.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source pl_pwm_v1_0.tcl -notrace

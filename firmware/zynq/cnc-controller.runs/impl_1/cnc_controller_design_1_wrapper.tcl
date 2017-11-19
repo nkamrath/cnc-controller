@@ -53,11 +53,8 @@ set rc [catch {
   set_property webtalk.parent_dir D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.cache/wt [current_project]
   set_property parent.project_path D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.xpr [current_project]
   set_property ip_repo_paths {
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_pwm_v2/pl_pwm_2.0
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_pwm_2.0
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/test11_1.0
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/ip_repo/pl_pwm/pl_pwm_1.0
+  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_interrupt_manager_1.0
+  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_gpio_1.0
 } [current_project]
   set_property ip_cache_permissions disable [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]

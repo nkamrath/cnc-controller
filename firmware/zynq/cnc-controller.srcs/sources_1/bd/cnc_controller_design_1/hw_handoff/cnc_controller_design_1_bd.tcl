@@ -158,9 +158,19 @@ proc create_root_design { parentCell } {
 
   # Create ports
   set PWM_OUT [ create_bd_port -dir O -from 7 -to 0 -type data PWM_OUT ]
+  set pl_gpio [ create_bd_port -dir IO -from 7 -to 0 -type data pl_gpio ]
 
   # Create instance: axi_interconnect_0, and set properties
   set axi_interconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_0 ]
+  set_property -dict [ list \
+CONFIG.NUM_MI {4} \
+ ] $axi_interconnect_0
+
+  # Create instance: pl_gpio_0, and set properties
+  set pl_gpio_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:pl_gpio:1.0 pl_gpio_0 ]
+
+  # Create instance: pl_interrupt_manager_0, and set properties
+  set pl_interrupt_manager_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:pl_interrupt_manager:1.0 pl_interrupt_manager_0 ]
 
   # Create instance: pl_pwm_0, and set properties
   set pl_pwm_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:pl_pwm:1.0 pl_pwm_0 ]
@@ -495,20 +505,34 @@ CONFIG.PCW_USE_FABRIC_INTERRUPT {1} \
   # Create instance: rst_ps7_0_100M, and set properties
   set rst_ps7_0_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_100M ]
 
+  # Create instance: xlconcat_0, and set properties
+  set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
+  set_property -dict [ list \
+CONFIG.NUM_PORTS {32} \
+ ] $xlconcat_0
+
   # Create interface connections
   connect_bd_intf_net -intf_net axi_interconnect_0_M00_AXI [get_bd_intf_pins axi_interconnect_0/M00_AXI] [get_bd_intf_pins pl_pwm_0/S00_AXI]
+  connect_bd_intf_net -intf_net axi_interconnect_0_M01_AXI [get_bd_intf_pins axi_interconnect_0/M01_AXI] [get_bd_intf_pins pl_gpio_0/pl_gpio]
+  connect_bd_intf_net -intf_net axi_interconnect_0_M02_AXI [get_bd_intf_pins axi_interconnect_0/M02_AXI] [get_bd_intf_pins pl_interrupt_manager_0/pl_interrupt_manager]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins processing_system7_0/M_AXI_GP0]
 
   # Create port connections
-  connect_bd_net -net Net [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pl_pwm_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
+  connect_bd_net -net Net [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pl_gpio_0/pl_gpio_aclk] [get_bd_pins pl_interrupt_manager_0/pl_interrupt_manager_aclk] [get_bd_pins pl_pwm_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
+  connect_bd_net -net Net1 [get_bd_ports pl_gpio] [get_bd_pins pl_gpio_0/gpio_pins]
+  connect_bd_net -net pl_gpio_0_interrupt_out [get_bd_pins pl_gpio_0/interrupt_out] [get_bd_pins xlconcat_0/In0]
+  connect_bd_net -net pl_interrupt_manager_0_INTERRUPT_OUT [get_bd_pins pl_interrupt_manager_0/INTERRUPT_OUT] [get_bd_pins processing_system7_0/IRQ_F2P]
   connect_bd_net -net pl_pwm_0_PWM_OUT [get_bd_ports PWM_OUT] [get_bd_pins pl_pwm_0/PWM_OUT]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_100M/ext_reset_in]
   connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins rst_ps7_0_100M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pl_pwm_0/s00_axi_aresetn] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pl_gpio_0/pl_gpio_aresetn] [get_bd_pins pl_interrupt_manager_0/pl_interrupt_manager_aresetn] [get_bd_pins pl_pwm_0/s00_axi_aresetn] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+  connect_bd_net -net xlconcat_0_dout [get_bd_pins pl_interrupt_manager_0/INTERRUPTS_IN] [get_bd_pins xlconcat_0/dout]
 
   # Create address segments
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pl_gpio_0/pl_gpio/pl_gpio_reg] SEG_pl_gpio_0_pl_gpio_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pl_interrupt_manager_0/pl_interrupt_manager/pl_interrupt_manager_reg] SEG_pl_interrupt_manager_0_pl_interrupt_manager_reg
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pl_pwm_0/S00_AXI/S00_AXI_reg] SEG_pl_pwm_0_S00_AXI_reg
 
 

@@ -6,18 +6,24 @@
 C_SRCS += \
 ../src/drivers/interrupt_controller.c \
 ../src/drivers/pin.c \
+../src/drivers/pl_gpio.c \
+../src/drivers/pl_interrupt_manager.c \
 ../src/drivers/pl_pwm.c \
 ../src/drivers/ttc.c 
 
 OBJS += \
 ./src/drivers/interrupt_controller.o \
 ./src/drivers/pin.o \
+./src/drivers/pl_gpio.o \
+./src/drivers/pl_interrupt_manager.o \
 ./src/drivers/pl_pwm.o \
 ./src/drivers/ttc.o 
 
 C_DEPS += \
 ./src/drivers/interrupt_controller.d \
 ./src/drivers/pin.d \
+./src/drivers/pl_gpio.d \
+./src/drivers/pl_interrupt_manager.d \
 ./src/drivers/pl_pwm.d \
 ./src/drivers/ttc.d 
 

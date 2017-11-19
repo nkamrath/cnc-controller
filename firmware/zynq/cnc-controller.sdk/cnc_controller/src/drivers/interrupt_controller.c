@@ -18,7 +18,7 @@ void InterruptController_Init(void)
 		XScuGic_CPUReadReg(&InterruptController, XSCUGIC_INT_ACK_OFFSET); //this will clear any pending irqs
 		Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler) XScuGic_InterruptHandler, &InterruptController);
 
-		XScuGic_CPUWriteReg(&InterruptController, XSCUGIC_BIN_PT_OFFSET, 0x03);
+		XScuGic_CPUWriteReg(&InterruptController, XSCUGIC_BIN_PT_OFFSET, 0x03); //magic for setting up the interrupt controller
 		Xil_ExceptionInit();
 
 		//clear all interrupts
