@@ -17,7 +17,16 @@ vlib riviera/fifo_generator_v13_1_4
 vlib riviera/axi_data_fifo_v2_1_12
 vlib riviera/axi_crossbar_v2_1_14
 vlib riviera/xlconcat_v2_1_1
+vlib riviera/lib_pkg_v1_0_2
+vlib riviera/lib_fifo_v1_0_8
+vlib riviera/lib_srl_fifo_v1_0_2
+vlib riviera/axi_datamover_v5_1_15
+vlib riviera/axi_sg_v4_1_6
+vlib riviera/axi_dma_v7_1_14
 vlib riviera/axi_protocol_converter_v2_1_13
+vlib riviera/axi_clock_converter_v2_1_12
+vlib riviera/blk_mem_gen_v8_3_6
+vlib riviera/axi_dwidth_converter_v2_1_13
 
 vmap xil_defaultlib riviera/xil_defaultlib
 vmap xpm riviera/xpm
@@ -35,10 +44,20 @@ vmap fifo_generator_v13_1_4 riviera/fifo_generator_v13_1_4
 vmap axi_data_fifo_v2_1_12 riviera/axi_data_fifo_v2_1_12
 vmap axi_crossbar_v2_1_14 riviera/axi_crossbar_v2_1_14
 vmap xlconcat_v2_1_1 riviera/xlconcat_v2_1_1
+vmap lib_pkg_v1_0_2 riviera/lib_pkg_v1_0_2
+vmap lib_fifo_v1_0_8 riviera/lib_fifo_v1_0_8
+vmap lib_srl_fifo_v1_0_2 riviera/lib_srl_fifo_v1_0_2
+vmap axi_datamover_v5_1_15 riviera/axi_datamover_v5_1_15
+vmap axi_sg_v4_1_6 riviera/axi_sg_v4_1_6
+vmap axi_dma_v7_1_14 riviera/axi_dma_v7_1_14
 vmap axi_protocol_converter_v2_1_13 riviera/axi_protocol_converter_v2_1_13
+vmap axi_clock_converter_v2_1_12 riviera/axi_clock_converter_v2_1_12
+vmap blk_mem_gen_v8_3_6 riviera/blk_mem_gen_v8_3_6
+vmap axi_dwidth_converter_v2_1_13 riviera/axi_dwidth_converter_v2_1_13
 
 vlog -work xil_defaultlib  -sv2k12 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
 "D:/Vivado/2017.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"D:/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -93 \
 "D:/Vivado/2017.2/data/ip/xpm/xpm_VCOMP.vhd" \
@@ -63,9 +82,6 @@ vlog -work axi_vip_v1_0_1  -sv2k12 "+incdir+../../../../cnc-controller.srcs/sour
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
 "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_processing_system7_0_0/sim/cnc_controller_design_1_processing_system7_0_0.v" \
-
-vcom -work xil_defaultlib -93 \
-"../../../bd/cnc_controller_design_1/hdl/cnc_controller_design_1.vhd" \
 
 vcom -work lib_cdc_v1_0_2 -93 \
 "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd" \
@@ -120,10 +136,61 @@ vlog -work xlconcat_v2_1_1  -v2k5 "+incdir+../../../../cnc-controller.srcs/sourc
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
 "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_xlconcat_0_0/sim/cnc_controller_design_1_xlconcat_0_0.v" \
 
+vcom -work lib_pkg_v1_0_2 -93 \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/832a/hdl/lib_pkg_v1_0_rfs.vhd" \
+
+vcom -work lib_fifo_v1_0_8 -93 \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/c387/hdl/lib_fifo_v1_0_rfs.vhd" \
+
+vcom -work lib_srl_fifo_v1_0_2 -93 \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd" \
+
+vcom -work axi_datamover_v5_1_15 -93 \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/43a6/hdl/axi_datamover_v5_1_vh_rfs.vhd" \
+
+vcom -work axi_sg_v4_1_6 -93 \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/ddc9/hdl/axi_sg_v4_1_rfs.vhd" \
+
+vcom -work axi_dma_v7_1_14 -93 \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/bb0b/hdl/axi_dma_v7_1_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_axi_dma_0_0/sim/cnc_controller_design_1_axi_dma_0_0.vhd" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
+"../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_xbar_1/sim/cnc_controller_design_1_xbar_1.v" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/cnc_controller_design_1/ipshared/966d/hdl/tmds_encoder.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/966d/hdl/dvid.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/966d/src/fifo.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/966d/hdl/modn.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/966d/hdl/vga_sync.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/966d/hdl/vga.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/966d/hdl/hdmi_interface.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/966d/hdl/hdmi_interface_v1_0.vhd" \
+"../../../bd/cnc_controller_design_1/ipshared/966d/hdl/hdmi_interface_v1_0_hdmi_interface.vhd" \
+"../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_hdmi_interface_0_0/sim/cnc_controller_design_1_hdmi_interface_0_0.vhd" \
+"../../../bd/cnc_controller_design_1/hdl/cnc_controller_design_1.vhd" \
+
 vlog -work axi_protocol_converter_v2_1_13  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
 "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/f0ae/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
+"../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_pc_1/sim/cnc_controller_design_1_auto_pc_1.v" \
+
+vlog -work axi_clock_converter_v2_1_12  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/80fd/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+
+vlog -work blk_mem_gen_v8_3_6  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/4158/simulation/blk_mem_gen_v8_3.v" \
+
+vlog -work axi_dwidth_converter_v2_1_13  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
+"../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/3bde/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/7e3a/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/2ad9/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/39ca/hdl/verilog" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6eb1/hdl" "+incdir+../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/1d61/hdl" \
+"../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_us_1/sim/cnc_controller_design_1_auto_us_1.v" \
+"../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_us_0/sim/cnc_controller_design_1_auto_us_0.v" \
 "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_pc_0/sim/cnc_controller_design_1_auto_pc_0.v" \
 
 vlog -work xil_defaultlib \

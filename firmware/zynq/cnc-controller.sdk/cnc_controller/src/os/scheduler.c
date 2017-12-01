@@ -63,7 +63,7 @@ void _update_next_task(void)
 	_next_task = next_task;
 
 	int64_t time_diff = 10000; //0xffffffff;
-	if(_next_task != NULL)
+	if(_next_task)
 	{
 		if(_next_task->start_time_us < current_time)
 		{
@@ -73,25 +73,25 @@ void _update_next_task(void)
 		{
 			time_diff = _next_task->start_time_us - current_time;
 		}
-	}
 
-	_next_task_us = 0;
-	Timer_Stop(_next_task_timer);
-	if(time_diff <= 1)
-	{
-		if(_next_task->state != TASK_STATE__RUNNING && (_active_tasks[_next_task->priority] == NULL || _active_tasks[_next_task->priority]->state != TASK_STATE__RUNNING))
+		_next_task_us = 0;
+		Timer_Stop(_next_task_timer);
+		if(time_diff <= 1)
 		{
-			_active_tasks[_next_task->priority] = _next_task;
-			InterruptController_ClearInterrupt(_next_task->priority);
-			InterruptController_TriggerSoftwareInterrupt(_next_task->priority, 1);
-			_next_task->state = TASK_STATE__RUNNING;
-			_next_task = NULL;
-			//Timer_SetCompareValue(_next_task_timer, 375);
-			//Timer_Reset(_next_task_timer);
-			//Timer_Start(_next_task_timer);
+			if(_next_task->state != TASK_STATE__RUNNING && (_active_tasks[_next_task->priority] == NULL || _active_tasks[_next_task->priority]->state != TASK_STATE__RUNNING))
+			{
+				_active_tasks[_next_task->priority] = _next_task;
+				//InterruptController_ClearInterrupt(_next_task->priority);
+				InterruptController_TriggerSoftwareInterrupt(_next_task->priority, 1);
+				//_next_task->state = TASK_STATE__RUNNING;
+				//_next_task = NULL;
+				Timer_SetCompareValue(_next_task_timer, 100);
+				Timer_Reset(_next_task_timer);
+				Timer_Start(_next_task_timer);
+			}
 		}
 	}
-	else if(time_diff <= Timer_GetTicksPerInterval(_running_timer))
+	if(time_diff > 1 && time_diff <= Timer_GetTicksPerInterval(_running_timer))
 	{
 		Timer_SetCompareValue(_next_task_timer, (uint16_t)((time_diff - _schedule_time_model)));
 		Timer_Reset(_next_task_timer);

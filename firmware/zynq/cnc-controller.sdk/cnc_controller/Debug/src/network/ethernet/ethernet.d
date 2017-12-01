@@ -31,9 +31,7 @@ src/network/ethernet/ethernet.o src/network/ethernet/ethernet.o: \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xscugic_hw.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_exception.h \
- D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/os/scheduler.h \
- ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/dhcp.h \
- ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/udp.h
+ D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/os/scheduler.h
 
 ../src/network/ethernet/ethernet.h:
 
@@ -100,7 +98,3 @@ D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-contro
 ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_exception.h:
 
 D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/os/scheduler.h:
-
-../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/dhcp.h:
-
-../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/udp.h:

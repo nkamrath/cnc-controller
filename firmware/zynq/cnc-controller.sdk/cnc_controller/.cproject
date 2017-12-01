@@ -18,8 +18,23 @@
 					<folderInfo id="xilinx.gnu.armv7.exe.debug.865357750." name="/" resourcePath="">
 						<toolChain id="xilinx.gnu.armv7.exe.debug.toolchain.1055821218" name="Xilinx ARM v7 GNU Toolchain" superClass="xilinx.gnu.armv7.exe.debug.toolchain">
 							<targetPlatform binaryParser="com.xilinx.sdk.managedbuilder.XELF.arm.a53.x32" id="xilinx.armv7.target.gnu.base.debug.1484690264" isAbstract="false" name="Debug Platform" superClass="xilinx.armv7.target.gnu.base.debug"/>
-							<builder buildPath="${workspace_loc:/cnc_controller}/Debug" enableAutoBuild="true" id="xilinx.gnu.armv7.toolchain.builder.debug.1568069281" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="GNU make" superClass="xilinx.gnu.armv7.toolchain.builder.debug"/>
+							<builder buildPath="${workspace_loc:/cnc_controller}/Debug" enableAutoBuild="true" id="xilinx.gnu.armv7.toolchain.builder.debug.1568069281" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="GNU make" superClass="xilinx.gnu.armv7.toolchain.builder.debug">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
+								</outputEntries>
+							</builder>
 							<tool id="xilinx.gnu.armv7.c.toolchain.assembler.debug.1973093784" name="ARM v7 gcc assembler" superClass="xilinx.gnu.armv7.c.toolchain.assembler.debug">
+								<option id="xilinx.gnu.both.asm.option.include.paths.1637979150" name="Include Paths (-I)" superClass="xilinx.gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="../cnc_controller/cnc_controller/src"/>
+									<listOptionValue builtIn="false" value="D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.sdk/cnc_controller_bsp/ps7_cortexa9_0/include"/>
+									<listOptionValue builtIn="false" value="../cnc_controller/cnc_controller_design_1_wrapper_hw_platform_1"/>
+									<listOptionValue builtIn="false" value="D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.sdk/test1_bsp/ps7_cortexa9_0/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/cnc_controller/cnc_controller/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/cnc_controller/cnc_controller_design_1_wrapper_hw_platform_1}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/cnc_controller/cnc_controller_bsp/ps7_cortexa9_0/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/cnc_controller/cnc_controller_bsp/ps7_cortexa9_0/libsrc/emacps_v3_4/src}&quot;"/>
+								</option>
 								<inputType id="xilinx.gnu.assembler.input.1409992573" superClass="xilinx.gnu.assembler.input"/>
 							</tool>
 							<tool id="xilinx.gnu.armv7.c.toolchain.compiler.debug.1303369434" name="ARM v7 gcc compiler" superClass="xilinx.gnu.armv7.c.toolchain.compiler.debug">
@@ -30,8 +45,10 @@
 								</option>
 								<option id="xilinx.gnu.compiler.inferred.swplatform.flags.605777141" name="Software Platform Inferred Flags" superClass="xilinx.gnu.compiler.inferred.swplatform.flags" value=" " valueType="string"/>
 								<option id="xilinx.gnu.compiler.misc.other.1129900378" name="Other flags" superClass="xilinx.gnu.compiler.misc.other" value="-c -fmessage-length=0 -MT&quot;$@&quot; -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard" valueType="string"/>
-								<option id="xilinx.gnu.compiler.dircategory.includes.1547922968" superClass="xilinx.gnu.compiler.dircategory.includes" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+								<option id="xilinx.gnu.compiler.dircategory.includes.1547922968" name="Include Paths" superClass="xilinx.gnu.compiler.dircategory.includes" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/cnc_controller/src}&quot;"/>
+									<listOptionValue builtIn="false" value="../../cnc_controller_bsp/ps7_cortexa9_0/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/cnc_controller_design_1_wrapper_hw_platform_1}&quot;"/>
 								</option>
 								<inputType id="xilinx.gnu.armv7.c.compiler.input.795782602" name="C source files" superClass="xilinx.gnu.armv7.c.compiler.input"/>
 							</tool>
@@ -54,6 +71,10 @@
 								</option>
 								<option id="xilinx.gnu.c.linker.option.lscript.1755709901" name="Linker Script" superClass="xilinx.gnu.c.linker.option.lscript" value="../src/lscript.ld" valueType="string"/>
 								<option id="xilinx.gnu.c.link.option.ldflags.1534015896" name="Linker Flags" superClass="xilinx.gnu.c.link.option.ldflags" value=" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec" valueType="string"/>
+								<option id="xilinx.gnu.c.link.option.paths.1838637813" name="Library search path (-L)" superClass="xilinx.gnu.c.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="../../cnc_controller_bsp/ps7_cortexa9_0/lib"/>
+								</option>
+								<option id="xilinx.gnu.c.link.option.libs.1333653214" name="Libraries (-l)" superClass="xilinx.gnu.c.link.option.libs" valueType="libs"/>
 								<inputType id="xilinx.gnu.linker.input.1553102036" superClass="xilinx.gnu.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -73,6 +94,9 @@
 							<tool id="xilinx.gnu.armv7.size.debug.732856295" name="ARM v7 Print Size" superClass="xilinx.gnu.armv7.size.debug"/>
 						</toolChain>
 					</folderInfo>
+					<sourceEntries>
+						<entry excluding="libsrc|cnc_controller_design_1_wrapper_hw_platform_1" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>

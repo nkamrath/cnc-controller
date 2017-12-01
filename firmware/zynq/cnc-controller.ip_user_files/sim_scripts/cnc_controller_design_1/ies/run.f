@@ -1,5 +1,6 @@
 -makelib ies/xil_defaultlib -sv \
   "D:/Vivado/2017.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+  "D:/Vivado/2017.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 -endlib
 -makelib ies/xpm \
   "D:/Vivado/2017.2/data/ip/xpm/xpm_VCOMP.vhd" \
@@ -24,9 +25,6 @@
 -endlib
 -makelib ies/xil_defaultlib \
   "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_processing_system7_0_0/sim/cnc_controller_design_1_processing_system7_0_0.v" \
--endlib
--makelib ies/xil_defaultlib \
-  "../../../bd/cnc_controller_design_1/hdl/cnc_controller_design_1.vhd" \
 -endlib
 -makelib ies/lib_cdc_v1_0_2 \
   "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd" \
@@ -81,10 +79,61 @@
 -makelib ies/xil_defaultlib \
   "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_xlconcat_0_0/sim/cnc_controller_design_1_xlconcat_0_0.v" \
 -endlib
+-makelib ies/lib_pkg_v1_0_2 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/832a/hdl/lib_pkg_v1_0_rfs.vhd" \
+-endlib
+-makelib ies/lib_fifo_v1_0_8 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/c387/hdl/lib_fifo_v1_0_rfs.vhd" \
+-endlib
+-makelib ies/lib_srl_fifo_v1_0_2 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd" \
+-endlib
+-makelib ies/axi_datamover_v5_1_15 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/43a6/hdl/axi_datamover_v5_1_vh_rfs.vhd" \
+-endlib
+-makelib ies/axi_sg_v4_1_6 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/ddc9/hdl/axi_sg_v4_1_rfs.vhd" \
+-endlib
+-makelib ies/axi_dma_v7_1_14 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/bb0b/hdl/axi_dma_v7_1_vh_rfs.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_axi_dma_0_0/sim/cnc_controller_design_1_axi_dma_0_0.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_xbar_1/sim/cnc_controller_design_1_xbar_1.v" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/hdl/tmds_encoder.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/hdl/dvid.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/src/fifo.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/hdl/modn.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/hdl/vga_sync.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/hdl/vga.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/hdl/hdmi_interface.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/hdl/hdmi_interface_v1_0.vhd" \
+  "../../../bd/cnc_controller_design_1/ipshared/966d/hdl/hdmi_interface_v1_0_hdmi_interface.vhd" \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_hdmi_interface_0_0/sim/cnc_controller_design_1_hdmi_interface_0_0.vhd" \
+  "../../../bd/cnc_controller_design_1/hdl/cnc_controller_design_1.vhd" \
+-endlib
 -makelib ies/axi_protocol_converter_v2_1_13 \
   "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/f0ae/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 -endlib
 -makelib ies/xil_defaultlib \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_pc_1/sim/cnc_controller_design_1_auto_pc_1.v" \
+-endlib
+-makelib ies/axi_clock_converter_v2_1_12 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/80fd/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib ies/blk_mem_gen_v8_3_6 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/4158/simulation/blk_mem_gen_v8_3.v" \
+-endlib
+-makelib ies/axi_dwidth_converter_v2_1_13 \
+  "../../../../cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/ipshared/3bde/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_us_1/sim/cnc_controller_design_1_auto_us_1.v" \
+  "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_us_0/sim/cnc_controller_design_1_auto_us_0.v" \
   "../../../bd/cnc_controller_design_1/ip/cnc_controller_design_1_auto_pc_0/sim/cnc_controller_design_1_auto_pc_0.v" \
 -endlib
 -makelib ies/xil_defaultlib \

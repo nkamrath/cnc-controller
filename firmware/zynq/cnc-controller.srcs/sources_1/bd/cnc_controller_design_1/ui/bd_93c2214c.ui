@@ -1,38 +1,69 @@
 {
    guistr: "# # String gsaved with Nlview 6.6.8  2016-12-21 bk=1.3817 VDI=40 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 1:160 -defaultsOSRD -bot
+preplace port DDR -pg 1 -lvl 1:130 -defaultsOSRD -bot
+preplace port hdmi_out_en -pg 1 -y -40 -defaultsOSRD
+preplace port CLK_100 -pg 1 -y -70 -defaultsOSRD -right
+preplace port hdmi_tx_rsda -pg 1 -y 0 -defaultsOSRD
+preplace port hdmi_tx_clk_n -pg 1 -y 60 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -lvl 1:180 -defaultsOSRD -bot
-preplace portBus PWM_OUT -pg 1 -y 310 -defaultsOSRD
-preplace portBus pl_gpio -pg 1 -y 430 -defaultsOSRD
-preplace inst pl_pwm_0 -pg 1 -lvl 3 -y 310 -defaultsOSRD
-preplace inst pl_gpio_0 -pg 1 -lvl 3 -y 440 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 2 -y 950 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 2 -y 430 -defaultsOSRD
-preplace inst pl_interrupt_manager_0 -pg 1 -lvl 3 -y 960 -defaultsOSRD
-preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -y 90 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 320 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 1 480
-preplace netloc pl_interrupt_manager_0_INTERRUPT_OUT 1 0 4 40 180 NJ 180 NJ 180 1220
-preplace netloc pl_gpio_0_interrupt_out 1 1 3 520 210 NJ 210 1210
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 N
-preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 500 230 840
-preplace netloc axi_interconnect_0_M02_AXI 1 2 1 820
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 460 460
-preplace netloc pl_pwm_0_PWM_OUT 1 3 1 NJ
-preplace netloc xlconcat_0_dout 1 2 1 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 1 1 470
-preplace netloc axi_interconnect_0_M00_AXI 1 2 1 850
-preplace netloc axi_interconnect_0_M01_AXI 1 2 1 N
-preplace netloc Net1 1 3 1 NJ
-preplace netloc Net 1 0 3 20 470 490 250 830
-preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 1 1 510
-levelinfo -pg 1 0 250 670 1030 1240 -top 0 -bot 1480
+preplace port hdmi_tx_clk_p -pg 1 -y 40 -defaultsOSRD
+preplace port hdmi_tx_hpd -pg 1 -y 120 -defaultsOSRD -right
+preplace port hdmi_tx_cec -pg 1 -y 20 -defaultsOSRD
+preplace port hdmi_tx_rscl -pg 1 -y -20 -defaultsOSRD
+preplace portBus PWM_OUT -pg 1 -y 410 -defaultsOSRD
+preplace portBus pl_gpio -pg 1 -y 530 -defaultsOSRD
+preplace portBus hdmi_tx_n -pg 1 -y 100 -defaultsOSRD
+preplace portBus hdmi_tx_p -pg 1 -y 80 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 3 -y -280 -defaultsOSRD
+preplace inst hdmi_interface_0 -pg 1 -lvl 3 -y 120 -defaultsOSRD
+preplace inst pl_pwm_0 -pg 1 -lvl 3 -y 610 -defaultsOSRD
+preplace inst pl_gpio_0 -pg 1 -lvl 3 -y 740 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 2 -y 990 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 2 -y 410 -defaultsOSRD
+preplace inst axi_interconnect_1 -pg 1 -lvl 1 -y -540 -defaultsOSRD
+preplace inst pl_interrupt_manager_0 -pg 1 -lvl 3 -y 1260 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -y 20 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y 270 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 1 1 720
+preplace netloc CLK_100_1 1 2 2 1220 -70 NJ
+preplace netloc hdmi_interface_0_hdmi_tx_clk_p 1 3 1 1680
+preplace netloc axi_dma_0_m_axis_mm2s_tkeep 1 2 2 1210 -100 1650
+preplace netloc pl_interrupt_manager_0_INTERRUPT_OUT 1 0 4 -50J -90 NJ -90 NJ -90 1650
+preplace netloc pl_gpio_0_interrupt_out 1 1 3 800 610 1130J 540 1610
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 750
+preplace netloc hdmi_interface_0_hdmi_tx_n 1 3 1 1710
+preplace netloc axi_dma_0_m_axis_mm2s_tdata 1 2 2 1230 -60 1670
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 3 -50 -740 740 -220 1150
+preplace netloc axi_interconnect_0_M02_AXI 1 2 1 1120
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 -30 110 730
+preplace netloc axi_dma_0_M_AXI_SG 1 0 4 -40 -730 NJ -730 NJ -730 1620
+preplace netloc hdmi_interface_0_hdmi_tx_p 1 3 1 1700
+preplace netloc hdmi_interface_0_DMA_TREADY 1 3 1 1660
+preplace netloc axi_dma_0_m_axis_mm2s_tvalid 1 2 2 1200 -80 1610
+preplace netloc axi_dma_0_s2mm_introut 1 1 3 790 210 1200J 260 1630
+preplace netloc pl_pwm_0_PWM_OUT 1 3 1 1680J
+preplace netloc axi_interconnect_0_M04_AXI 1 2 1 1160
+preplace netloc axi_dma_0_M_AXI_MM2S 1 0 4 -30 -710 NJ -710 NJ -710 1610
+preplace netloc xlconcat_0_dout 1 2 1 1110J
+preplace netloc processing_system7_0_FIXED_IO 1 1 1 710
+preplace netloc axi_dma_0_mm2s_introut 1 1 3 780 190 1220J 250 1640
+preplace netloc axi_interconnect_0_M00_AXI 1 2 1 1170
+preplace netloc axi_dma_0_m_axis_mm2s_tlast 1 2 2 1190 -110 1620
+preplace netloc axi_interconnect_0_M01_AXI 1 2 1 1140
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 -60 120 770 120 1180J
+preplace netloc hdmi_interface_0_hdmi_out_en 1 3 1 1670
+preplace netloc Net1 1 3 1 1700J
+preplace netloc axi_interconnect_1_M00_AXI 1 0 2 -40 -370 710
+preplace netloc hdmi_interface_0_hdmi_tx_clk_n 1 3 1 1690
+preplace netloc axi_interconnect_0_M03_AXI 1 2 1 1130
+preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 0 2 -30 -360 760
+levelinfo -pg 1 -80 480 960 1430 1740 -top -1070 -bot 1900
 ",
 }
 {
-   da_axi4_cnt: "1",
+   da_axi4_cnt: "5",
    da_board_cnt: "1",
-   da_clkrst_cnt: "3",
+   da_clkrst_cnt: "12",
    da_ps7_cnt: "1",
 }

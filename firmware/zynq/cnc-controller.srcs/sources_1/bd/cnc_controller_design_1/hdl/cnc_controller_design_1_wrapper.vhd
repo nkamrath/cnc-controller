@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
---Date        : Sat Nov  4 09:09:41 2017
+--Date        : Thu Nov 30 20:57:47 2017
 --Host        : Nate-PC running 64-bit Service Pack 1  (build 7601)
 --Command     : generate_target cnc_controller_design_1_wrapper.bd
 --Design      : cnc_controller_design_1_wrapper
@@ -13,6 +13,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity cnc_controller_design_1_wrapper is
   port (
+    CLK_100 : in STD_LOGIC;
     DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
     DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
@@ -35,6 +36,15 @@ entity cnc_controller_design_1_wrapper is
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     PWM_OUT : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    hdmi_out_en : out STD_LOGIC;
+    hdmi_tx_cec : inout STD_LOGIC;
+    hdmi_tx_clk_n : out STD_LOGIC;
+    hdmi_tx_clk_p : out STD_LOGIC;
+    hdmi_tx_hpd : in STD_LOGIC;
+    hdmi_tx_n : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    hdmi_tx_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    hdmi_tx_rscl : out STD_LOGIC;
+    hdmi_tx_rsda : inout STD_LOGIC;
     pl_gpio : inout STD_LOGIC_VECTOR ( 7 downto 0 )
   );
 end cnc_controller_design_1_wrapper;
@@ -63,13 +73,24 @@ architecture STRUCTURE of cnc_controller_design_1_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
+    hdmi_tx_hpd : in STD_LOGIC;
+    hdmi_tx_rscl : out STD_LOGIC;
+    hdmi_tx_rsda : inout STD_LOGIC;
+    hdmi_tx_cec : inout STD_LOGIC;
     pl_gpio : inout STD_LOGIC_VECTOR ( 7 downto 0 );
-    PWM_OUT : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    PWM_OUT : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    CLK_100 : in STD_LOGIC;
+    hdmi_out_en : out STD_LOGIC;
+    hdmi_tx_clk_p : out STD_LOGIC;
+    hdmi_tx_clk_n : out STD_LOGIC;
+    hdmi_tx_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    hdmi_tx_n : out STD_LOGIC_VECTOR ( 2 downto 0 )
   );
   end component cnc_controller_design_1;
 begin
 cnc_controller_design_1_i: component cnc_controller_design_1
      port map (
+      CLK_100 => CLK_100,
       DDR_addr(14 downto 0) => DDR_addr(14 downto 0),
       DDR_ba(2 downto 0) => DDR_ba(2 downto 0),
       DDR_cas_n => DDR_cas_n,
@@ -92,6 +113,15 @@ cnc_controller_design_1_i: component cnc_controller_design_1
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
       PWM_OUT(7 downto 0) => PWM_OUT(7 downto 0),
+      hdmi_out_en => hdmi_out_en,
+      hdmi_tx_cec => hdmi_tx_cec,
+      hdmi_tx_clk_n => hdmi_tx_clk_n,
+      hdmi_tx_clk_p => hdmi_tx_clk_p,
+      hdmi_tx_hpd => hdmi_tx_hpd,
+      hdmi_tx_n(2 downto 0) => hdmi_tx_n(2 downto 0),
+      hdmi_tx_p(2 downto 0) => hdmi_tx_p(2 downto 0),
+      hdmi_tx_rscl => hdmi_tx_rscl,
+      hdmi_tx_rsda => hdmi_tx_rsda,
       pl_gpio(7 downto 0) => pl_gpio(7 downto 0)
     );
 end STRUCTURE;

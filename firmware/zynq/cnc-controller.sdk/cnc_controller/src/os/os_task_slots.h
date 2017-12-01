@@ -29,8 +29,8 @@ if(task)												\
 	{														\
 		Scheduler_Remove(task);								\
 	}														\
-	InterruptController_ClearInterrupt(x);					\
 	InterruptController_DisableNestedInterrupts();			\
+	InterruptController_ClearInterrupt(x);					\
 }
 
 void OsTaskSlot0(void* arg)
@@ -80,7 +80,6 @@ void OsTaskSlot3(void* arg)
 //	CriticalSection_Exit();
 //	if(task)
 //	{
-//		InterruptController_ClearSoftwareInterrupt(3);
 //		InterruptController_EnableNestedInterrupts();
 //		CriticalSection_Enter();
 //		task->state = TASK_STATE__RUNNING;
@@ -92,12 +91,14 @@ void OsTaskSlot3(void* arg)
 //		if(task->period_us)
 //		{
 //			task->start_time_us += task->period_us;
+//			_update_next_task();
 //		}
 //		else
 //		{
 //			Scheduler_Remove(task);
 //		}
 //		InterruptController_DisableNestedInterrupts();
+//		InterruptController_ClearInterrupt(3);
 //	}
 }
 

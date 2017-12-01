@@ -157,14 +157,46 @@ proc create_root_design { parentCell } {
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
   # Create ports
+  set CLK_100 [ create_bd_port -dir I -type clk CLK_100 ]
+  set_property -dict [ list \
+CONFIG.FREQ_HZ {100000000} \
+ ] $CLK_100
   set PWM_OUT [ create_bd_port -dir O -from 7 -to 0 -type data PWM_OUT ]
+  set hdmi_out_en [ create_bd_port -dir O -type data hdmi_out_en ]
+  set hdmi_tx_cec [ create_bd_port -dir IO -type data hdmi_tx_cec ]
+  set hdmi_tx_clk_n [ create_bd_port -dir O -type clk hdmi_tx_clk_n ]
+  set hdmi_tx_clk_p [ create_bd_port -dir O -type clk hdmi_tx_clk_p ]
+  set hdmi_tx_hpd [ create_bd_port -dir I -type data hdmi_tx_hpd ]
+  set hdmi_tx_n [ create_bd_port -dir O -from 2 -to 0 -type data hdmi_tx_n ]
+  set hdmi_tx_p [ create_bd_port -dir O -from 2 -to 0 -type data hdmi_tx_p ]
+  set hdmi_tx_rscl [ create_bd_port -dir O -type data hdmi_tx_rscl ]
+  set hdmi_tx_rsda [ create_bd_port -dir IO -type data hdmi_tx_rsda ]
   set pl_gpio [ create_bd_port -dir IO -from 7 -to 0 -type data pl_gpio ]
+
+  # Create instance: axi_dma_0, and set properties
+  set axi_dma_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_0 ]
+  set_property -dict [ list \
+CONFIG.c_include_sg {1} \
+CONFIG.c_mm2s_burst_size {64} \
+CONFIG.c_sg_include_stscntrl_strm {0} \
+CONFIG.c_sg_length_width {20} \
+ ] $axi_dma_0
 
   # Create instance: axi_interconnect_0, and set properties
   set axi_interconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_0 ]
   set_property -dict [ list \
-CONFIG.NUM_MI {4} \
+CONFIG.NUM_MI {5} \
  ] $axi_interconnect_0
+
+  # Create instance: axi_interconnect_1, and set properties
+  set axi_interconnect_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_1 ]
+  set_property -dict [ list \
+CONFIG.NUM_MI {2} \
+CONFIG.NUM_SI {2} \
+ ] $axi_interconnect_1
+
+  # Create instance: hdmi_interface_0, and set properties
+  set hdmi_interface_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:hdmi_interface:1.0 hdmi_interface_0 ]
 
   # Create instance: pl_gpio_0, and set properties
   set pl_gpio_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:pl_gpio:1.0 pl_gpio_0 ]
@@ -181,7 +213,7 @@ CONFIG.NUM_MI {4} \
 CONFIG.PCW_ACT_APU_PERIPHERAL_FREQMHZ {650.000000} \
 CONFIG.PCW_ACT_DCI_PERIPHERAL_FREQMHZ {10.096154} \
 CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {125.000000} \
-CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
+CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {125.000000} \
 CONFIG.PCW_ACT_QSPI_PERIPHERAL_FREQMHZ {200.000000} \
 CONFIG.PCW_ACT_SDIO_PERIPHERAL_FREQMHZ {50.000000} \
 CONFIG.PCW_ACT_TTC0_CLK0_PERIPHERAL_FREQMHZ {108.333336} \
@@ -194,7 +226,7 @@ CONFIG.PCW_ACT_UART_PERIPHERAL_FREQMHZ {100.000000} \
 CONFIG.PCW_ACT_WDT_PERIPHERAL_FREQMHZ {108.333336} \
 CONFIG.PCW_APU_PERIPHERAL_FREQMHZ {650} \
 CONFIG.PCW_ARMPLL_CTRL_FBDIV {26} \
-CONFIG.PCW_CLK0_FREQ {100000000} \
+CONFIG.PCW_CLK0_FREQ {125000000} \
 CONFIG.PCW_CPU_CPU_PLL_FREQMHZ {1300.000} \
 CONFIG.PCW_CRYSTAL_PERIPHERAL_FREQMHZ {50.000000} \
 CONFIG.PCW_DCI_PERIPHERAL_DIVISOR0 {52} \
@@ -209,6 +241,8 @@ CONFIG.PCW_ENET0_PERIPHERAL_ENABLE {1} \
 CONFIG.PCW_ENET0_RESET_ENABLE {0} \
 CONFIG.PCW_ENET_RESET_ENABLE {1} \
 CONFIG.PCW_ENET_RESET_SELECT {Share reset pin} \
+CONFIG.PCW_EN_CLK0_PORT {1} \
+CONFIG.PCW_EN_CLK1_PORT {1} \
 CONFIG.PCW_EN_EMIO_TTC0 {1} \
 CONFIG.PCW_EN_EMIO_WP_SDIO0 {1} \
 CONFIG.PCW_EN_ENET0 {1} \
@@ -218,13 +252,14 @@ CONFIG.PCW_EN_SDIO0 {1} \
 CONFIG.PCW_EN_TTC0 {1} \
 CONFIG.PCW_EN_UART1 {1} \
 CONFIG.PCW_EN_USB0 {1} \
-CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {5} \
+CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {4} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {2} \
 CONFIG.PCW_FCLK_CLK0_BUF {TRUE} \
-CONFIG.PCW_FCLK_CLK1_BUF {FALSE} \
+CONFIG.PCW_FCLK_CLK1_BUF {TRUE} \
 CONFIG.PCW_FCLK_CLK2_BUF {FALSE} \
 CONFIG.PCW_FCLK_CLK3_BUF {FALSE} \
-CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} \
+CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {125} \
+CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {100} \
 CONFIG.PCW_GP0_EN_MODIFIABLE_TXN {0} \
 CONFIG.PCW_GP1_EN_MODIFIABLE_TXN {0} \
 CONFIG.PCW_GPIO_MIO_GPIO_ENABLE {1} \
@@ -499,7 +534,9 @@ CONFIG.PCW_USB0_RESET_IO {MIO 46} \
 CONFIG.PCW_USB0_USB0_IO {MIO 28 .. 39} \
 CONFIG.PCW_USB_RESET_ENABLE {1} \
 CONFIG.PCW_USB_RESET_SELECT {Share reset pin} \
+CONFIG.PCW_USE_DMA0 {0} \
 CONFIG.PCW_USE_FABRIC_INTERRUPT {1} \
+CONFIG.PCW_USE_S_AXI_HP0 {1} \
  ] $processing_system7_0
 
   # Create instance: rst_ps7_0_100M, and set properties
@@ -512,28 +549,58 @@ CONFIG.NUM_PORTS {32} \
  ] $xlconcat_0
 
   # Create interface connections
+  connect_bd_intf_net -intf_net axi_dma_0_M_AXI_MM2S [get_bd_intf_pins axi_dma_0/M_AXI_MM2S] [get_bd_intf_pins axi_interconnect_1/S00_AXI]
+  connect_bd_intf_net -intf_net axi_dma_0_M_AXI_SG [get_bd_intf_pins axi_dma_0/M_AXI_SG] [get_bd_intf_pins axi_interconnect_1/S01_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M00_AXI [get_bd_intf_pins axi_interconnect_0/M00_AXI] [get_bd_intf_pins pl_pwm_0/S00_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M01_AXI [get_bd_intf_pins axi_interconnect_0/M01_AXI] [get_bd_intf_pins pl_gpio_0/pl_gpio]
   connect_bd_intf_net -intf_net axi_interconnect_0_M02_AXI [get_bd_intf_pins axi_interconnect_0/M02_AXI] [get_bd_intf_pins pl_interrupt_manager_0/pl_interrupt_manager]
+  connect_bd_intf_net -intf_net axi_interconnect_0_M03_AXI [get_bd_intf_pins axi_dma_0/S_AXI_LITE] [get_bd_intf_pins axi_interconnect_0/M03_AXI]
+  connect_bd_intf_net -intf_net axi_interconnect_0_M04_AXI [get_bd_intf_pins axi_interconnect_0/M04_AXI] [get_bd_intf_pins hdmi_interface_0/hdmi_interface]
+  connect_bd_intf_net -intf_net axi_interconnect_1_M00_AXI [get_bd_intf_pins axi_interconnect_1/M00_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins processing_system7_0/M_AXI_GP0]
 
   # Create port connections
-  connect_bd_net -net Net [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins pl_gpio_0/pl_gpio_aclk] [get_bd_pins pl_interrupt_manager_0/pl_interrupt_manager_aclk] [get_bd_pins pl_pwm_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
+  connect_bd_net -net CLK_100_1 [get_bd_ports CLK_100] [get_bd_pins hdmi_interface_0/CLK_100]
   connect_bd_net -net Net1 [get_bd_ports pl_gpio] [get_bd_pins pl_gpio_0/gpio_pins]
+  connect_bd_net -net axi_dma_0_m_axis_mm2s_tdata [get_bd_pins axi_dma_0/m_axis_mm2s_tdata] [get_bd_pins hdmi_interface_0/DMA_TDATA]
+  connect_bd_net -net axi_dma_0_m_axis_mm2s_tkeep [get_bd_pins axi_dma_0/m_axis_mm2s_tkeep] [get_bd_pins hdmi_interface_0/DMA_TKEEP]
+  connect_bd_net -net axi_dma_0_m_axis_mm2s_tlast [get_bd_pins axi_dma_0/m_axis_mm2s_tlast] [get_bd_pins hdmi_interface_0/DMA_TLAST]
+  connect_bd_net -net axi_dma_0_m_axis_mm2s_tvalid [get_bd_pins axi_dma_0/m_axis_mm2s_tvalid] [get_bd_pins hdmi_interface_0/DMA_TVALID]
+  connect_bd_net -net axi_dma_0_mm2s_introut [get_bd_pins axi_dma_0/mm2s_introut] [get_bd_pins xlconcat_0/In30]
+  connect_bd_net -net axi_dma_0_s2mm_introut [get_bd_pins axi_dma_0/s2mm_introut] [get_bd_pins xlconcat_0/In31]
+  connect_bd_net -net hdmi_interface_0_DMA_TREADY [get_bd_pins axi_dma_0/m_axis_mm2s_tready] [get_bd_pins hdmi_interface_0/DMA_TREADY]
+  connect_bd_net -net hdmi_interface_0_hdmi_out_en [get_bd_ports hdmi_out_en] [get_bd_pins hdmi_interface_0/hdmi_out_en]
+  connect_bd_net -net hdmi_interface_0_hdmi_tx_clk_n [get_bd_ports hdmi_tx_clk_n] [get_bd_pins hdmi_interface_0/hdmi_tx_clk_n]
+  connect_bd_net -net hdmi_interface_0_hdmi_tx_clk_p [get_bd_ports hdmi_tx_clk_p] [get_bd_pins hdmi_interface_0/hdmi_tx_clk_p]
+  connect_bd_net -net hdmi_interface_0_hdmi_tx_n [get_bd_ports hdmi_tx_n] [get_bd_pins hdmi_interface_0/hdmi_tx_n]
+  connect_bd_net -net hdmi_interface_0_hdmi_tx_p [get_bd_ports hdmi_tx_p] [get_bd_pins hdmi_interface_0/hdmi_tx_p]
   connect_bd_net -net pl_gpio_0_interrupt_out [get_bd_pins pl_gpio_0/interrupt_out] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net pl_interrupt_manager_0_INTERRUPT_OUT [get_bd_pins pl_interrupt_manager_0/INTERRUPT_OUT] [get_bd_pins processing_system7_0/IRQ_F2P]
   connect_bd_net -net pl_pwm_0_PWM_OUT [get_bd_ports PWM_OUT] [get_bd_pins pl_pwm_0/PWM_OUT]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_dma_0/m_axi_mm2s_aclk] [get_bd_pins axi_dma_0/m_axi_s2mm_aclk] [get_bd_pins axi_dma_0/m_axi_sg_aclk] [get_bd_pins axi_dma_0/s_axi_lite_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_1/ACLK] [get_bd_pins axi_interconnect_1/M00_ACLK] [get_bd_pins axi_interconnect_1/M01_ACLK] [get_bd_pins axi_interconnect_1/S00_ACLK] [get_bd_pins axi_interconnect_1/S01_ACLK] [get_bd_pins hdmi_interface_0/hdmi_interface_aclk] [get_bd_pins pl_gpio_0/pl_gpio_aclk] [get_bd_pins pl_interrupt_manager_0/pl_interrupt_manager_aclk] [get_bd_pins pl_pwm_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_100M/ext_reset_in]
-  connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins rst_ps7_0_100M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins pl_gpio_0/pl_gpio_aresetn] [get_bd_pins pl_interrupt_manager_0/pl_interrupt_manager_aresetn] [get_bd_pins pl_pwm_0/s00_axi_aresetn] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_1/ARESETN] [get_bd_pins rst_ps7_0_100M/interconnect_aresetn]
+  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins axi_dma_0/axi_resetn] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_interconnect_1/M00_ARESETN] [get_bd_pins axi_interconnect_1/M01_ARESETN] [get_bd_pins axi_interconnect_1/S00_ARESETN] [get_bd_pins axi_interconnect_1/S01_ARESETN] [get_bd_pins hdmi_interface_0/hdmi_interface_aresetn] [get_bd_pins pl_gpio_0/pl_gpio_aresetn] [get_bd_pins pl_interrupt_manager_0/pl_interrupt_manager_aresetn] [get_bd_pins pl_pwm_0/s00_axi_aresetn] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins pl_interrupt_manager_0/INTERRUPTS_IN] [get_bd_pins xlconcat_0/dout]
 
   # Create address segments
+  create_bd_addr_seg -range 0x20000000 -offset 0x00000000 [get_bd_addr_spaces axi_dma_0/Data_SG] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] SEG_processing_system7_0_HP0_DDR_LOWOCM
+  create_bd_addr_seg -range 0x20000000 -offset 0x00000000 [get_bd_addr_spaces axi_dma_0/Data_MM2S] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] SEG_processing_system7_0_HP0_DDR_LOWOCM
+  create_bd_addr_seg -range 0x00010000 -offset 0x40400000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_dma_0/S_AXI_LITE/Reg] SEG_axi_dma_0_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C30000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs hdmi_interface_0/hdmi_interface/hdmi_interface_reg] SEG_hdmi_interface_0_hdmi_interface_reg
   create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pl_gpio_0/pl_gpio/pl_gpio_reg] SEG_pl_gpio_0_pl_gpio_reg
   create_bd_addr_seg -range 0x00010000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pl_interrupt_manager_0/pl_interrupt_manager/pl_interrupt_manager_reg] SEG_pl_interrupt_manager_0_pl_interrupt_manager_reg
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pl_pwm_0/S00_AXI/S00_AXI_reg] SEG_pl_pwm_0_S00_AXI_reg
+
+  # Exclude Address Segments
+  create_bd_addr_seg -range 0x00010000 -offset 0x41E00000 [get_bd_addr_spaces axi_dma_0/Data_MM2S] [get_bd_addr_segs axi_dma_0/S_AXI_LITE/Reg] SEG_axi_dma_0_Reg
+  exclude_bd_addr_seg [get_bd_addr_segs axi_dma_0/Data_MM2S/SEG_axi_dma_0_Reg]
+
+  create_bd_addr_seg -range 0x00010000 -offset 0x41E00000 [get_bd_addr_spaces axi_dma_0/Data_SG] [get_bd_addr_segs axi_dma_0/S_AXI_LITE/Reg] SEG_axi_dma_0_Reg
+  exclude_bd_addr_seg [get_bd_addr_segs axi_dma_0/Data_SG/SEG_axi_dma_0_Reg]
+
 
 
   # Restore current instance

@@ -17,7 +17,6 @@ void _HandleConnectCommand(uint8_t* data, uint16_t length)
 		cdp_connect_command_t* command = (cdp_connect_command_t*)data;
 		_tx_address.addr = command->ip_address;
 		_tx_port = command->port;
-		print("set new tx address and port");
 	}
 
 }

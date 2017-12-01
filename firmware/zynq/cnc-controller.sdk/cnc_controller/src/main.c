@@ -50,6 +50,7 @@ Board:
 - set boot mode jumper to "SD", power on
  */
 
+#include "ps7_init.h"
 #include "applications/stage_manager.h"
 #include "network/ethernet/cdp_socket.h"
 #include "stage/stage.h"
@@ -72,8 +73,16 @@ Board:
 #include "drivers/pl_gpio.h"
 #include "drivers/pl_interrupt_manager.h"
 
+#include "drivers/axi_dma.h"
+#include "drivers/hdmi_interface.h"
+
 uint8_t pin_number = 13;
 uint8_t pin_state = 0;
+
+//uint32_t pixels[640];
+uint32_t bytes_per_line = 640*4;
+
+#define BYTES_PER_FRAME (640*480*4)//(640*480*4)
 
 void pin_task(void* arg)
 {
@@ -118,17 +127,72 @@ void pin_read_task(void* arg)
 	}
 }
 
+
+volatile int byte_counter = 0;
+bool temp_state = false;
+
+uint32_t* pixels = NULL;
+
+void dma_task(void* arg)
+{
+	volatile int get_last_dma = HdmiInterface_GetLastDma();
+
+	//*((uint32_t*)(test_address)) = temp_pixel_val;
+	//temp_pixel_val++;
+
+	PlGpio_Write(PL_GPIO0, 0, temp_state);
+	temp_state = !temp_state;
+	Dma_TransferBlocks(AXI_DMA0, pixels, BYTES_PER_FRAME, true);
+}
+
 int main()
 {
-
+	ps7_init();
 	InterruptController_Init();
 	InterruptController_EnableInterrupts();
 	PlInterruptManager_Create();
 	PlGpio_Create();
+	HdmiInterface_Create();
+	Dma_Create(AXI_DMA0, ENABLE_SCATTER_GATHER);
+
+	pixels = malloc(BYTES_PER_FRAME);
+
+	//init pixels
+	for(uint32_t i = 0; i < BYTES_PER_FRAME/4; i++)
+	{
+//		if((i % 842) < 421)
+//		{
+//			pixels[i] = 0x00ff0000;
+//		}
+//		else//((i % 1920) < 1280)
+//		{
+//			pixels[i] = 0x0000ff00;
+//		}
+		//else
+		//{
+		//	pixels[i] = 0x000000ff;
+		//}
+		if(i < BYTES_PER_FRAME/8)
+		{
+			pixels[i] = 0x00ff0000;
+		}
+		else
+		{
+			pixels[i] = 0x000000ff;
+		}
+//		if(i % 480 < 240)
+//		{
+//			pixels[i] = 0x00ff0000;
+//		}
+//		else
+//		{
+//			pixels[i] = 0x000000ff;
+//		}
+	}
 
 	Scheduler_Create();
 
-//	PlGpio_EnablePin(PL_GPIO0, 0);
+	PlGpio_EnablePin(PL_GPIO0, 0);
 //	PlGpio_EnablePin(PL_GPIO0, 1);
 //	PlGpio_EnablePin(PL_GPIO0, 2);
 //	PlGpio_EnablePin(PL_GPIO0, 3);
@@ -136,7 +200,7 @@ int main()
 //	PlGpio_EnablePin(PL_GPIO0, 5);
 //	PlGpio_EnablePin(PL_GPIO0, 6);
 //	PlGpio_EnablePin(PL_GPIO0, 7);
-//	PlGpio_ConfigureOutput(PL_GPIO0, 0);
+    PlGpio_ConfigureOutput(PL_GPIO0, 0);
 //	PlGpio_ConfigureOutput(PL_GPIO0, 1);
 //	PlGpio_ConfigureOutput(PL_GPIO0, 2);
 //	PlGpio_ConfigureOutput(PL_GPIO0, 3);
@@ -144,11 +208,15 @@ int main()
 //	PlGpio_ConfigureOutput(PL_GPIO0, 5);
 //	PlGpio_ConfigureOutput(PL_GPIO0, 6);
 //	PlGpio_ConfigureOutput(PL_GPIO0, 7);
-//	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(1000000), 3, pin_task, NULL);
+	//Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(1000), 3, pin_task, NULL);
 
 	//setup an interrupt on plgpio
 	//PlGpio_EnableInterrupt(PL_GPIO0, 1, PL_GPIO_LEVEL_CHANGE);
 	//Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(1000000), 3, pin_read_task, NULL);
+
+	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(1000000), 0, 3, dma_task, NULL);
+
+	while(1);
 
 	Ethernet_Create();
 

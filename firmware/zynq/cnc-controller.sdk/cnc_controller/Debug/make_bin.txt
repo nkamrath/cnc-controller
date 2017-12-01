@@ -1,0 +1,1 @@
+arm-none-eabi-objcopy -O binary cnc_controller.elf cnc_controller.bin
