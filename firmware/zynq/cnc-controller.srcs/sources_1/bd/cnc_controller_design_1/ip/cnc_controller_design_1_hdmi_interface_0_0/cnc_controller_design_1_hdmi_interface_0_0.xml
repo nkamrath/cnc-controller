@@ -199,7 +199,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_INTERFACE.FREQ_HZ">125000000</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_INTERFACE.FREQ_HZ">100000000</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -397,7 +397,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_INTERFACE.CLK_DOMAIN">cnc_controller_design_1_processing_system7_0_0_FCLK_CLK0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_INTERFACE.CLK_DOMAIN">cnc_controller_design_1_CLK_100</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -557,7 +557,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_INTERFACE_ACLK.FREQ_HZ">125000000</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_INTERFACE_ACLK.FREQ_HZ">100000000</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -575,7 +575,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_INTERFACE_ACLK.CLK_DOMAIN">cnc_controller_design_1_processing_system7_0_0_FCLK_CLK0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_INTERFACE_ACLK.CLK_DOMAIN">cnc_controller_design_1_CLK_100</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -764,11 +764,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 01 04:57:48 UTC 2017</spirit:value>
+            <spirit:value>Tue Dec 05 03:12:53 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:2ace9e90</spirit:value>
+            <spirit:value>7:5a02b173</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -783,11 +783,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 01 04:57:48 UTC 2017</spirit:value>
+            <spirit:value>Tue Dec 05 03:12:53 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:2ace9e90</spirit:value>
+            <spirit:value>7:5a02b173</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -802,11 +802,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 01 04:57:48 UTC 2017</spirit:value>
+            <spirit:value>Tue Dec 05 03:12:53 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:67f7b4ad</spirit:value>
+            <spirit:value>7:59ced915</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -821,11 +821,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 01 04:57:48 UTC 2017</spirit:value>
+            <spirit:value>Tue Dec 05 03:12:53 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:67f7b4ad</spirit:value>
+            <spirit:value>7:59ced915</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1036,6 +1036,19 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>frame_sync</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -1387,39 +1400,35 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlsynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/tmds_encoder.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/tmds_encoder.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/dvid.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/dvid.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/src/fifo.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/src/fifo.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/modn.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/vga_sync.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/vga_sync.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/vga.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/vga.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/hdmi_interface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/hdmi_interface.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/hdmi_interface_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/hdmi_interface_v1_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/hdmi_interface_v1_0_hdmi_interface.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/hdmi_interface_v1_0_hdmi_interface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1434,39 +1443,35 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/tmds_encoder.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/tmds_encoder.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/dvid.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/dvid.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/src/fifo.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/src/fifo.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/modn.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/vga_sync.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/vga_sync.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/vga.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/vga.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/hdmi_interface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/hdmi_interface.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/hdmi_interface_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/hdmi_interface_v1_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/966d/hdl/hdmi_interface_v1_0_hdmi_interface.vhd</spirit:name>
+        <spirit:name>../../ipshared/ef15/hdl/hdmi_interface_v1_0_hdmi_interface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1539,9 +1544,9 @@
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
       <xilinx:displayName>hdmi_interface_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>32</xilinx:coreRevision>
+      <xilinx:coreRevision>36</xilinx:coreRevision>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="xilinx.com:user:hdmi_interface:1.0_ARCHIVE_LOCATION">d:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/hdmi_interface_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="xilinx.com:user:hdmi_interface:1.0_ARCHIVE_LOCATION">d:/Nate/code/zynq/cnc-controller/firmware/ip_repo/hdmi_interface_1.0</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.HDMI_INTERFACE.ADDR_WIDTH" xilinx:valueSource="user"/>
@@ -1576,8 +1581,8 @@
       <xilinx:xilinxVersion>2017.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="f6d7c402"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="51cc717e"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4147b664"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="bd3066bf"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6e469239"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="0a55804d"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="3c7ca4a8"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="10a6c9cc"/>
     </xilinx:packagingInfo>

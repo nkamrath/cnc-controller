@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:hdmi_interface:1.0
--- IP Revision: 32
+-- IP Revision: 36
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -70,6 +70,7 @@ ENTITY cnc_controller_design_1_hdmi_interface_0_0 IS
     hdmi_tx_clk_n : OUT STD_LOGIC;
     hdmi_tx_p : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
     hdmi_tx_n : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    frame_sync : OUT STD_LOGIC;
     hdmi_interface_awaddr : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
     hdmi_interface_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     hdmi_interface_awvalid : IN STD_LOGIC;
@@ -118,6 +119,7 @@ ARCHITECTURE cnc_controller_design_1_hdmi_interface_0_0_arch OF cnc_controller_d
       hdmi_tx_clk_n : OUT STD_LOGIC;
       hdmi_tx_p : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
       hdmi_tx_n : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      frame_sync : OUT STD_LOGIC;
       hdmi_interface_awaddr : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
       hdmi_interface_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       hdmi_interface_awvalid : IN STD_LOGIC;
@@ -146,7 +148,7 @@ ARCHITECTURE cnc_controller_design_1_hdmi_interface_0_0_arch OF cnc_controller_d
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF cnc_controller_design_1_hdmi_interface_0_0_arch : ARCHITECTURE IS "cnc_controller_design_1_hdmi_interface_0_0,hdmi_interface_v1_0,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF cnc_controller_design_1_hdmi_interface_0_0_arch: ARCHITECTURE IS "cnc_controller_design_1_hdmi_interface_0_0,hdmi_interface_v1_0,{x_ipProduct=Vivado 2017.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=hdmi_interface,x_ipVersion=1.0,x_ipCoreRevision=32,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_hdmi_interface_DATA_WIDTH=32,C_hdmi_interface_ADDR_WIDTH=7}";
+  ATTRIBUTE CORE_GENERATION_INFO OF cnc_controller_design_1_hdmi_interface_0_0_arch: ARCHITECTURE IS "cnc_controller_design_1_hdmi_interface_0_0,hdmi_interface_v1_0,{x_ipProduct=Vivado 2017.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=hdmi_interface,x_ipVersion=1.0,x_ipCoreRevision=36,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_hdmi_interface_DATA_WIDTH=32,C_hdmi_interface_ADDR_WIDTH=7}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF hdmi_tx_clk_p: SIGNAL IS "xilinx.com:signal:clock:1.0 hdmi_tx_clk_p CLK";
   ATTRIBUTE X_INTERFACE_INFO OF hdmi_tx_clk_n: SIGNAL IS "xilinx.com:signal:clock:1.0 hdmi_tx_clk_n CLK";
@@ -193,6 +195,7 @@ BEGIN
       hdmi_tx_clk_n => hdmi_tx_clk_n,
       hdmi_tx_p => hdmi_tx_p,
       hdmi_tx_n => hdmi_tx_n,
+      frame_sync => frame_sync,
       hdmi_interface_awaddr => hdmi_interface_awaddr,
       hdmi_interface_awprot => hdmi_interface_awprot,
       hdmi_interface_awvalid => hdmi_interface_awvalid,

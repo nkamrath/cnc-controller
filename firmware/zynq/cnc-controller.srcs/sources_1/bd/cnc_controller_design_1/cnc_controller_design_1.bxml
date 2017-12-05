@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="cnc_controller_design_1" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1512104269"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1512104269"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1512104269"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1512443574"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1512443574"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1512443574"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\cnc_controller_design_1_processing_system7_0_0\cnc_controller_design_1_processing_system7_0_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -106,6 +106,14 @@
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\cnc_controller_design_1_m00_data_fifo_0\cnc_controller_design_1_m00_data_fifo_0.xci" Type="IP">
+        <Instance HierarchyPath="axi_interconnect_1/m00_couplers/m00_data_fifo"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip\cnc_controller_design_1_auto_pc_1\cnc_controller_design_1_auto_pc_1.xci" Type="IP">

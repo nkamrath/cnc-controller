@@ -2,3 +2,5 @@
 firmware/zynq/cnc-controller.sdk/.metadata/*
 *.d
 *.o
+*.tmp
+firmware/zynq/cnc-controller.runs/*
