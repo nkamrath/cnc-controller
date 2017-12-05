@@ -4,4 +4,3 @@ firmware/zynq/cnc-controller.sdk/.metadata/*
 *.o
 *.tmp
 firmware/zynq/cnc-controller.runs/*
-firmware/zynq/cnc-controller.runs
