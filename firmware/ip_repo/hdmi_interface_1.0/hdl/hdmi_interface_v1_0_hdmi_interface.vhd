@@ -32,6 +32,7 @@ entity hdmi_interface_v1_0_hdmi_interface is
         hdmi_tx_clk_n : out std_logic;
         hdmi_tx_p     : out std_logic_vector(2 downto 0);
         hdmi_tx_n     : out std_logic_vector(2 downto 0);
+        frame_sync     : out  std_logic;
         
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -677,7 +678,7 @@ begin
 	    loc_addr := axi_araddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB);
 	    case loc_addr is
 	      when b"00000" =>
-	        reg_data_out <= last_dma_data;
+	        reg_data_out <= slv_reg0;
 	      when b"00001" =>
 	        reg_data_out <= slv_reg1;
 	      when b"00010" =>
@@ -769,6 +770,7 @@ begin
         CLK => S_AXI_ACLK,
         CLK_100 => CLK_100, 
         RESET => S_AXI_ARESETN,
+        CONTROL => slv_reg0,
         DMA_TDATA => DMA_TDATA,
         DMA_TKEEP => DMA_TKEEP,
         DMA_TLAST => DMA_TLAST,
@@ -783,7 +785,8 @@ begin
         hdmi_tx_clk_p => hdmi_tx_clk_p,
         hdmi_tx_clk_n => hdmi_tx_clk_n,
         hdmi_tx_p     => hdmi_tx_p,
-        hdmi_tx_n     => hdmi_tx_n
+        hdmi_tx_n     => hdmi_tx_n,
+        frame_sync     => frame_sync
     );
 
 	-- User logic ends

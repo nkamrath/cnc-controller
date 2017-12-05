@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="bytes_per_line" key="selection"/>
+		<item value="vaddq_u32" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="vaddq_u32"/>
+			<item value="vld2q_u32"/>
+			<item value="__simd128_uint32_t"/>
+			<item value="uint32x4_t"/>
+			<item value="vld1q_u32"/>
+			<item value="vld1q_s32"/>
 			<item value="bytes_per_line"/>
 			<item value="ps7_clock_init_data_1_0"/>
-			<item value="init"/>
-			<item value="XPAR_XAXIDMA_NUM_INSTANCES"/>
-			<item value="TX_INTR_ID"/>
-			<item value="SetupIntrSystem"/>
-			<item value="Xil_undefined"/>
-			<item value="dma"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -90,26 +90,25 @@ void _update_next_task(void)
 				Timer_Start(_next_task_timer);
 			}
 		}
-	}
-	if(time_diff > 1 && time_diff <= Timer_GetTicksPerInterval(_running_timer))
-	{
-		Timer_SetCompareValue(_next_task_timer, (uint16_t)((time_diff - _schedule_time_model)));
-		Timer_Reset(_next_task_timer);
-		Timer_Start(_next_task_timer);
-	}
-	else
-	{
-		_next_task = NULL;
-		_next_task_us = time_diff;
-		//Timer_SetCompareValue(_next_task_timer, 46875);
-		//Timer_Start(_next_task_timer);
+		else if(time_diff > 1 && time_diff <= Timer_GetTicksPerInterval(_running_timer))
+		{
+			Timer_SetCompareValue(_next_task_timer, (uint16_t)((time_diff - _schedule_time_model)));
+			Timer_Reset(_next_task_timer);
+			Timer_Start(_next_task_timer);
+		}
+		else
+		{
+			_next_task = NULL;
+			_next_task_us = time_diff;
+			//Timer_SetCompareValue(_next_task_timer, 46875);
+			//Timer_Start(_next_task_timer);
+		}
 	}
 	CriticalSection_Exit();
 }
 
 void _running_timer_irq(void* arg)
 {
-	//pio_set(PIOC, PIO_PC13);
 	Timer_ClearInterrupts(_running_timer);
 	_us_counter += Timer_GetTicksPerInterval(_running_timer);
 	if(_next_task_us > Timer_GetTicksPerInterval(_running_timer))
@@ -120,12 +119,10 @@ void _running_timer_irq(void* arg)
 	{
 		_update_next_task();
 	}
-	//pio_clear(PIOC, PIO_PC13);
 }
 
 void _next_task_timer_irq(void* arg)
 {
-	//pio_set(PIOC, PIO_PC13);
 	Timer_ClearInterrupts(_next_task_timer);
 	Timer_Stop(_next_task_timer);
 	if(_next_task && _next_task->state != TASK_STATE__RUNNING)
@@ -140,7 +137,6 @@ void _next_task_timer_irq(void* arg)
 	}
 	_next_task = NULL;
 	_update_next_task();
-	//pio_clear(PIOC, PIO_PC13);
 }
 
 void _TimeModelTask(void* arg)

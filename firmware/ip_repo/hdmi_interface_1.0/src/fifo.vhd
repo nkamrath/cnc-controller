@@ -53,7 +53,7 @@ architecture rtl of fifo is
   type fifo_t is ARRAY(natural range 0 to (gFIFO_LENGTH - 1)) of std_logic_vector((gFIFO_WIDTH - 1) downto 0);
   
   signal fifo       : fifo_t;
-  signal size_t     : natural range 0 to (gFIFO_LENGTH - 1);
+  signal size_t     : natural range 0 to (gFIFO_LENGTH);
   signal next_out   : natural range 0 to (gFIFO_LENGTH - 1);
   signal next_empty : natural range 0 to (gFIFO_LENGTH - 1);
   

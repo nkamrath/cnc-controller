@@ -37,6 +37,11 @@ Port (
     CLK : in STD_LOGIC;
     CLK_100            : in std_logic;
     RESET : in STD_LOGIC;
+    --control bit 0 is frame take disable.  When 0, frames are taken from fifo, when 1 frames are not taken from fifo
+    --control bit 1 is frame sync irq enable.  When 1, sets frame_end
+    --control bits 16-31 are frame sync advance lines.  Specifies number of lines in advance to the end of frame that frame sync should be signaled
+    --for instance, if frame sync advance lines is set to 10, frame sync will fire 10 lines before the end of frame.  Allows for configurable syncing
+    CONTROL : in STD_LOGIC_VECTOR(31 downto 0);
     DMA_TDATA : in STD_LOGIC_VECTOR(31 downto 0);
     DMA_TKEEP : in STD_LOGIC_VECTOR(3 downto 0);
     DMA_TLAST : in STD_LOGIC;
@@ -54,7 +59,9 @@ Port (
     hdmi_tx_clk_p : out std_logic;
     hdmi_tx_clk_n : out std_logic;
     hdmi_tx_p     : out std_logic_vector(2 downto 0);
-    hdmi_tx_n     : out std_logic_vector(2 downto 0)
+    hdmi_tx_n     : out std_logic_vector(2 downto 0);
+    
+    frame_sync     : out  std_logic
 );
 end hdmi_interface;
 
@@ -93,17 +100,14 @@ architecture Behavioral of hdmi_interface is
     signal dma_tkeep_z : std_logic_vector(3 downto 0);
     signal pixel_x:  std_logic_vector(9 downto 0);
     signal pixel_y:  std_logic_vector(9 downto 0);
+    signal high_water_hit : std_logic;
+    signal high_water_hit_z : std_logic;
 
 begin
 
-local_reset <= not RESET;
+local_reset <= (not RESET);
 
 hdmi_out_en <= '1';
-
--- Generate clk for VGA
---   GEN25MHZ : entity work.modN(x)
---        generic map(N=>5)
---        port map(d=>CLK_100,reset=>'0',q=>clk_25);
 
 update_clk_25: process(CLK_100)
 begin
@@ -121,24 +125,6 @@ begin
         end if;
     end if;
 end process;
-
---  hdmi_output_inst : entity work.hdmi_output
---        port map
---        (
---            CLK => clk_vga,
---            clk_p => clk_dvi,
---            clk_n => clk_dvin,
---            RESET => local_reset,
---            PIXEL => X"ABABABAB",
---            hdmi_tx_rscl => hdmi_tx_rscl,
---            hdmi_tx_rsda  => hdmi_tx_rsda,
---            hdmi_tx_hpd   => hdmi_tx_hpd,
---            hdmi_tx_cec   => hdmi_tx_cec,
---            hdmi_tx_clk_p => hdmi_tx_clk_p,
---            hdmi_tx_clk_n => hdmi_tx_clk_n,
---            hdmi_tx_p     => hdmi_tx_p,
---            hdmi_tx_n     => hdmi_tx_n
---        );
         
 -- DVI-D module                         
             DVID : entity work.dvid(x)
@@ -161,11 +147,11 @@ end process;
                 );
                 
                 
-    frame_fifo : entity work.fifo Generic map(gFIFO_WIDTH=>24, gFIFO_LENGTH=>(640*40))
+    frame_fifo : entity work.fifo Generic map(gFIFO_WIDTH=>24, gFIFO_LENGTH=>(640*6))
     port map(CLK => CLK_100, 
              RESET => local_reset, 
-             DATA_IN => dma_tdata_z, 
-             ADD_DATA => fifo_add,
+             DATA_IN => dma_tdata_z(23 downto 0), --dma_tdata_z, 
+             ADD_DATA => fifo_add, --fifo_add,
              REMOVE_DATA => pixel_taken, 
              DATA_OUT => temp_pixel(23 downto 0),
              HAS_DATA => fifo_valid,
@@ -184,14 +170,27 @@ begin
             fifo_add <= '0';
             dma_tdata_z <= (others => '0');
             dma_tkeep_z <= (others => '0');
+            high_water_hit <= '0';
+            high_water_hit_z <= '0';
         else
-            --if(dma_tvalid_rising = '1' and DMA_TKEEP /= "0000" and fifo_counter < 6400) then
-            if(dma_tvalid_rising = '1' and fifo_counter < 640*40) then
-                fifo_add <= '1';
-                dma_tdata_z <= DMA_TDATA(23 downto 0);
-                dma_tkeep_z <= DMA_TKEEP;
+            high_water_hit_z <= high_water_hit;
+            
+            if(fifo_counter >= (640*5)) then
+                high_water_hit <= '1';
+            elsif(high_water_hit = '1' and fifo_counter < (640 * 3)) then
+                high_water_hit <= '0';
+            end if;
+            
+            if(high_water_hit_z = '0') then
+                if(DMA_TVALID = '1') then -- and fifo_counter < 640*20) then
+                    fifo_add <= '1';
+                    dma_tdata_z <= DMA_TDATA(23 downto 0);
+                    dma_tkeep_z <= DMA_TKEEP;
+                else
+                    dma_tdata_z <= "111111111111111111111111";
+                    fifo_add <= '0';
+                end if;
             else
-                dma_tdata_z <= "111111111111111111111111";
                 fifo_add <= '0';
             end if;
         end if;
@@ -233,7 +232,7 @@ end process;
         port map(
             clk_125         => CLK_100,
             clk_25          => clk_vga,
-            reset           => local_reset,
+            reset           => CONTROL(0),
             hsync           => hsync,
             vsync           => vsync,
             video_off        => video_on, --NATE --edited here possibly need to change video off to invert or something (off => on probably doesn't work)
@@ -250,52 +249,34 @@ end process;
 
 update_pixel_taken: process(CLK_100, clk_25)
 begin
-    if(rising_edge(clk_25)) then
+    if(rising_edge(CLK_100)) then
         if(local_reset = '1') then
             pixel_taken <= '0';
             clk_25_z <= '0';
+            frame_sync <= '0';
         else
+            pixel_taken <= '0';
             clk_25_z <= clk_25;
-            --if(clk_25 = '1' and clk_25_z = '0') then
-                if(unsigned(pixel_x) >= 16 and unsigned(pixel_x) < 656 and unsigned(pixel_y) >= 10 and unsigned(pixel_y) < 490) then
+            if(clk_25 = '1' and clk_25_z = '0') then
+                if(unsigned(pixel_x) < 640 and unsigned(pixel_y) < 480 and fifo_counter > 0 and CONTROL(0) = '0') then
                     pixel_taken <= '1';-- and video_on;
                     pixel_data <= temp_pixel;
---                    if(unsigned(pixel_x) < 320) then
---                        if((unsigned(pixel_y)) < 240) then
---                            pixel_data <= "00000000111111110000000000000000";
---                        elsif((unsigned(pixel_y)) < 480) then
---                            pixel_data <= "00000000000000000000000011111111";
---                        else
---                            pixel_data <= "11111111111111111111111111111111";
---                        end if;
---                    else
---                        pixel_data <= "00000000000000001111111100000000";
---                    end if;
                 else
                     pixel_taken <= '0';
-                    pixel_data <= (others => '0');
+                    pixel_data <= "00000000000000000000000000000000";--(others => '0');
                 end if;
-            --else
-            --    pixel_taken <= '0';
-            --end if;
+                
+                if(CONTROL(1) = '1' and unsigned(pixel_x) = unsigned(CONTROL(31 downto 16)) and unsigned(pixel_y) = 480) then
+                    frame_sync <= '1';
+                else
+                    frame_sync <= '0';
+                end if;
+            else
+                pixel_taken <= '0';
+            end if;
         end if;
     end if;
 end process;
-
---update_fifo_counter: process(CLK_100)
---begin
---    if(rising_edge(CLK_100)) then
---        if(local_reset = '1') then
---            fifo_counter <= 0;
---        else
---            if(pixel_taken = '1' and fifo_add = '0' and fifo_counter > 0) then
---                fifo_counter <= fifo_counter - 1;
---            elsif(pixel_taken = '0' and fifo_add = '1' and fifo_counter < 640) then
---                fifo_counter <= fifo_counter + 1;
---            end if;
---        end if;
---    end if;
---end process;
 
 update_tready: process(CLK_100)
 begin
@@ -303,15 +284,14 @@ begin
         if(local_reset = '1') then
             DMA_TREADY <= '0';
         else
-            if(fifo_counter < 640*20) then
-                DMA_TREADY <= '1';
-            else
-                DMA_TREADY <= '0';
-            end if;
+--            if(fifo_counter < 640*20) then
+--                DMA_TREADY <= '1';
+--            else
+--                DMA_TREADY <= '0';
+--            end if;
+            DMA_TREADY <= not high_water_hit;
         end if;
     end if;
 end process;
-
---DMA_TREADY <= '1';
 
 end Behavioral;

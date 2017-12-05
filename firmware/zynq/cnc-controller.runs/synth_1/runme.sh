@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=D:/SDK/2017.2/bin;D:/Vivado/2017.2/ids_lite/ISE/bin/nt64;D:/Vivado/2017.2/ids_lite/ISE/lib/nt64:D:/Vivado/2017.2/bin
+  PATH=D:/Xilinx/SDK/2017.2/bin;D:/Xilinx/Vivado/2017.2/ids_lite/ISE/bin/nt64;D:/Xilinx/Vivado/2017.2/ids_lite/ISE/lib/nt64:D:/Xilinx/Vivado/2017.2/bin
 else
-  PATH=D:/SDK/2017.2/bin;D:/Vivado/2017.2/ids_lite/ISE/bin/nt64;D:/Vivado/2017.2/ids_lite/ISE/lib/nt64:D:/Vivado/2017.2/bin:$PATH
+  PATH=D:/Xilinx/SDK/2017.2/bin;D:/Xilinx/Vivado/2017.2/ids_lite/ISE/bin/nt64;D:/Xilinx/Vivado/2017.2/ids_lite/ISE/lib/nt64:D:/Xilinx/Vivado/2017.2/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/synth_1'
+HD_PWD='D:/Nate/code/zynq/cnc-controller/firmware/zynq/cnc-controller.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

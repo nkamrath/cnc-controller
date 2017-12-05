@@ -54,8 +54,6 @@ Board:
 #include "applications/stage_manager.h"
 #include "network/ethernet/cdp_socket.h"
 #include "stage/stage.h"
-#include <stdio.h>
-
 #include "xil_printf.h"
 
 #include "drivers/interrupt_controller.h"
@@ -75,6 +73,8 @@ Board:
 
 #include "drivers/axi_dma.h"
 #include "drivers/hdmi_interface.h"
+
+#include "neon/neon.h"
 
 uint8_t pin_number = 13;
 uint8_t pin_state = 0;
@@ -133,61 +133,58 @@ bool temp_state = false;
 
 uint32_t* pixels = NULL;
 
+void _HdmiEnable(void* arg)
+{
+	HdmiInterface_Enable(HDMI0);
+}
+
 void dma_task(void* arg)
 {
-	volatile int get_last_dma = HdmiInterface_GetLastDma();
-
-	//*((uint32_t*)(test_address)) = temp_pixel_val;
-	//temp_pixel_val++;
-
-	PlGpio_Write(PL_GPIO0, 0, temp_state);
-	temp_state = !temp_state;
+	HdmiInterface_Disable(HDMI0);
 	Dma_TransferBlocks(AXI_DMA0, pixels, BYTES_PER_FRAME, true);
+}
+
+int refresh_counter = 0;
+void pixel_task(void* arg)
+{
+	if(refresh_counter == 0)
+	{
+		refresh_counter = 0;
+		PlGpio_Write(PL_GPIO0, 0, true);
+		temp_state = !temp_state;
+
+		Neon_VectorAddScalarU32(pixels, 2, (BYTES_PER_FRAME/4));
+		Xil_DCacheFlushRange((UINTPTR)pixels, BYTES_PER_FRAME);
+
+//		Neon_VectorAddScalarU32(pixels, 2, (640));
+//		Xil_DCacheFlushRange((UINTPTR)pixels, (640*4*4));
+//		Neon_VectorAddScalarU32(&pixels[(640*4*4)], 2, ((BYTES_PER_FRAME/4)-((640*4*4))));
+//		Xil_DCacheFlushRange((UINTPTR)&pixels[(640*4*4)], ((BYTES_PER_FRAME/2)-((640*4*4))));
+
+		PlGpio_Write(PL_GPIO0, 0, false);
+	}
+	else
+	{
+		refresh_counter++;
+	}
 }
 
 int main()
 {
-	ps7_init();
+	//ps7_init();
 	InterruptController_Init();
 	InterruptController_EnableInterrupts();
 	PlInterruptManager_Create();
 	PlGpio_Create();
-	HdmiInterface_Create();
+	HdmiInterface_Create(HDMI0);
 	Dma_Create(AXI_DMA0, ENABLE_SCATTER_GATHER);
 
 	pixels = malloc(BYTES_PER_FRAME);
 
 	//init pixels
-	for(uint32_t i = 0; i < BYTES_PER_FRAME/4; i++)
+	for(uint32_t i = 0; i < ((BYTES_PER_FRAME/4)-1); i++)
 	{
-//		if((i % 842) < 421)
-//		{
-//			pixels[i] = 0x00ff0000;
-//		}
-//		else//((i % 1920) < 1280)
-//		{
-//			pixels[i] = 0x0000ff00;
-//		}
-		//else
-		//{
-		//	pixels[i] = 0x000000ff;
-		//}
-		if(i < BYTES_PER_FRAME/8)
-		{
-			pixels[i] = 0x00ff0000;
-		}
-		else
-		{
-			pixels[i] = 0x000000ff;
-		}
-//		if(i % 480 < 240)
-//		{
-//			pixels[i] = 0x00ff0000;
-//		}
-//		else
-//		{
-//			pixels[i] = 0x000000ff;
-//		}
+		pixels[i] = i;
 	}
 
 	Scheduler_Create();
@@ -214,7 +211,18 @@ int main()
 	//PlGpio_EnableInterrupt(PL_GPIO0, 1, PL_GPIO_LEVEL_CHANGE);
 	//Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(10000), Scheduler_MicrosToTicks(1000000), 3, pin_read_task, NULL);
 
-	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(1000000), 0, 3, dma_task, NULL);
+	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(100000), 0, 3, dma_task, NULL);
+	Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(101000), 0, 3, _HdmiEnable, NULL);
+
+	//non interrupt driven frame refresh
+	//Scheduler_Add(Scheduler_GetTicks() + Scheduler_MicrosToTicks(100500), Scheduler_MicrosToTicks(20000), 3, pixel_task, NULL);
+
+	//setup the advance and enable frame sync irq
+	HdmiInterface_SetFrameSyncAdvance(HDMI0, 0);
+	HdmiInterface_EnableFrameSync(HDMI0);
+
+	//interrupt driven frame refresh
+	PlInterruptManager_SetInterruptHandler(1, pixel_task, NULL);
 
 	while(1);
 

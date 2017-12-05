@@ -116,7 +116,7 @@ void Dma_DisableCyclicBD(axi_dma_t* dma);
 
 int Dma_Transfer(void* data, uint32_t length);
 void Dma_TransferBlock(axi_dma_t* dma, void* data, uint32_t length, bool cyclic);
-void Dma_TransferBlocks(axi_dma_t* dma, void* data, uint32_t length, bool cyclic);
+void Dma_TransferBlocks(axi_dma_t* dma, uint32_t* data, uint32_t length, bool cyclic);
 void Dma_TransferList(axi_dma_list_t* list, bool cyclic);
 bool Dma_IsTxDone(void);
 bool Dma_DescriptorAdd(axi_dma_list_t* list, axi_dma_descriptor_t* descriptor);

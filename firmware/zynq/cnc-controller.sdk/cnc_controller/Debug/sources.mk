@@ -20,6 +20,7 @@ src/applications \
 src/drivers \
 src/hw_al \
 src \
+src/neon \
 src/network/ethernet \
 src/os \
 src/stage \

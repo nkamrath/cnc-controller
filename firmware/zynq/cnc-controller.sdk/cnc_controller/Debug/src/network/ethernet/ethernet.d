@@ -15,10 +15,10 @@ src/network/ethernet/ethernet.o src/network/ethernet/ethernet.o: \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/pbuf.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/lwip/ip.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/netif/xtopology.h \
- D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/platform.h \
- D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/platform_config.h \
- D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/include/task_priorities.h \
- D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/drivers/interrupt_controller.h \
+ D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/platform.h \
+ D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/platform_config.h \
+ D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/include/task_priorities.h \
+ D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/drivers/interrupt_controller.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xscugic.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xstatus.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_types.h \
@@ -31,7 +31,7 @@ src/network/ethernet/ethernet.o src/network/ethernet/ethernet.o: \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xscugic_hw.h \
  ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_exception.h \
- D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/os/scheduler.h
+ D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/os/scheduler.h
 
 ../src/network/ethernet/ethernet.h:
 
@@ -65,13 +65,13 @@ src/network/ethernet/ethernet.o src/network/ethernet/ethernet.o: \
 
 ../../cnc_controller_bsp/ps7_cortexa9_0/include/netif/xtopology.h:
 
-D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/platform.h:
+D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/platform.h:
 
-D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/platform_config.h:
+D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/platform_config.h:
 
-D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/include/task_priorities.h:
+D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/include/task_priorities.h:
 
-D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/drivers/interrupt_controller.h:
+D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/drivers/interrupt_controller.h:
 
 ../../cnc_controller_bsp/ps7_cortexa9_0/include/xscugic.h:
 
@@ -97,4 +97,4 @@ D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-contro
 
 ../../cnc_controller_bsp/ps7_cortexa9_0/include/xil_exception.h:
 
-D:\Nate\dev\FPGA_stuff\fpgaProjects\zybo\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/os/scheduler.h:
+D:\Nate\code\zynq\cnc-controller\firmware\zynq\cnc-controller.sdk\cnc_controller\src/os/scheduler.h:

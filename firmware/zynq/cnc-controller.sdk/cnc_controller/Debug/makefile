@@ -12,6 +12,7 @@ RM := rm -rf
 -include src/stage/subdir.mk
 -include src/os/subdir.mk
 -include src/network/ethernet/subdir.mk
+-include src/neon/subdir.mk
 -include src/hw_al/subdir.mk
 -include src/drivers/subdir.mk
 -include src/applications/subdir.mk

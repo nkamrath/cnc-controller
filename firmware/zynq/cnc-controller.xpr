@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="20" Path="D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.xpr">
+<Project Version="7" Minor="20" Path="D:/Nate/code/zynq/cnc-controller/firmware/zynq/cnc-controller.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="9f0e965301554404ba15401ce6c883a6"/>
@@ -22,6 +22,7 @@
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/pl_interrupt_manager_1.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/pl_gpio_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/hdmi_interface_1.0"/>
     <Option Name="IPCachePermission" Val="disable"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
@@ -37,13 +38,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="58"/>
-    <Option Name="WTModelSimExportSim" Val="58"/>
-    <Option Name="WTQuestaExportSim" Val="58"/>
-    <Option Name="WTIesExportSim" Val="58"/>
-    <Option Name="WTVcsExportSim" Val="58"/>
-    <Option Name="WTRivieraExportSim" Val="58"/>
-    <Option Name="WTActivehdlExportSim" Val="58"/>
+    <Option Name="WTXSimExportSim" Val="59"/>
+    <Option Name="WTModelSimExportSim" Val="59"/>
+    <Option Name="WTQuestaExportSim" Val="59"/>
+    <Option Name="WTIesExportSim" Val="59"/>
+    <Option Name="WTVcsExportSim" Val="59"/>
+    <Option Name="WTRivieraExportSim" Val="59"/>
+    <Option Name="WTActivehdlExportSim" Val="59"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -136,6 +137,69 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/hdl/hdmi_interface.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/hdl/hdmi_interface_v1_0_hdmi_interface.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/hdl/vga.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/hdl/modn.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/hdl/hdmi_interface_v1_0.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/hdl/vga_sync.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/hdl/dvid.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/hdl/tmds_encoder.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/hdmi_interface_1.0/src/fifo.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="cnc_controller_design_1_wrapper"/>
@@ -151,6 +215,7 @@
         </FileInfo>
       </File>
       <Config>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/zybo_constraints.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>

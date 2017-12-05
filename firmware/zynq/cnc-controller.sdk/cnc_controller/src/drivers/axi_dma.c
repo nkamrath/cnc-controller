@@ -215,18 +215,18 @@ void Dma_TransferBlock(axi_dma_t* dma, void* data, uint32_t length, bool cyclic)
 	//Dma_Start(dma);
 }
 
-void Dma_TransferBlocks(axi_dma_t* dma, void* data, uint32_t length, bool cyclic)
+void Dma_TransferBlocks(axi_dma_t* dma, uint32_t* data, uint32_t length, bool cyclic)
 {
 	Dma_Stop(dma);
 	//Dma_Reset(dma);
 
 	//build a descriptor
-	for(int i = 0; i < 48; i++)
+	for(int i = 0; i < 480; i++)
 	{
-		_descriptor_list[i].BUFFER_ADDRESS = ((uint32_t)data) + (i*640*4*10);
-		_descriptor_list[i].CONTROL = (640*4*10);
+		_descriptor_list[i].BUFFER_ADDRESS = &data[(i*640)];
+		_descriptor_list[i].CONTROL = (640*4);
 		_descriptor_list[i].STATUS = 0;
-		if(i == 47)
+		if(i == 479)
 		{
 			_descriptor_list[i].NXTDESC = (uint32_t)&_descriptor_list[0];
 		}

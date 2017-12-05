@@ -31,6 +31,7 @@ entity hdmi_interface_v1_0 is
         hdmi_tx_clk_n : out   std_logic;
         hdmi_tx_p     : out   std_logic_vector(2 downto 0);
         hdmi_tx_n     : out   std_logic_vector(2 downto 0);
+        frame_sync     : out  std_logic;
         
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -85,6 +86,7 @@ architecture arch_imp of hdmi_interface_v1_0 is
         hdmi_tx_clk_n : out   std_logic;
         hdmi_tx_p     : out   std_logic_vector(2 downto 0);
         hdmi_tx_n     : out   std_logic_vector(2 downto 0);
+        frame_sync     : out  std_logic;
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;
 		S_AXI_AWADDR	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
@@ -133,6 +135,7 @@ hdmi_interface_v1_0_hdmi_interface_inst : hdmi_interface_v1_0_hdmi_interface
         hdmi_tx_clk_n => hdmi_tx_clk_n,
         hdmi_tx_p     => hdmi_tx_p,
         hdmi_tx_n     => hdmi_tx_n,
+        frame_sync     => frame_sync,
 		S_AXI_ACLK	=> hdmi_interface_aclk,
 		S_AXI_ARESETN	=> hdmi_interface_aresetn,
 		S_AXI_AWADDR	=> hdmi_interface_awaddr,

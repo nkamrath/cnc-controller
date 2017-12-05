@@ -2,6 +2,10 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="xilinx.gnu.armv7.exe.debug.865357750;xilinx.gnu.armv7.exe.debug.865357750.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\xilinx\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
+<includePath path="d:\xilinx\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include-fixed"/>
+<includePath path="d:\xilinx\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/include"/>
+<includePath path="d:\xilinx\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
 <includePath path="#undef __THUMBEL__" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_FP16_SCALAR_ARITHMETIC" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_FP16_VECTOR_ARITHMETIC" removed="true"/>
@@ -731,6 +735,10 @@
 </instance>
 <instance id="xilinx.gnu.armv7.exe.debug.865357750;xilinx.gnu.armv7.exe.debug.865357750.;xilinx.gnu.armv7.c.toolchain.compiler.debug.1303369434;xilinx.gnu.armv7.c.compiler.input.795782602">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="d:\xilinx\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
+<includePath path="d:\xilinx\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include-fixed"/>
+<includePath path="d:\xilinx\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/include"/>
+<includePath path="d:\xilinx\sdk\2017.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
 <includePath path="#undef __thumb__" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_UNALIGNED" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_QRDMX" removed="true"/>

@@ -50,21 +50,22 @@ set rc [catch {
   create_project -in_memory -part xc7z010clg400-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.cache/wt [current_project]
-  set_property parent.project_path D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.xpr [current_project]
+  set_property webtalk.parent_dir D:/Nate/code/zynq/cnc-controller/firmware/zynq/cnc-controller.cache/wt [current_project]
+  set_property parent.project_path D:/Nate/code/zynq/cnc-controller/firmware/zynq/cnc-controller.xpr [current_project]
   set_property ip_repo_paths {
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_interrupt_manager_1.0
-  D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/ip_repo/pl_gpio_1.0
+  D:/Nate/code/zynq/cnc-controller/firmware/ip_repo/pl_interrupt_manager_1.0
+  D:/Nate/code/zynq/cnc-controller/firmware/ip_repo/pl_gpio_1.0
+  D:/Nate/code/zynq/cnc-controller/firmware/ip_repo/hdmi_interface_1.0
 } [current_project]
   set_property ip_cache_permissions disable [current_project]
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.runs/synth_1/cnc_controller_design_1_wrapper.dcp
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+  add_files -quiet D:/Nate/code/zynq/cnc-controller/firmware/zynq/cnc-controller.runs/synth_1/cnc_controller_design_1_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -suppress
   set_param project.isImplRun true
-  add_files D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd
-  set_property is_locked true [get_files D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd]
+  add_files D:/Nate/code/zynq/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd
+  set_property is_locked true [get_files D:/Nate/code/zynq/cnc-controller/firmware/zynq/cnc-controller.srcs/sources_1/bd/cnc_controller_design_1/cnc_controller_design_1.bd]
   set_param project.isImplRun false
-  read_xdc D:/Nate/dev/FPGA_stuff/fpgaProjects/zybo/cnc-controller/firmware/zynq/cnc-controller.srcs/constrs_1/new/zybo_constraints.xdc
+  read_xdc D:/Nate/code/zynq/cnc-controller/firmware/zynq/cnc-controller.srcs/constrs_1/new/zybo_constraints.xdc
   set_param project.isImplRun true
   link_design -top cnc_controller_design_1_wrapper -part xc7z010clg400-1
   set_param project.isImplRun false
@@ -143,7 +144,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force cnc_controller_design_1_wrapper.mmi }
   write_bitstream -force cnc_controller_design_1_wrapper.bit 
   catch { write_sysdef -hwdef cnc_controller_design_1_wrapper.hwdef -bitfile cnc_controller_design_1_wrapper.bit -meminfo cnc_controller_design_1_wrapper.mmi -file cnc_controller_design_1_wrapper.sysdef }
